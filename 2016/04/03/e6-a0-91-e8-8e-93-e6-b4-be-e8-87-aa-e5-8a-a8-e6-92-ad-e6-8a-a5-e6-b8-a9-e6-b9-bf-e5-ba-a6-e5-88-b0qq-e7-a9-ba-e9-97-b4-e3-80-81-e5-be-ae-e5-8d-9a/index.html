@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>树莓派自动播报温湿度到QQ空间、微博 | Aaron&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="树莓派,QQ,微博">
+    <meta name="description" content="这是个比较无聊的应用。。。灵感来自于一个叫做“古城钟楼”的微博账号，此账号每天都会定点报时，除此之外没有其他任何内容，以此吸引了近50万粉丝！                                                                                              搜狗截图20160403100907              报时">
+<meta name="keywords" content="树莓派,QQ,微博">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派自动播报温湿度到QQ空间、微博">
+<meta property="og:url" content="http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/index.html">
+<meta property="og:site_name" content="Aaron&#39;s Blog">
+<meta property="og:description" content="这是个比较无聊的应用。。。灵感来自于一个叫做“古城钟楼”的微博账号，此账号每天都会定点报时，除此之外没有其他任何内容，以此吸引了近50万粉丝！                                                                                              搜狗截图20160403100907              报时">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/04/搜狗截图20160403100907.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/04/Cache_-647e6a9dd5a8048a..jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403110521.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/04/IMG_20160403_103851-238x300.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/04/20150830002549737.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403111559.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403111943.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403112044.png">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派自动播报温湿度到QQ空间、微博">
+<meta name="twitter:description" content="这是个比较无聊的应用。。。灵感来自于一个叫做“古城钟楼”的微博账号，此账号每天都会定点报时，除此之外没有其他任何内容，以此吸引了近50万粉丝！                                                                                              搜狗截图20160403100907              报时">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2016/04/搜狗截图20160403100907.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Aaron Liu</h5>
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">树莓派自动播报温湿度到QQ空间、微博</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">树莓派自动播报温湿度到QQ空间、微博</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-04-03T03:29:02.000Z" itemprop="datePublished" class="page-time">
+  2016-04-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#硬件相关"><span class="post-toc-number">1.</span> <span class="post-toc-text">硬件相关</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始写代码"><span class="post-toc-number">2.</span> <span class="post-toc-text">开始写代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置定时任务"><span class="post-toc-number">3.</span> <span class="post-toc-text">设置定时任务</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">树莓派自动播报温湿度到QQ空间、微博</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-04-03 11:29:02" datetime="2016-04-03T03:29:02.000Z"  itemprop="datePublished">2016-04-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>这是个比较无聊的应用。。。灵感来自于一个叫做“<a href="http://weibo.com/u/2493180882?topnav=1&amp;wvr=6&amp;topsug=1&amp;is_hot=1" target="_blank" rel="noopener">古城钟楼</a>”的微博账号，此账号每天都会定点报时，除此之外没有其他任何内容，以此吸引了近50万粉丝！</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/04/搜狗截图20160403100907.png" alt="搜狗截图20160403100907" title="">
+                </div>
+                <div class="image-caption">搜狗截图20160403100907</div>
+            </figure>
+<p>报时什么的太无聊了，不如每天定时读取室内温度、湿度并自动发说说、微博播报温度，在成为网红的道路上迈开第一步<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/04/Cache_-647e6a9dd5a8048a..jpg" alt="Cache_-647e6a9dd5a8048a." title="">
+                </div>
+                <div class="image-caption">Cache_-647e6a9dd5a8048a.</div>
+            </figure></p>
+<p>最终实现的效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403110521.png" alt="QQ截图20160403110454](https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403110454.png) ![QQ截图20160403110521" title="">
+                </div>
+                <div class="image-caption">QQ截图20160403110454](https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403110454.png) ![QQ截图20160403110521</div>
+            </figure>
+</blockquote>
+<h2 id="硬件相关"><a href="#硬件相关" class="headerlink" title="硬件相关"></a>硬件相关</h2><p><strong>需要的硬件：</strong></p>
+<p>树莓派，DHT11传感器（DHT22也可以，温度测量范围更大，但要贵一些）</p>
+<p>推荐购买像这样的DHT11模块，电阻什么都弄好了，插上就能用</p>
+<p>&nbsp;</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/04/IMG_20160403_103851-238x300.jpg" alt="IMG_20160403_103851" title="">
+                </div>
+                <div class="image-caption">IMG_20160403_103851</div>
+            </figure>
+<p>DHT11模块有三个引脚：VCC供电，DAT数据，GND接地，参考<a href="https://o2d4gc37w.qnssl.com/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png" target="_blank" rel="noopener">树莓派引脚图</a>，VCC接pin2或pin4，DAT接pin12（GPIO18），GND接pin6，接好后如果电源指示灯亮了应该就没什么问题了。</p>
+<p>如果你购买的是不带集成板的裸模块，还需要在VCC和DAT之间串一个电阻（应该是串吧。。物理不好），像这样（图来自网络）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/04/20150830002549737.png" alt="20150830002549737" title="">
+                </div>
+                <div class="image-caption">20150830002549737</div>
+            </figure>
+<h2 id="开始写代码"><a href="#开始写代码" class="headerlink" title="开始写代码"></a>开始写代码</h2><p>Python发说说是件让人头疼的试，QQ空间登录加密机制比较繁琐，好在Github上有个针对python3的<a href="https://github.com/JetLua/qqlib/tree/master/src" target="_blank" rel="noopener">QQlib</a>项目完美解决了这个问题。</p>
+<p><strong>1.安装必要组件</strong></p>
+<p>由于我们将在Python3中实现这个应用，而树莓派默认Python版本是2，但可以通过“python3”命令召唤Python3，在以下的步骤中请分清Python 和Python3.</p>
+<p>先su一下</p>
+<p>安装setuptools：直接执行 自动安装：</p>
+<p><pre class="lang:sh decode:true ">wget <a href="https://bootstrap.pypa.io/ez_setup.py" target="_blank" rel="noopener">https://bootstrap.pypa.io/ez_setup.py</a> -O - | python3</pre><br>安装requests：</p>
+<p><pre class="lang:sh decode:true">git clone git://github.com/kennethreitz/requests.git<br>cd requests<br>python3 setup.py install</pre><br>安装rsa：</p>
+<p><pre class="lang:sh decode:true">git clone <a href="https://github.com/sybrenstuvel/python-rsa.git" target="_blank" rel="noopener">https://github.com/sybrenstuvel/python-rsa.git</a><br>cd python-rsa<br>python3 setup.py install<br></pre><br>安装QQlib：</p>
+<p><pre class="lang:default decode:true ">git clone <a href="https://github.com/JetLua/qqlib.git" target="_blank" rel="noopener">https://github.com/JetLua/qqlib.git</a><br>cd qqlib<br>python3 setup.py install</pre><br>所需组件就这些，接下来要写代码了。代码我已经托管到Github，可以直接Clone下来用：<a href="https://github.com/HFO4/pi-temperature" target="_blank" rel="noopener">https://github.com/HFO4/pi-temperature</a></p>
+<p>这里给出核心脚本的注释版本：</p>
+<pre><code>#!/usr/bin/python
+import RPi.GPIO as GPIO
+import time
+import qqlib
+import urllib
+import os
+#设置DAT口的GPIO编号
+channel = 18
+#下面的依次是QQ号、QQ密码、微博账号、微博密码
+QQnum=&quot;&quot;
+QQpass=&quot;&quot;
+weiboUm=&quot;&quot;
+weiboPass=&quot;&quot;
+#历史上的今天
+def histoday():
+        #注意 这里是我自用的接口，里面会有点奇怪的东西，推荐（必须）更换为自己的！！
+    content = urllib.request.urlopen(&apos;https://aoaoao.me/api/today.php&apos;).read()
+    return (content.decode(&apos;utf-8&apos;))
+#读取昨日温度、计算温差、写入今日温度
+def old_text(temperature):
+        #注意！这里请更改为你自己的目录
+    file_r = open(&apos;/home/pi/shuo/log.txt&apos;)
+    data_old = file_r.read()
+    file_r.close( )
+    log_text = str(temperature)
+    file_object = open(&apos;log.txt&apos;,&apos;w&apos;)
+    file_object.write(log_text)
+    file_object.close()
+    if(temperature&amp;gt;int(data_old)):
+        return &quot;今天的温度相比昨日此时高了&quot;+str(temperature-int(data_old))+&quot;℃&quot;
+    elif(temperature == int(data_old)):
+        return &quot;今天的温度与昨日此时持平哦&quot;
+    else:
+        return &quot;今天的温度相比昨日此时低了&quot;+str(int(data_old)-temperature)+&quot;℃&quot;
+#获取传感器数据
+def getdata(channel):
+    data = []
+    j = 0
+    while GPIO.input(channel) == GPIO.LOW:
+        continue
+    while GPIO.input(channel) == GPIO.HIGH:
+        continue
+    while j &amp;lt; 40:
+        k = 0
+        while GPIO.input(channel) == GPIO.LOW:
+            continue
+        while GPIO.input(channel) == GPIO.HIGH:
+            k += 1
+            if k &amp;gt; 100:
+                break
+        if k &amp;lt; 8:
+            data.append(0)
+        else:
+            data.append(1)
+        j += 1
+    return (data)
+check = 0
+tmp = 1
+#因为DHT11常常抽风，温度跳到40多度，这里做一个判断，一直读，直到读对
+while (check !=tmp):
+    GPIO.setmode(GPIO.BCM)
+    time.sleep(1)
+    GPIO.setup(channel, GPIO.OUT)
+    GPIO.output(channel, GPIO.LOW)
+    time.sleep(0.02)
+    GPIO.output(channel, GPIO.HIGH)
+    GPIO.setup(channel, GPIO.IN)
+    data = getdata(channel)
+    print (data)
+    tmp = 1
+    check = 0
+    humidity_bit = data[0:8]
+    humidity_point_bit = data[8:16]
+    temperature_bit = data[16:24]
+    temperature_point_bit = data[24:32]
+    check_bit = data[32:40]
+    humidity = 0
+    humidity_point = 0
+    temperature = 0
+    temperature_point = 0
+    for i in range(8):
+        humidity += humidity_bit[i] * 2 ** (7-i)
+        humidity_point += humidity_point_bit[i] * 2 ** (7-i)
+        temperature += temperature_bit[i] * 2 ** (7-i)
+        temperature_point += temperature_point_bit[i] * 2 ** (7-i)
+        check += check_bit[i] * 2 ** (7-i)
+    tmp = humidity + humidity_point + temperature + temperature_point
+    GPIO.cleanup()
+        #歇一歇
+    time.sleep(1)
+#播报文字
+s=&quot;【温度自动播报】当前室内温度为：&quot;+str(temperature)+&quot;℃ （来自DHT11传感器）  相对空气湿度：&quot;+str(humidity)+&quot;% ,&quot;+old_text(temperature)+&quot;\n【历史上的今天】\n&quot;+histoday()+&quot;\n(本消息由我家树莓派自动发送)&quot;
+#注意！这里请更改为你自己的目录
+file_object1 = open(&apos;/home/pi/shuo/t.txt&apos;,&apos;w&apos;)
+file_object1.write(s)
+file_object1.close()
+#登录QQ空间
+qq = qqlib.QQ(QQnum, QQpass)
+#发说说
+qq.feed(s)
+#执行weibo.py发微博
+os.system(&quot;python weibo/weibo.py &quot;+weiboUm+&quot; &quot;+weiboPass)
+print(s)
+</code></pre><p>如果懒得看这些代码，直接执行：</p>
+<p><pre class="lang:sh decode:true">git clone <a href="https://github.com/HFO4/pi-temperature.git" target="_blank" rel="noopener">https://github.com/HFO4/pi-temperature.git</a><br>cd pi-temperature</pre><br>然后打开shuo.py修改第7行为你的DAT口的GPIO编号，第8-11行为QQ、微博账号密码，第16行、88行改成你自己的路径（<strong>要为绝对路径</strong>），进入weibo目录，修改weibo.py第92行为你自己的路径。</p>
+<p>然后执行</p>
+<p><pre class="lang:sh decode:true ">python3 shuo.py</pre><br>如果看到下面提示，说明一切正常，再检查说说、微博是不是发出去了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403111559.png" alt="QQ截图20160403111559" title="">
+                </div>
+                <div class="image-caption">QQ截图20160403111559</div>
+            </figure>
+<h2 id="设置定时任务"><a href="#设置定时任务" class="headerlink" title="设置定时任务"></a>设置定时任务</h2><p>我想要每天早上7点树莓派自动播报，这需要添加Cron定时任务。在此之前先执行<code>date</code>命令看看时间对不对，树莓派默认有自动的联网校对时间，但我们还要设置一下时区，执行<code>tzselect</code>，输入5 回车<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403111943.png" alt="QQ截图20160403111943" title="">
+                </div>
+                <div class="image-caption">QQ截图20160403111943</div>
+            </figure></p>
+<p>输入9 选择中国回车 输入1 选择北京 回车即可 再执行date看看时间是不是正确了了？</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/04/QQ截图20160403112044.png" alt="QQ截图20160403112044" title="">
+                </div>
+                <div class="image-caption">QQ截图20160403112044</div>
+            </figure>
+<p>然后设置定时任务。执行<code>crontab -e</code><br>在最后一行加上</p>
+<p><pre class="lang:default decode:true ">0 7 <em> </em> * sh 你自己的目录/do.sh &gt;/dev/null 2&gt;&amp;1<br></pre><br>这表示每天7点整执行一次do.sh. 然后执行<code>/etc/init.d/cron restart</code>重启cron服务。<br>继续来到刚刚的pi-temperature目录，编辑do.sh，将其中的路径改为你自己的<br>至此，此应用就算是配置完成了。<br>坐等粉丝破万成为网红 哈哈哈 </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/" target="_blank" rel="external">http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
+            Aaron Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QQ/">QQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微博/">微博</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/&title=《树莓派自动播报温湿度到QQ空间、微博》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/&title=《树莓派自动播报温湿度到QQ空间、微博》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派自动播报温湿度到QQ空间、微博》 — Aaron's Blog&url=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/04/04/e7-bd-91-e6-98-9352g-e5-af-86-e7-a0-81-e6-95-b0-e6-8d-ae-e4-b8-8b-e8-bd-bd/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">网易52G密码数据下载</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/03/26/945/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">945</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "JNkuYcclWoNLMyxDVcGUpjNW-gzGzoHsz",
+            appKey: "n4zR68sN642keJeesjIt4w90",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢投食~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Aaron Liu &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/&title=《树莓派自动播报温湿度到QQ空间、微博》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/&title=《树莓派自动播报温湿度到QQ空间、微博》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派自动播报温湿度到QQ空间、微博》 — Aaron's Blog&url=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/04/03/e6-a0-91-e8-8e-93-e6-b4-be-e8-87-aa-e5-8a-a8-e6-92-ad-e6-8a-a5-e6-b8-a9-e6-b9-bf-e5-ba-a6-e5-88-b0qq-e7-a9-ba-e9-97-b4-e3-80-81-e5-be-ae-e5-8d-9a/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFKklEQVR42u3awU7jUBQD0Pn/n2a2IwHF9g3MgtMVKm2ad16l3tj58yd+vP3zeP/8Z698/67Xr3/9/Pu/8yO/Pp/PzuGxBz58+PDhw3f+mGQxyRGSxbx+12WzL2eLDx8+fPjwXfg+O2g7NLT/bTfycm7tZr82wYcPHz58+H6GL7mCTo6fDyVv8WMbyPL14sOHDx8+fP+LL0FJhpV8e5JhpY3j81IBHz58+PDhe5bvUm/ni9+i+TYOaAeRH+o68OHDhw8fvvIurN/z97fc34cPHz58+H4931v5uITyl2g+GYDuhXetgQ8fPnz48E0a2wV/8vzGcZ8c2lDg5IAPHz58+PCd+S6R/VaHt7X6VpC3nx4NZ/jw4cOHD1/Mt92C9tTleltO59uTBxzJGX56zvjw4cOHD9+Z79lh5amIob0RLQ8CtoAeHz58+PDh2/jaC+ZnB5d8ee2y89J9e+WYN+DDhw8fPnwlSjvo3MvvrVTIiZNnku3Ehw8fPnz4Er42EG8/7FJCt9t2qeG3VeDDhw8fPnwb3yWsb0OEy9ixlQfb2f5QTY4PHz58+H4lX50uxDe0bePChrUFB+35RNkGPnz48OHDF2TmeUyQDzFbfN+OLMn2tFFFWzDgw4cPHz5893urnhoXtiK8/Xur4TfWD8pyfPjw4cOHr+TbIuwtxH+qSs/rgW8J6/Hhw4cPH76Jr40P2qAhHxS2IKPdmAv9A+kLPnz48OHDF/+cJ2PK5Ya2y+ZdbpjLQxN8+PDhw4fvWb52kW2gkNMnZflTVUE7snzwPD58+PDhwzfxbdX4ZRDJKS9Ha19Zhx348OHDhw9fzNcG6Fsc344X+ae3KXp7i9sXXwh8+PDhw4fvIb5tTHk2UEgq8DY42Kr3T88EHz58+PDhi991KZ4TmqeK7defu8Xx+dfi01fiw4cPHz58E99TP+T3oj0fXLaNuQxM+PDhw4cP351vC+vzUry97N/C+rYe+HN+4MOHDx8+fBe+JNrOb1+7Dx+XYWUrxceWAx8+fPjw4Zv4Ljel5ZR59d6OTfnxt8rhC2J8+PDhw4cv5msD9zwK3xaZDxPt1m7zxhfE+PDhw4cP38S33V7WLqMdYrbQoT3/LdzHhw8fPnz4LnyXi/ltKNkWfAnrk9vX2pgDHz58+PDha/m2snwbdPJjtueQL7WtzNv34sOHDx8+fMl78wMlP96X4rk9k2frhDzawIcPHz58+Da+S4Gd02+RerJt27jzWNyPDx8+fPjwHfjuRXVbOSdw+evbAGLbPHz48OHDh+/Ct3G0ofk2fOQLvtQDW5DxRdeBDx8+fPjwBXyvIdpBIVlYsgH3aGCrzNtwAR8+fPjw4WuHlXzsuCzgNVO+kdE34qE6/NR44MOHDx8+fP+8q/1Rb1HaYrsNyi+hRn77WjTr4cOHDx8+fAHfNgRsy/juG9pyjjasj84QHz58+PDhC/jupfVGkOBeFrwR19EDPnz48OHDN/FdquULdLuYtqR//eXY4v56xsGHDx8+fPimE7rH7peNeTaM2GKLD57Hhw8fPnz4Sr72grmNwpMTbceae6z/fZUDPnz48OHDl/BdLr+3oD9Z9rZh+fEvgws+fPjw4cN358sHiPzQ+Qa0kX1bkG+lQrQB+PDhw4cP3w/ybaFAPgC1Ef82Bm01PD58+PDhw/d/+XKsfPioF3Mo48eYAx8+fPjw4Zv42hvOLuPF5aQv5XoS7ucrxYcPHz58+Da+Op4+/Ha3x2zJLrFCXj/gw4cPHz58E99f3uJzQvVmxD8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

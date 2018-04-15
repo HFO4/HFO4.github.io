@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>B站热门番剧观众弃坑指数排行榜 | Aaron&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="bilibili,python,动漫">
+    <meta name="description" content="计算原理一般情况下，番剧的单集播放量会随着集数的增加而减少，一步番剧播放量减少越剧烈，则说明该番观众中途弃坑人数较多，番剧可能剧情乏味或中途崩坏。我采集了B追番人数在前150名的番剧的播放数据，将集数扩大后与单集播放量进行最小二乘法拟合，以得到直线的斜率为依据进行排名。排行榜视频传到了B站：http://www.bilibili.com/video/av13742689/。 由于B站部分番剧采用分">
+<meta name="keywords" content="bilibili,python,动漫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="B站热门番剧观众弃坑指数排行榜">
+<meta property="og:url" content="http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/index.html">
+<meta property="og:site_name" content="Aaron&#39;s Blog">
+<meta property="og:description" content="计算原理一般情况下，番剧的单集播放量会随着集数的增加而减少，一步番剧播放量减少越剧烈，则说明该番观众中途弃坑人数较多，番剧可能剧情乏味或中途崩坏。我采集了B追番人数在前150名的番剧的播放数据，将集数扩大后与单集播放量进行最小二乘法拟合，以得到直线的斜率为依据进行排名。排行榜视频传到了B站：http://www.bilibili.com/video/av13742689/。 由于B站部分番剧采用分">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="B站热门番剧观众弃坑指数排行榜">
+<meta name="twitter:description" content="计算原理一般情况下，番剧的单集播放量会随着集数的增加而减少，一步番剧播放量减少越剧烈，则说明该番观众中途弃坑人数较多，番剧可能剧情乏味或中途崩坏。我采集了B追番人数在前150名的番剧的播放数据，将集数扩大后与单集播放量进行最小二乘法拟合，以得到直线的斜率为依据进行排名。排行榜视频传到了B站：http://www.bilibili.com/video/av13742689/。 由于B站部分番剧采用分">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Aaron Liu</h5>
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">B站热门番剧观众弃坑指数排行榜</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">B站热门番剧观众弃坑指数排行榜</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-23T19:12:29.000Z" itemprop="datePublished" class="page-time">
+  2017-08-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计算原理"><span class="post-toc-number">1.</span> <span class="post-toc-text">计算原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完整榜单"><span class="post-toc-number">2.</span> <span class="post-toc-text">完整榜单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#采集计算代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">采集计算代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">B站热门番剧观众弃坑指数排行榜</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-24 03:12:29" datetime="2017-08-23T19:12:29.000Z"  itemprop="datePublished">2017-08-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="计算原理"><a href="#计算原理" class="headerlink" title="计算原理"></a>计算原理</h2><p>一般情况下，番剧的单集播放量会随着集数的增加而减少，一步番剧播放量减少越剧烈，则说明该番观众中途弃坑人数较多，番剧可能剧情乏味或中途崩坏。我采集了B追番人数在前150名的番剧的播放数据，将集数扩大后与单集播放量进行最小二乘法拟合，以得到直线的斜率为依据进行排名。排行榜视频传到了B站：<a href="http://www.bilibili.com/video/av13742689/" target="_blank" rel="noopener">http://www.bilibili.com/video/av13742689/</a>。 由于B站部分番剧采用分P分集的方式，无法获取到具体数据，故在本榜单中略去。</p>
+<h2 id="完整榜单"><a href="#完整榜单" class="headerlink" title="完整榜单"></a>完整榜单</h2><div align="&quot;center"><br><table><br><tbody><br><tr><br><th>番剧名</th><br><th>弹幕总数</th><br><th>观众损失指数</th><br></tr><br><tr><br><td>甲铁城的卡巴内瑞</td><br><td>1042966</td><br><td>-2.258323648</td><br></tr><br><tr><br><td>GAMERS电玩咖！</td><br><td>169133</td><br><td>0.144540753</td><br></tr><br><tr><br><td>三年E班</td><br><td>1951008</td><br><td>0.462847114</td><br></tr><br><tr><br><td>Fate/stay night [Unlimited Bla..</td><br><td>1965716</td><br><td>0.626720716</td><br></tr><br><tr><br><td>斩·赤红之瞳！</td><br><td>1607920</td><br><td>0.741229817</td><br></tr><br><tr><br><td>双星之阴阳师</td><br><td>2297276</td><br><td>0.831016728</td><br></tr><br><tr><br><td>命运石之门</td><br><td>730135</td><br><td>0.875223121</td><br></tr><br><tr><br><td>Re：从零开始的异世界生活</td><br><td>6907632</td><br><td>0.961437343</td><br></tr><br><tr><br><td>小魔女学园</td><br><td>383944</td><br><td>1.050238504</td><br></tr><br><tr><br><td>终结的炽天使</td><br><td>1487069</td><br><td>1.118167605</td><br></tr><br><tr><br><td>四月是你的谎言</td><br><td>1303311</td><br><td>1.177939641</td><br></tr><br><tr><br><td>Charlotte</td><br><td>2664830</td><br><td>1.219308438</td><br></tr><br><tr><br><td>齐木楠雄的灾难</td><br><td>638553</td><br><td>1.268257247</td><br></tr><br><tr><br><td>OVERLORD</td><br><td>1093162</td><br><td>1.515096923</td><br></tr><br><tr><br><td>野良神</td><br><td>2213460</td><br><td>1.550257659</td><br></tr><br><tr><br><td>重装武器</td><br><td>1102233</td><br><td>1.666549249</td><br></tr><br><tr><br><td>日常</td><br><td>1062360</td><br><td>1.673067295</td><br></tr><br><tr><br><td>超时空要塞Δ</td><br><td>610014</td><br><td>1.72636779</td><br></tr><br><tr><br><td>传颂之物 虚伪的假面</td><br><td>928716</td><br><td>1.747128157</td><br></tr><br><tr><br><td>3月的狮子</td><br><td>146376</td><br><td>1.79793033</td><br></tr><br><tr><br><td>食戟之灵</td><br><td>2160905</td><br><td>1.802290751</td><br></tr><br><tr><br><td>博人传 火影忍者新时代</td><br><td>884311</td><br><td>1.949803763</td><br></tr><br><tr><br><td>自由之翼</td><br><td>26464</td><br><td>2.224237707</td><br></tr><br><tr><br><td>TRICKSTER 少年侦探团</td><br><td>173427</td><br><td>2.224413676</td><br></tr><br><tr><br><td>我的青春恋爱物语果然有问题。</td><br><td>930185</td><br><td>2.248424329</td><br></tr><br><tr><br><td>幻界战线</td><br><td>892228</td><br><td>2.401250763</td><br></tr><br><tr><br><td>终结的炽天使</td><br><td>910205</td><br><td>2.436868124</td><br></tr><br><tr><br><td>学战都市Asterisk</td><br><td>1018439</td><br><td>2.451519477</td><br></tr><br><tr><br><td>樱花任务</td><br><td>192730</td><br><td>2.496338531</td><br></tr><br><tr><br><td>伪恋</td><br><td>817620</td><br><td>2.705141542</td><br></tr><br><tr><br><td>路人超能100(灵能百分百)</td><br><td>1172382</td><br><td>2.779356326</td><br></tr><br><tr><br><td>干物妹！小埋</td><br><td>3373142</td><br><td>2.910871665</td><br></tr><br><tr><br><td>弹丸论破3 The End of 希望峰学园</td><br><td>698807</td><br><td>2.967848909</td><br></tr><br><tr><br><td>Re:CREATORS</td><br><td>829189</td><br><td>3.070127201</td><br></tr><br><tr><br><td>甘城光辉游乐园</td><br><td>486927</td><br><td>3.112907413</td><br></tr><br><tr><br><td>Fate/stay night [Unlimited Bla..</td><br><td>1469358</td><br><td>3.122084955</td><br></tr><br><tr><br><td>日常系的异能战斗</td><br><td>419047</td><br><td>3.145179423</td><br></tr><br><tr><br><td>星期一的丰满</td><br><td>75037</td><br><td>3.221649311</td><br></tr><br><tr><br><td>噬神者</td><br><td>671752</td><br><td>3.315299411</td><br></tr><br><tr><br><td>迷糊餐厅</td><br><td>160300</td><br><td>3.328996671</td><br></tr><br><tr><br><td>月色真美</td><br><td>898054</td><br><td>3.355742336</td><br></tr><br><tr><br><td>落第骑士英雄谭</td><br><td>1810528</td><br><td>3.415607209</td><br></tr><br><tr><br><td>Love Live! Sunshine!!</td><br><td>1348396</td><br><td>3.432030523</td><br></tr><br><tr><br><td>变态王子与不笑猫</td><br><td>633261</td><br><td>3.449631042</td><br></tr><br><tr><br><td>弹丸论破3 The End of 希望峰学园</td><br><td>768724</td><br><td>3.469733282</td><br></tr><br><tr><br><td>银仙</td><br><td>528142</td><br><td>3.495181835</td><br></tr><br><tr><br><td>驱魔少年</td><br><td>303371</td><br><td>3.596220884</td><br></tr><br><tr><br><td>路人女主的养成方法</td><br><td>1908446</td><br><td>3.597648879</td><br></tr><br><tr><br><td>六花的勇者</td><br><td>965799</td><br><td>3.65088434</td><br></tr><br><tr><br><td>K</td><br><td>1888335</td><br><td>3.659182418</td><br></tr><br><tr><br><td>一周的朋友。</td><br><td>422299</td><br><td>3.678132515</td><br></tr><br><tr><br><td>Rewrite</td><br><td>649103</td><br><td>3.726841885</td><br></tr><br><tr><br><td>埃罗芒阿老师</td><br><td>2910490</td><br><td>3.754721348</td><br></tr><br><tr><br><td>对魔导学园35试验小队</td><br><td>648691</td><br><td>3.789620394</td><br></tr><br><tr><br><td>这个美术社大有问题！</td><br><td>1398356</td><br><td>3.807777201</td><br></tr><br><tr><br><td>终物语</td><br><td>351978</td><br><td>3.818677737</td><br></tr><br><tr><br><td>NEW GAME!</td><br><td>981468</td><br><td>3.864370619</td><br></tr><br><tr><br><td>热诚传说X</td><br><td>1151522</td><br><td>3.906996542</td><br></tr><br><tr><br><td>请问您今天要来点兔子吗</td><br><td>835887</td><br><td>3.913232858</td><br></tr><br><tr><br><td>TRINITY SEVEN 七人魔法使</td><br><td>315836</td><br><td>3.923909271</td><br></tr><br><tr><br><td>小林家的龙女仆</td><br><td>1615409</td><br><td>3.980325447</td><br></tr><br><tr><br><td>问题儿童都来自异世界</td><br><td>309103</td><br><td>3.986187118</td><br></tr><br><tr><br><td>黑白来看守所</td><br><td>162274</td><br><td>4.017919302</td><br></tr><br><tr><br><td>我被绑架到贵族女校当庶民样本</td><br><td>1934730</td><br><td>4.030563818</td><br></tr><br><tr><br><td>学园孤岛</td><br><td>1438837</td><br><td>4.036371447</td><br></tr><br><tr><br><td>黑白来看守所</td><br><td>361127</td><br><td>4.156150414</td><br></tr><br><tr><br><td>从零开始的魔法书</td><br><td>484669</td><br><td>4.167026311</td><br></tr><br><tr><br><td>百武装战记</td><br><td>1559980</td><br><td>4.167667996</td><br></tr><br><tr><br><td>线上游戏的老婆不可能是女生</td><br><td>2198943</td><br><td>4.186430272</td><br></tr><br><tr><br><td>超自然9人组</td><br><td>178777</td><br><td>4.233473694</td><br></tr><br><tr><br><td>时钟机关之星</td><br><td>207921</td><br><td>4.25875271</td><br></tr><br><tr><br><td>在下坂本，有何贵干</td><br><td>5260979</td><br><td>4.28715556</td><br></tr><br><tr><br><td>爱丽丝和藏六</td><br><td>156670</td><br><td>4.3169219</td><br></tr><br><tr><br><td>刀剑乱舞-花丸-</td><br><td>672763</td><br><td>4.356210612</td><br></tr><br><tr><br><td>迷家</td><br><td>1200998</td><br><td>4.39426238</td><br></tr><br><tr><br><td>月歌</td><br><td>373754</td><br><td>4.399806235</td><br></tr><br><tr><br><td>苍之彼方的四重奏</td><br><td>673662</td><br><td>4.428013961</td><br></tr><br><tr><br><td>小桃小栗Love Love物语</td><br><td>527046</td><br><td>4.443557446</td><br></tr><br><tr><br><td>SUPER LOVERS</td><br><td>245185</td><br><td>4.460685361</td><br></tr><br><tr><br><td>就算是哥哥有爱就没问题了对吧</td><br><td>553701</td><br><td>4.463771515</td><br></tr><br><tr><br><td>夏目友人帐</td><br><td>747213</td><br><td>4.473388087</td><br></tr><br><tr><br><td>ACCA13区监察课</td><br><td>102342</td><br><td>4.504372808</td><br></tr><br><tr><br><td>恋爱暴君</td><br><td>472136</td><br><td>4.651204747</td><br></tr><br><tr><br><td>王室教师海涅</td><br><td>286910</td><br><td>4.659983016</td><br></tr><br><tr><br><td>三年E班Q</td><br><td>94746</td><br><td>4.677076817</td><br></tr><br><tr><br><td>怪怪守护神</td><br><td>248197</td><br><td>4.678423565</td><br></tr><br><tr><br><td>我太受欢迎了该怎么办</td><br><td>986738</td><br><td>4.704850976</td><br></tr><br><tr><br><td>秋叶原之旅 THE ANIMATION</td><br><td>169757</td><br><td>4.722279333</td><br></tr><br><tr><br><td>樱子小姐的脚下埋着尸体</td><br><td>847554</td><br><td>4.868618686</td><br></tr><br><tr><br><td>少女编号</td><br><td>404364</td><br><td>4.87169268</td><br></tr><br><tr><br><td>我，要成为双马尾。</td><br><td>787151</td><br><td>4.885292437</td><br></tr><br><tr><br><td>腐男子高校生活</td><br><td>156403</td><br><td>4.89976437</td><br></tr><br><tr><br><td>雏子的笔记</td><br><td>196444</td><br><td>4.989178298</td><br></tr><br><tr><br><td>初恋怪兽</td><br><td>552774</td><br><td>4.991610092</td><br></tr><br><tr><br><td>GANGSTA.</td><br><td>353105</td><br><td>4.992524075</td><br></tr><br><tr><br><td>One Room</td><br><td>81130</td><br><td>5.045102635</td><br></tr><br><tr><br><td>粗点心战争</td><br><td>1089607</td><br><td>5.192970417</td><br></tr><br><tr><br><td>风夏</td><br><td>627720</td><br><td>5.197259351</td><br></tr><br><tr><br><td>SEIREN</td><br><td>407219</td><br><td>5.311204776</td><br></tr><br><tr><br><td>天真与闪电</td><br><td>299089</td><br><td>5.443797509</td><br></tr><br><tr><br><td>Hand Shakers</td><br><td>236262</td><br><td>5.449409968</td><br></tr><br><tr><br><td>Taboo Tattoo－禁忌咒纹－</td><br><td>524571</td><br><td>6.009652647</td><br></tr><br></tbody><br></table><br></div>
+
+<h2 id="采集计算代码"><a href="#采集计算代码" class="headerlink" title="采集计算代码"></a>采集计算代码</h2><p>使用方法：保存为py脚本，在B站得到番番剧ID后执行<code>python demo.py 番剧ID</code>，得到的数据会存放在CSV文件中。如果报错或得到的数据极小，那么该番局可能采用了分P分集方式，无法获得最终结果。</p>
+<pre><code># -*- coding: UTF-8 -*-
+import requests
+import sys
+import json
+import csv
+import codecs
+reload(sys)
+sys.setdefaultencoding(&apos;utf-8&apos;)
+r = requests.get(&apos;https://bangumi.bilibili.com/jsonp/seasoninfo/&apos;+str(sys.argv[1])+&apos;.ver?callback=seasonListCallback&amp;jsonp=jsonp&amp;_=1503473663364&apos;)
+j= r.text[19:-2]
+js=json.loads(j)
+av_list=[]
+view_list=[]
+def get_view(av):
+    r = requests.get(&apos;http://api.bilibili.com/archive_stat/stat?aid=&apos;+str(av))
+    r_js=json.loads(r.text)
+    return int(r_js[&apos;data&apos;][&apos;view&apos;])
+for id in js[&apos;result&apos;][&apos;episodes&apos;]:
+    av_list.append(id[&apos;av_id&apos;])
+    view_list.append(get_view(id[&apos;av_id&apos;]))
+#get x average
+x_num=float(len(av_list))
+i=1
+x_average=0
+for ii in av_list:
+    x_average = x_average+(i/x_num)
+    i=i+1
+x_average=x_average*view_list[-1]
+#get y average
+y_average=0
+for ii in view_list:
+    y_average = y_average+(ii/x_num)
+# get b aboves
+count=0.0
+i=1
+for ii in view_list:
+    count = count+ii*i*view_list[-1]
+    i=i+1
+b_above = count-(x_num*x_average*y_average)
+#get b_down
+b_down=0.0
+i=1
+for ii in av_list:
+    b_down=b_down+i*view_list[-1]*i*view_list[-1]
+    i=i+1
+b_down = b_down - x_num*x_average*x_average
+#get rank
+rank = b_above/b_down
+with open(&apos;2.csv&apos;, &apos;ab+&apos;) as csvfile:
+    spamwriter = csv.writer(csvfile)
+    csvfile.write(codecs.BOM_UTF8)
+    spamwriter.writerow([js[&apos;result&apos;][&apos;bangumi_title&apos;], js[&apos;result&apos;][&apos;danmaku_count&apos;], rank*100])
+print js[&apos;result&apos;][&apos;bangumi_title&apos;]+&quot;   &quot;+str(rank*100)
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/" target="_blank" rel="external">http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
+            Aaron Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bilibili/">bilibili</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动漫/">动漫</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/&title=《B站热门番剧观众弃坑指数排行榜》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/&title=《B站热门番剧观众弃坑指数排行榜》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《B站热门番剧观众弃坑指数排行榜》 — Aaron's Blog&url=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/08/31/e5-93-8d-e5-ba-94-e5-9b-bd-e5-ae-b6-e6-94-bf-e7-ad-96-ef-bc-8c-e6-9c-ac-e7-ab-99-e8-af-84-e8-ae-ba-e9-9c-80-e5-ae-9e-e5-90-8d-e8-ae-a4-e8-af-81-e5-90-8e-e4-bd-bf-e7-94-a8/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">响应国家政策，本站评论需实名认证后使用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/17/91-e5-b9-b4-e5-89-8d-e7-9a-84-e4-bb-8a-e5-a4-a9-ef-bc-8c-e6-97-b6-e9-97-b4-e5-bc-80-e5-a7-8b-e5-87-8f-e5-b0-91/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">91年前的今天，时间开始减少</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "JNkuYcclWoNLMyxDVcGUpjNW-gzGzoHsz",
+            appKey: "n4zR68sN642keJeesjIt4w90",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢投食~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Aaron Liu &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/&title=《B站热门番剧观众弃坑指数排行榜》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/&title=《B站热门番剧观众弃坑指数排行榜》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《B站热门番剧观众弃坑指数排行榜》 — Aaron's Blog&url=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/24/b-e7-ab-99-e7-83-ad-e9-97-a8-e7-95-aa-e5-89-a7-e8-a7-82-e4-bc-97-e5-bc-83-e5-9d-91-e6-8c-87-e6-95-b0-e6-8e-92-e8-a1-8c-e6-a6-9c/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFQUlEQVR42u3aQXLbWhADQN//0vnbpPxlAxgqWbi1UiUS+V7TVRoC/PiIX79+e33+l8//e/nu10f7fOTP71+d5dW38jOOL3z48OHDh+/L02xberWBljtfVX6xX62wvcD/cwR8+PDhw4dv4svHgnZjX28muVTbWJPQJGf8xgofPnz48OF7M18L3Y4ml++2KO3K8eHDhw8fvn/L9yt45cH6vU54R6CPDx8+fPjwvYPvsvk8Is/f32/1c9C/1HXgw4cPHz5801jwE94//MKHDx8+fPjiG/685H7q8+1x8jHo65v/WgMfPnz48OGbNJIf7HfECqeb8HjAyllbB3z48OHDh2/jayP4fCzImZJjtp/PH1DLY/qXq8KHDx8+fPgOPW97O92i3+vqcbyIP9MGGfjw4cOHD1/Cd3mc635bnpAlVf02MG0DzR/v8eHDhw8fvpJv+yFvi+cW7jJIbbHCtip8+PDhw4ev5Wvj7G3saMP3p0ru9mG4+iz48OHDhw/fxLdV5pelb9tIVnIfUwpEfPjw4cOHr+Rrb8vbJSbxRFuNXwr4vAivHw7Ahw8fPnz4Yr68Wm6HmBYiuQBtYbBV70XAgQ8fPnz48MV8+W15PhDk1ftTdfW92m/HoMeeccOHDx8+fD+M715L5yduy/V2vGiP1l74KKzHhw8fPnz4Sr72Fr0dOy5HyEG3USk/Mj58+PDhw3fny0/WMl0Wd7moW1hfjyz48OHDhw/fOSzYgJJS/L6xNuDII/v2DwUfPnz48OFr+drwPSmht9A8KbDbkmALHYqyHB8+fPjw4Zv42g3k48t9AMrjjI27vQx/HA0fPnz48OGb+JKyfCuq25i+LQ/aCGDb78sj4MOHDx8+fAe+9sb7qYEmp2lL7jysH/eLDx8+fPjwLfv9aH/yL6X4VpBvQXx+nG2/+PDhw4cP38aXxNx5kN0OMRtQHlUkQ9K2X3z48OHDh69dVTtqtARPxeXPxgqXsxdhPT58+PDhw/eCr34wq7w5b5e+0bePx7WX5GXXgQ8fPnz48MV8Xy+ieFRrisjbAegeKORxRuGDDx8+fPjwxXxtmP53iud7cZ4PKNtlHrsIfPjw4cP34/nyH+wtvn8fzRZqPPsHgQ8fPnz48LV87SNil1K5DSbyemArHvJi4JuYHh8+fPjw4SufPdsi8pY4jwzaUvypsH77k8KHDx8+fPhyvodj62koyQuDPILPWbdH3/Dhw4cPH76NL992XoS3N/zbBbuE9W2ocUpf8OHDhw8fvhc9b3Krn284IWtx24r98thc4oAPHz58+PC1fNtIkT+slixxi+wvQ0y7kmj6w4cPHz58+AK+5MZ4+yHfbvvboeQSDVxiC3z48OHDh2/j2waUdsjIH1ZLOO51eBtJfLNafPjw4cOH71G+7QT3+OAS1ifrzKvxj2RiwocPHz58+GK+fFi5DB/tSHGJIbbRJ6/JX3Yd+PDhw4cP35d8eUidnLiOuePho720T72irgMfPnz48OEr+cYn2uJQfqvhTxsry+/tvPjw4cOHD9+dbxs4tug8p8nHo6TUby/2NykLPnz48OHDF/NdBoW29r6HBZcA4r6e07CFDx8+fPjw/fbd7fb7vr38OJcho11DW/njw4cPHz58G1+ypUtYcJ+kko0la9ti+pdrwIcPHz58+N7Ml0cJ28NnW23fsubDEz58+PDhw/dv+bYCu63h28Gl/W67kpdnwYcPHz58+Ca+JKzfhoNLcJDX85ewvo3px5ocHz58+PDhK0PqLSy43Jy3gcW9SMh3jQ8fPnz48JW7/g/ZHWloTeJb/gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

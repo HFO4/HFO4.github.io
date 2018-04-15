@@ -17,6 +17,8 @@
     <title>Aaron&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
     
     <meta name="keywords" content="">
     <meta name="description" content="Aaron的个人博客">
@@ -32,7 +34,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -49,19 +51,68 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Aaron Liu</h5>
-          <a href="mailto:undefined" class="mail">
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
         
       </ul>
     </div>
@@ -76,6 +127,20 @@
         </a>
         <div class="flex-col header-title ellipsis">Aaron&#39;s Blog</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -128,7 +193,9 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        本文章长期更新，主要为解答树洞外链使用过程中是常见问题...
+        本文章长期更新，主要为解答树洞外链使用过程中是常见问题。如果您没有找到答案，也可以在本文下方给我留言。
+1.上传时提示“客户端认证授权失败。请重试或提交反馈。(401：bad token)”？答：如果你是1.1或1.0用户，请升级至2.0.如果你是2.X的用户，仍出现此问题，请到后台-其他-在线更新，一键更新至2.0.1版本即可解决问题。如果仍出现错误，请检查您的七牛相关信息是否填写正确。
+...
     
 
         <a href="/2015/08/14/e3-80-90-e9-95-bf-e6-9c-9f-e6-9b-b4-e6-96-b0-e3-80-91-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e4-bd-bf-e7-94-a8-e5-b8-b8-e8-a7-81-e9-97-ae-e9-a2-98-e8-a7-a3-e7-ad-94/" class="post-more waves-effect waves-button">
@@ -176,7 +243,11 @@
 
     
         
-原定于去年元旦发布。。跳票了大半年的树洞外链2.0终...
+原定于去年元旦发布。。跳票了大半年的树洞外链2.0终于发布了！全新的界面UI，全新的后台管理系统，全新的用户体验。。BLA..BLA…BLA
+树洞外链是什么鬼？
+树洞外链是一款基于七牛云存储的开源PHP外链网盘系统。它既有外链的功能，又有网盘的分享功能，以匿名、简洁为主，无需注册，即传即用。先来介绍一下本次更新的亮点：
+
+更新亮点首先是首页，首页以简洁为主，去除了图片介绍，只留下能随鼠标飘...
     
 
         <a href="/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/" class="post-more waves-effect waves-button">
@@ -225,7 +296,14 @@
     
         &nbsp;
 
-Facerig是一款还在开发中的软件，...
+Facerig是一款还在开发中的软件，他可以通过摄像头实时捕获您的面部并处理成可爱的卡通形象，比如浣熊，甚至是Doge。这款软件在视频聊天室或实况直播中用处很大，能给人焕然一新的感觉。他不需要繁琐的设置，只需站在摄像头前，他就能自动捕获您的面部。&nbsp;
+
+视频演示
+
+
+然后是facerig支持的部分角色（我选了几个比较受欢迎并且比较2的）
+
+              ...
     
 
         <a href="/2015/07/28/e8-a3-85-e9-80-bc-e5-8d-96-e8-90-8c-e7-9b-b4-e6-92-ad-e7-a5-9e-e5-99-a8-facerig-e7-a0-b4-e8-a7-a3-e7-89-88-trashed/" class="post-more waves-effect waves-button">
@@ -272,7 +350,12 @@ Facerig是一款还在开发中的软件，...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Synthesia是一款出色的钢琴模拟软件，它可以将M...
+        Synthesia是一款出色的钢琴模拟软件，它可以将MID文件以生动逼真的效果演奏出来，也支持学习模式，不懂五线谱的人也可以轻松学习。最推荐的学习方式就是通过MIDI连接线将电子乐器连入电脑，然后对着屏幕演奏。Synthesia更出色的地方在于其音效逼真，键盘效果做的也很不错。
+初次激活：
+[
+                
+                    
+           ...
     
 
         <a href="/2015/05/23/e9-80-bc-e7-9c-9f-e7-9a-84-e6-a8-a1-e6-8b-9f-e9-92-a2-e7-90-b4-e5-ad-a6-e4-b9-a0-e8-bd-af-e4-bb-b6-synthesia-trashed/" class="post-more waves-effect waves-button">
@@ -319,7 +402,7 @@ Facerig是一款还在开发中的软件，...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        毕向东和马士兵是Java视频教程中比较出名的了，但后者...
+        毕向东和马士兵是Java视频教程中比较出名的了，但后者有点老了。这里给大家带来毕向东的25天视频教程百度云打包教程。看视频学Java关键是要动手敲代码，否则几乎无用!视频目录：day01-01-基本常识day01-02-Java的跨平台性day01-03-Java环境搭建(安装)day01-04-Java环境搭建(环境变量配置)day01-05-Java环境搭建(环境变量配置技巧)day01...
     
 
         <a href="/2015/04/05/e9-80-82-e5-90-88-e5-88-9d-e5-ad-a6-e8-80-85-e7-9a-84java-e8-a7-86-e9-a2-91-e6-95-99-e7-a8-8b-ef-bc-88-e6-af-95-e5-90-91-e4-b8-9c-ef-bc-89-e7-99-be-e5-ba-a6-e4-ba-91-e4-b8-8b-e8-bd-bd-trashed/" class="post-more waves-effect waves-button">
@@ -369,7 +452,10 @@ Facerig是一款还在开发中的软件，...
         先上海报：
 [
                 
-  ...
+                    
+                    
+                
+                20140911082523_NtNeL](https://aoaoao.me/wp-content/uploads/2015/02/20140911082523_NtNeL-673x1024....
     
 
         <a href="/2015/02/19/e3-80-90-e6-a0-91-e6-b4-9e-e9-a6-96-e5-8f-91-e3-80-91-e9-a5-a5-e9-a5-bf-e6-b8-b8-e6-88-8f3-ef-bc-9a-e5-98-b2-e7-ac-91-e9-b8-9f-ef-bc-88-e4-b8-8a-ef-bc-891080p-e9-ab-98-e6-b8-85-e4-b8-ad-trashed/" class="post-more waves-effect waves-button">
@@ -417,7 +503,7 @@ Facerig是一款还在开发中的软件，...
 
     
         
-有时候我们精心做好PPT后需要在别的电脑上放映，那么...
+有时候我们精心做好PPT后需要在别的电脑上放映，那么这台电脑也要安装Office软件，但大多数情况下我们需要的只是Powerpoint的放映功能，微软推出的PPT播放器PowerPoint Viewer 2010是很不错的选择，它几乎达到了完整Powerpoint放映应有的功能，强烈推荐！许多人，包括博主的老师都喜欢用WPS放映PPT。。这里给出WPS和PowerPoint Viewer ...
     
 
         <a href="/2015/01/24/e4-b8-8d-e8-a3-85office-e4-b9-9f-e8-83-bd-e6-94-be-e6-98-a0ppt-e7-9a-84-e7-a5-9e-e5-99-a8-powerpoint-viewer-2010-trashed/" class="post-more waves-effect waves-button">
@@ -465,7 +551,7 @@ Facerig是一款还在开发中的软件，...
 
     
         
-有时候我们可能会遇到这种情形：想要录制电脑系统发出的...
+有时候我们可能会遇到这种情形：想要录制电脑系统发出的声音，即内录。平时感觉这是一件很简单的事，但实际上操作时却傻眼了，根本录不下来啊，这种常用的功能声卡理应是支持的，为什么做不到呢？这是因为大部分声卡厂商在美国受到限制，即刻意去掉了内录功能以防止盗版歌曲。。但这确实带来许多不便。。Total Recorder可以完美解决这个问题，他通过创建虚拟声卡，把声音获取后传给物理声卡从而带内录。理论...
     
 
         <a href="/2015/01/24/e7-94-b5-e8-84-91-e5-a3-b0-e9-9f-b3-e5-86-85-e5-bd-95-e8-bd-af-e4-bb-b6-ef-bc-9atotal-recorder-e6-b1-89-e5-8c-96-e7-89-88-e5-b8-a6-e6-b3-a8-e5-86-8c-e7-a0-81-trashed/" class="post-more waves-effect waves-button">
@@ -513,7 +599,16 @@ Facerig是一款还在开发中的软件，...
 
     
         今天上自习时猛然发现今天是树洞分享成立1周年哎
-一年前...
+一年前的今天 本来只是玩玩的想法 真没想到能带来日1000+的IP
+一年前的今天已经放寒假了
+现在我还在苦X的准备期末考试
+一年前的第一篇文章：
+安徽移动20M宽带免费体验
+虽然这一年没多少文章。。甚至少的可怜
+有许多人鼓励，也有批评
+但这还是一个不错滴第一年
+:wink:
+
     
 
         <a href="/2015/01/24/e4-bb-8a-e5-a4-a9-e6-98-af-e6-a0-91-e6-b4-9e-e6-88-90-e7-ab-8b1-e5-91-a8-e5-b9-b4-e5-93-8e/" class="post-more waves-effect waves-button">
@@ -561,7 +656,17 @@ Facerig是一款还在开发中的软件，...
 
     
         树洞外链1.1版本发布，本次版本只针对七牛哦！
-升级细...
+升级细节：
+1.使用Javascript方式上传
+2.更完整的错误反馈
+3.新的界面UI
+4.支持拖拽上传、上传进度显示
+[
+                
+                    
+                    
+                
+                360截图2014102520120...
     
 
         <a href="/2014/11/01/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be1-1-e7-89-88-e6-9c-ac-e5-8f-91-e5-b8-83/" class="post-more waves-effect waves-button">
@@ -594,6 +699,15 @@ Facerig是一款还在开发中的软件，...
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
@@ -603,8 +717,10 @@ Facerig是一款还在开发中的软件，...
         </p>
     </div>
     <div class="bottom">
-        <p><span>Aaron Liu &copy; 2018</span>
+        <p><span>Aaron Liu &copy; 2015 - 2018</span>
             <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
@@ -617,21 +733,108 @@ Facerig是一款还在开发中的软件，...
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/page/7/&title=Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/page/7/&title=Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/page/7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Aaron's Blog&url=http://yoursite.com/page/7/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/page/7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvElEQVR42u3aQW4DIRAEQP//046UWw7G3bDgdVScLISWwocRM8PjEY/n70hmkpXj+QsGLi7uMvc5HC13fIDx98cGXFzc89xxoMk3zkPb+O94OY+Li3szbn6kMREXF/c/cfMNxutxcXG/hZsEmmS0QW1jroaLi7vAbQumO35vrO/i4uKW3Gc52qRoXFStd8fFxT3CzZsiSQIz12hp0yFcXNzd3HESkpc5kgOs3GRwcXFPctvNiovIwuGjwIqLi7uZO5mEBKWNuQbMm78PFxf3CDf5dP4Aay4g1tcmXFzcbdy82bmeLM11SR7tjQkXF3eZu94EnQt80QOslX4vLi7uAneuCdoeYKV08uebuLi4B7nrmdNcSQUXF/cbuXkykzdL2hlcXNzz3LmANXehqZslr9bg4uJu5ubXmhx3bYKEi4v7KW5bvsxTprnDvAlkuLi4R7htUaMtebRpUt2JxcXFvZTbBpQWMQ6Lc1crXFzcM9w8eLWhsH0EFh0YFxf3IDcvXrTvpi6+yuDi4t6Mm6/Z0XTBxcW9M3f9OddSwQUXF/cgtw0uV+HqsIiLi3uEO1cwbRu0cw87cHFxj3N/ALem/DNNhvilAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
 
 </script>
 
 <script src="/js/main.min.js?v=1.7.2"></script>
 
 
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
 
 
 
 
 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 

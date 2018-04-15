@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【译】十大（其实是八大）关于业余无线电台的树莓派应用 | Aaron&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="无线电,树莓派">
+    <meta name="description" content="译自原文：http://www.hamblog.co.uk/top-10-amateur-radio-uses-for-raspberry-pi/，删除了原文开头关于树莓派的基本介绍。本文有较多专业词汇，翻译不准确欢迎指出。 1. 解码数字信号树莓派支持使用外接USB声卡的音频输入来解码数字信号。实际上，您可以在树莓派上安装FLDigi软件，以解码各种信号数据模式，包括RTTY，PSK（相移键控）">
+<meta name="keywords" content="无线电,树莓派">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】十大（其实是八大）关于业余无线电台的树莓派应用">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/index.html">
+<meta property="og:site_name" content="Aaron&#39;s Blog">
+<meta property="og:description" content="译自原文：http://www.hamblog.co.uk/top-10-amateur-radio-uses-for-raspberry-pi/，删除了原文开头关于树莓派的基本介绍。本文有较多专业词汇，翻译不准确欢迎指出。 1. 解码数字信号树莓派支持使用外接USB声卡的音频输入来解码数字信号。实际上，您可以在树莓派上安装FLDigi软件，以解码各种信号数据模式，包括RTTY，PSK（相移键控）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/cq-macro.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/SDRsharp.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/sdr-radio-pi.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/TB17X4qGFXXXXcqXVXXXXXXXXXX_0-item_pic.jpg_400x400.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/2016-10-12_1228.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/3ee88-img_1521.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/828f3-wspr_dg6fl_us.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/28902144392_8cd36d57fe_z.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/wpbe22da83_05_06.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/APRS-radio-pi.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/08/Snipaste_2017-08-11_10-34-57.png">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】十大（其实是八大）关于业余无线电台的树莓派应用">
+<meta name="twitter:description" content="译自原文：http://www.hamblog.co.uk/top-10-amateur-radio-uses-for-raspberry-pi/，删除了原文开头关于树莓派的基本介绍。本文有较多专业词汇，翻译不准确欢迎指出。 1. 解码数字信号树莓派支持使用外接USB声卡的音频输入来解码数字信号。实际上，您可以在树莓派上安装FLDigi软件，以解码各种信号数据模式，包括RTTY，PSK（相移键控）">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2017/08/cq-macro.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Aaron Liu</h5>
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【译】十大（其实是八大）关于业余无线电台的树莓派应用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【译】十大（其实是八大）关于业余无线电台的树莓派应用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-10T18:48:04.000Z" itemprop="datePublished" class="page-time">
+  2017-08-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-解码数字信号"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 解码数字信号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-软件定义的无线电（SDR）"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 软件定义的无线电（SDR）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-弱信号传播报告器（WSPR）"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.弱信号传播报告器（WSPR）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-业余卫星追踪"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.业余卫星追踪</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-Digital-Voice-DV-热点"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. Digital Voice (DV) 热点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-自动位置报告系统"><span class="post-toc-number">6.</span> <span class="post-toc-text">6.自动位置报告系统</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-ADS-B-航班追踪"><span class="post-toc-number">7.</span> <span class="post-toc-text">7.ADS-B 航班追踪</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-天线转轴控制器"><span class="post-toc-number">8.</span> <span class="post-toc-text">8. 天线转轴控制器</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【译】十大（其实是八大）关于业余无线电台的树莓派应用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-11 02:48:04" datetime="2017-08-10T18:48:04.000Z"  itemprop="datePublished">2017-08-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>译自原文：<a href="http://www.hamblog.co.uk/top-10-amateur-radio-uses-for-raspberry-pi/" target="_blank" rel="noopener">http://www.hamblog.co.uk/top-10-amateur-radio-uses-for-raspberry-pi/</a>，删除了原文开头关于树莓派的基本介绍。本文有较多专业词汇，翻译不准确欢迎指出。</p>
+<h2 id="1-解码数字信号"><a href="#1-解码数字信号" class="headerlink" title="1. 解码数字信号"></a>1. 解码数字信号</h2><p>树莓派支持使用外接USB声卡的音频输入来解码数字信号。实际上，您可以在树莓派上安装FLDigi软件，以解码各种信号数据模式，包括RTTY，PSK（相移键控）和CW（如常见的摩尔斯电码）等等。这可能是我推荐给那些迫不及待想要进入树莓派世界的新手的第一个项目，你甚至可以<a href="http://photobyte.org/product/raspberry-pi-fldigi/" target="_blank" rel="noopener">从这里</a>购买已经安装好所需软件的SD卡以便快速开始。<br>一旦你成功解码了信号，你可以将收到的信号发送到Reverse Beacon Network，这在FLDigi配置中很容易完成。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/cq-macro.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="2-软件定义的无线电（SDR）"><a href="#2-软件定义的无线电（SDR）" class="headerlink" title="2. 软件定义的无线电（SDR）"></a>2. 软件定义的无线电（SDR）</h2><p>你可以使用树莓派、USB声卡、RTL适配器（某宝200rmb）搭建最廉价（也许）的SDR接收器，你可以接收到频率在25MHz-1800MHz间的信号，再将其连接到盘锥天线天线上，你就得到了一个非常强大的信号扫描器。</p>
+<p>你可以在Raspbian 上使用SDR# 软件来实现这一切。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/SDRsharp.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/sdr-radio-pi.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>更重要的是，你可以使用你的笔记本、平板电脑等设备在家中远程访问树莓派接收器。当然，你需要将树莓派连接至家庭网络，有两种方式可供选择：WiFi或物理网线。我推荐使用物理线缆以使链接更稳定。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/TB17X4qGFXXXXcqXVXXXXXXXXXX_0-item_pic.jpg_400x400.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>（某宝出售的SDR接收机，可连接树莓派）</p>
+<p>当然，也有将一切都准备就绪的SD卡出售，你可以<a href="http://photobyte.org/product/raspberry-pi-with-tightvnc-and-rtl-dongle-server/" target="_blank" rel="noopener">点击这里</a>购买。</p>
+<h2 id="3-弱信号传播报告器（WSPR）"><a href="#3-弱信号传播报告器（WSPR）" class="headerlink" title="3.弱信号传播报告器（WSPR）"></a>3.弱信号传播报告器（WSPR）</h2><p>树莓派的一个不可思议之处在于你可以使用GPIO接口输出频率在0-250MHz之间的射频信号。于是我们就拥有了一台强大的LF/MF/HF/VHF弱信号传播报告器。树莓派内部有晶体管可以做到这一点，虽然它需要在WsprryPi软件中进行校准，以确保其对WSPR的精确度。<br>树莓派提供了功率约为10mW的输出，没有较高的射频，但足以满足WSPR应用的需求。需要注意的是其输出的方波需要低通滤波器，你也需要一个稳压电源以确保其输出频率的稳定。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/2016-10-12_1228.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>&lt;译注&gt;简单理解就是，树莓派发出的无线电信号可能不强，而WSPR这个东西可以让你实时追踪你的信号传播到了世界的哪个位置。如下图的简单设备：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/3ee88-img_1521.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>使用WSPR追踪信号，竟然跨越了大西洋：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/828f3-wspr_dg6fl_us.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="4-业余卫星追踪"><a href="#4-业余卫星追踪" class="headerlink" title="4.业余卫星追踪"></a>4.业余卫星追踪</h2><p>这可能是你能掌握的最简单的树莓派项目。在你的树莓派上安装<a href="http://gpredict.oz9aec.net/" target="_blank" rel="noopener">GPredict</a>，你就拥有了一台强大的卫星追踪器，允许你实时追踪世界上任何能想象到的卫星（其实并不是= = ）。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/28902144392_8cd36d57fe_z.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>你能过滤所追踪卫星的种类，只需要选择你感兴趣的卫星，就能实时最终它的状态。你首先需要做的是把天线接到你的树莓派上。（上文提到的SDR接收机理论上也行）</p>
+<p>&lt;译注&gt;这里要安利一波哈工大研发的小型卫星紫丁香二号，其不仅开放指令，任何人都能追踪状态，甚至用它给地球拍照并回传图形，还针推业余无线电爱好者提供了免费的无线电中继服务。项目主页：<a href="http://lilacsat.hit.edu.cn/" target="_blank" rel="noopener">http://lilacsat.hit.edu.cn/</a></p>
+<h2 id="5-Digital-Voice-DV-热点"><a href="#5-Digital-Voice-DV-热点" class="headerlink" title="5. Digital Voice (DV) 热点"></a>5. Digital Voice (DV) 热点</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/wpbe22da83_05_06.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>将树莓派编程数字语音热点是另一个受欢迎的用法，有许多扩展组件能让你将树莓派变成D-STAR,Fusio,DMR网络接入点。树莓派能将互联网与射频信号无缝融合，不需要任何DV中继器。</p>
+<p>目前有两款扩展组件可供选择：</p>
+<ul>
+<li><a href="http://www.hamradio.co.uk/sdr-software-defined-radio-helitron/helitron/dv4mini-2m-usb-stick-for-d-star-dmr-and-c4fm-fusion-pd-6949.php" target="_blank" rel="noopener">DVD4Mini USB Dongle</a></li>
+<li><a href="http://www.dvmega.co.uk/RPI%20Dual%20Radio%20Adapter.html" target="_blank" rel="noopener"><span class="s2">DV-Mega Add On Board</span></a></li>
+</ul>
+<h2 id="6-自动位置报告系统"><a href="#6-自动位置报告系统" class="headerlink" title="6.自动位置报告系统"></a>6.自动位置报告系统</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/APRS-radio-pi.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>你可以将树莓派变成APRS（自动位置报告系统）Digipeater，以跟踪业余无线电爱好者的位置（包括你自己）。当你将HT连接到树莓派上后，你可以从电台中接受数据包并将其发送到APRS-IS（基于互联网的APRS网络），反之亦然。详细指南可参考<a href="https://github.com/wb2osz/direwolf/blob/master/doc/Raspberry-Pi-SDR-IGate.pdf" target="_blank" rel="noopener">RX only APRS I-Gate can be found here.</a></p>
+<h2 id="7-ADS-B-航班追踪"><a href="#7-ADS-B-航班追踪" class="headerlink" title="7.ADS-B 航班追踪"></a>7.ADS-B 航班追踪</h2><p>使用PiAware软件你可以实时追踪飞机上的 ADS-B（广播式自动相关监视）系统播报的航班信息。这能让你实时追踪你所在区域的飞机的位置，非常酷，我离伦敦希思罗机场不远，所以追踪到不少飞机，你可以在图中看到。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/08/Snipaste_2017-08-11_10-34-57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="8-天线转轴控制器"><a href="#8-天线转轴控制器" class="headerlink" title="8. 天线转轴控制器"></a>8. 天线转轴控制器</h2><p>这个应用我还没有尝试过，不过已经有一些使用树莓派控制天线的实验，比如<a href="https://jkry.org/ouluhack/PiRotator" target="_blank" rel="noopener">PiRotator</a> 。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>原作者列出的剩余两个应用与业余无线电无关，分别是游戏机与家庭媒体中心，相关文章有很多，就不再翻译了。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/" target="_blank" rel="external">http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
+            Aaron Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/无线电/">无线电</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/&title=《【译】十大（其实是八大）关于业余无线电台的树莓派应用》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/&title=《【译】十大（其实是八大）关于业余无线电台的树莓派应用》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【译】十大（其实是八大）关于业余无线电台的树莓派应用》 — Aaron's Blog&url=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/08/17/91-e5-b9-b4-e5-89-8d-e7-9a-84-e4-bb-8a-e5-a4-a9-ef-bc-8c-e6-97-b6-e9-97-b4-e5-bc-80-e5-a7-8b-e5-87-8f-e5-b0-91/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">91年前的今天，时间开始减少</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/07/03/e5-8d-9a-e5-ae-a2-e5-b7-b2-e6-90-ac-e8-bf-81-e8-87-b3linode/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">博客已搬迁至Linode</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "JNkuYcclWoNLMyxDVcGUpjNW-gzGzoHsz",
+            appKey: "n4zR68sN642keJeesjIt4w90",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢投食~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Aaron Liu &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/&title=《【译】十大（其实是八大）关于业余无线电台的树莓派应用》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/&title=《【译】十大（其实是八大）关于业余无线电台的树莓派应用》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【译】十大（其实是八大）关于业余无线电台的树莓派应用》 — Aaron's Blog&url=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/11/e3-80-90-e8-af-91-e3-80-91-e5-8d-81-e5-a4-a7-ef-bc-88-e5-85-b6-e5-ae-9e-e6-98-af-e5-85-ab-e5-a4-a7-ef-bc-89-e5-85-b3-e4-ba-8e-e4-b8-9a-e4-bd-99-e6-97-a0-e7-ba-bf-e7-94-b5-e5-8f-b0-e7-9a-84-e6-a0-91/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAW4AAAFuCAAAAACEya1TAAAGqUlEQVR42u3aQY7bQAwEQP//08k1wUJ2NzkSgrh0WthrjaZGhwbJ1yu+fv24rv6n/SRf6/3drr69umb3afcyvHDjxo0bN+4v5k4eK/82v/9me8nx57tO+NrnuXw23Lhx48aNG3fA/X6BZKvt5t//dnYws6iXH0l7T9y4cePGjRv3M9zt3210y0tOs+g2O+bkb9y4cePGjRv3v8CdxLs2YO0DZVLSauNsXt7CjRs3bty4cc+48xZXXgBqo1i+yTsi3ebYbulV4saNGzdu3F/JPQtb/h5S4saNGytu3LjjaDULNHkk2se4fNwnb6q15bbZhRs3bty4ceNO9psP2eTDOvvCUzsAlDTk2lLUrGH2oU2IGzdu3Lhx4774Vf6IbYFmHx/bptSp325Gfz7sCDdu3Lhx48a94G7jVF4Amg2+zApbbcFrFkPr5hlu3Lhx48aN+1DhaTPs0m74mULS5pUqimu4cePGjRs37oA7IdsP/eRY7RBPDr0vY832+FeJCjdu3Lhx48Zd1l5mJaQDC68jYDvE04bLPCYWYRQ3bty4cePG/WPOZFaUmZWx2sJW207LI+Nm/Khuy+HGjRs3bty4Y+48Bm2GbHKgNg7m40Qt5f7ZcOPGjRs3btw5d36LPIq1hap89U2gnEXDWbh85SePGzdu3Lhx447j4KaQ1I7CtIc3O/j2wGYtt8tXBzdu3Lhx48YdTNfkNPuhmeQO7W/3RaX8hdhERty4cePGjRv3e8/ZUEtOlo/R5PT7lyA/zs1YD27cuHHjxo17xr0JeXkYSsJZe1R54WxTfmoP/nVfpsaNGzdu3Lj/U+58+dmYyyxW5gNAbfOsLWzlpbEoyOLGjRs3bty445rP7KbtUMsd0bBdd988GxancOPGjRs3btxxzSQvVM0i4OwAZsM6s9g3O6QisOLGjRs3bty4A4d8w5tANouP+cG3d0teu7whV0Rn3Lhx48aNG3fA3ZZ72mA0a87lTannm2dtJMWNGzdu3Lhxv+fOUfLQkx9SezDPdxTzXRSjPLhx48aNGzfu4P6nmkabB23D2axstAmdbSDGjRs3bty4cbdjPcmwziai5a2sPCaeDa9JlHwtrr9KVLhx48aNGzfueM5kFnSScZbZYNBmSKhtnt3RRMSNGzdu3Lhxn+U+VSTKG1rt8+T0RcWuLJzVHUvcuHHjxo0b9w/ulqAtysyaZ0kUu4O7Hf0ZNs9w48aNGzdu3PGcSdsKmhVu8m/Plq42K86sPvQqcePGjRs3btwX3ZzNBvJY9n6tttSV32FWVtuEwqhQhRs3bty4ceP+47f5rfMGWPvt862vfaRrC3AFIm7cuHHjxv3F3PtHbEdzNoWwWSOtbe8lr92xJ8GNGzdu3Lhxj4pNbcOsLfTkd2i3OmuetdBFrxI3bty4cePGXc6Z5MWgX+XVPm5+z/bzPPydcsCNGzdu3Lhx51WjTRNrFij3bbA2orURM2/7tbvGjRs3bty4cbfc+5ZYvu1ZE6sthD3TPIuUcOPGjRs3btwj7nz5Fjcfx5kd293Nszw44saNGzdu3Lhb7g3QpkGVjwft22P5TjfjO3UwxY0bN27cuHFfdHOSQtWmpdQeVdtyaw9ydv/kyKMSFW7cuHHjxo37j/ucaiC1Qz/tKMwsFD7fPPughBs3bty4ceMOuM82ojaFoXZEZvOE++bZqj+JGzdu3Lhx4w5GUmY0+fJtc6ttTZ0qtOXr1s+DGzdu3Lhx4774ZBbmNgFuVkJKfpWHvLxpd0vzDDdu3Lhx48Ydz5nM4tcm8LWxLA9n7SGdatfhxo0bN27cuE9x55GoDWFt027WzGtbXEm5LT+kYY0NN27cuHHjxl22u9qNtQ+938yGcna0bSEMN27cuHHjxp1wt62sdsm2GdY+1ZOxb9ZWHG4MN27cuHHj/jLuWZy6Y0uz2LcZLZpF3vZuB9Irbty4cePG/cXc+UhN20LbYM2eNv8kj7CzViJu3Lhx48aNO+E+NVJzKki1Zab2V+2K7VF9WB03bty4cePG/Xn1OhreHRP3xaCWuD3azWuBGzdu3Lhx437/202T7MBoSxCtNm/NbIinDbX56A9u3Lhx48aNO+HOg07bl5sN1rSJtS1dnQq4tRtu3Lhx48aN+yj3e6DNeM2phlkLOhvryVfEjRs3bty4cT/PnRd6No/bltJmca0NhUlJCzdu3Lhx48adcyfbyAd5kzCXw81KUbPCUxscc0PcuHHjxo0b92LGpg6F7RjNfjBoU/yatQDbsDu8cOPGjRs37m/k/g1VlNE9lw0x8wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

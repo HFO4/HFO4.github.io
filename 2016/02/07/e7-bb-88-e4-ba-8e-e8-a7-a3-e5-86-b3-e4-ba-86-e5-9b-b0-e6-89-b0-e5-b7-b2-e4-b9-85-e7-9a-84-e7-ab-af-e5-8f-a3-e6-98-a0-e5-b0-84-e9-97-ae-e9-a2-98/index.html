@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>终于解决了困扰已久的端口映射问题 | Aaron&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="本来想开一个MC基友服，一切都很顺利，结果卡在了端口映射上。无论怎样设置都没法成功映射。到MCBBS上一查，好多腐竹用家庭网络开服都是卡在最后一步，端口映射上。各种教程、解决方案都无效，我又不想用第三方服务（net123什么的都是垃圾）.最后终于解决了，把我的解决过程分享下，需要的人可以参考一下 首先我家网络是电信宽带，我依稀记得2年前是能成功i映射的.2年前的设置与现在一模一样，路由器也没换，出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="终于解决了困扰已久的端口映射问题">
+<meta property="og:url" content="http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/index.html">
+<meta property="og:site_name" content="Aaron&#39;s Blog">
+<meta property="og:description" content="本来想开一个MC基友服，一切都很顺利，结果卡在了端口映射上。无论怎样设置都没法成功映射。到MCBBS上一查，好多腐竹用家庭网络开服都是卡在最后一步，端口映射上。各种教程、解决方案都无效，我又不想用第三方服务（net123什么的都是垃圾）.最后终于解决了，把我的解决过程分享下，需要的人可以参考一下 首先我家网络是电信宽带，我依稀记得2年前是能成功i映射的.2年前的设置与现在一模一样，路由器也没换，出">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/02/2015061611012665333.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/02/2345截图20160207123537.png">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="终于解决了困扰已久的端口映射问题">
+<meta name="twitter:description" content="本来想开一个MC基友服，一切都很顺利，结果卡在了端口映射上。无论怎样设置都没法成功映射。到MCBBS上一查，好多腐竹用家庭网络开服都是卡在最后一步，端口映射上。各种教程、解决方案都无效，我又不想用第三方服务（net123什么的都是垃圾）.最后终于解决了，把我的解决过程分享下，需要的人可以参考一下 首先我家网络是电信宽带，我依稀记得2年前是能成功i映射的.2年前的设置与现在一模一样，路由器也没换，出">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2016/02/2015061611012665333.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Aaron Liu</h5>
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">终于解决了困扰已久的端口映射问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">终于解决了困扰已久的端口映射问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-02-07T04:40:51.000Z" itemprop="datePublished" class="page-time">
+  2016-02-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">终于解决了困扰已久的端口映射问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-02-07 12:40:51" datetime="2016-02-07T04:40:51.000Z"  itemprop="datePublished">2016-02-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本来想开一个MC基友服，一切都很顺利，结果卡在了端口映射上。无论怎样设置都没法成功映射。到MCBBS上一查，好多腐竹用家庭网络开服都是卡在最后一步，端口映射上。各种教程、解决方案都无效，我又不想用第三方服务（net123什么的都是垃圾）.最后终于解决了，把我的解决过程分享下，需要的人可以参考一下</p>
+<p>首先我家网络是电信宽带，我依稀记得2年前是能成功i映射的.2年前的设置与现在一模一样，路由器也没换，出问题的只能是运营商。</p>
+<p>在刷新路由器管理页面是时，我看到了这个：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/02/2015061611012665333.png" alt="2015061611012665333" title="">
+                </div>
+                <div class="image-caption">2015061611012665333</div>
+            </figure>
+<p>这个ip地址理论上应该就是我的外网ip，然而它和百度获取的外网ip不一样：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/02/2345截图20160207123537.png" alt="2345截图20160207123537" title="">
+                </div>
+                <div class="image-caption">2345截图20160207123537</div>
+            </figure>
+<p>问题就出在这，我端口映射设置正确，但在公网上是和别人共享ip（目测是同一栋楼），因此无法映射</p>
+<p>解决方案：</p>
+<p>打电信客服10000</p>
+<p>“欢迎致电”直接按0切人工</p>
+<p>接通后，我记得我就和她说了两句话：</p>
+<p>“宽带账户0558XXX，户主XXX”</p>
+<p>“给我一个公网ip”</p>
+<p>10分钟后</p>
+<p>客服打来电话，说已经处理好了</p>
+<p>重启路由器</p>
+<p>果然，wan口ip变成公网ip了</p>
+<p>给电信点个赞</p>
+<p>&nbsp;</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/" target="_blank" rel="external">http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
+            Aaron Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/&title=《终于解决了困扰已久的端口映射问题》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/&title=《终于解决了困扰已久的端口映射问题》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《终于解决了困扰已久的端口映射问题》 — Aaron's Blog&url=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/02/08/e6-96-b0-e5-b9-b4-e5-bf-ab-e4-b9-90-ef-bc-81/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">新年快乐！</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/02/07/e5-8d-9a-e5-ae-a2-e6-90-ac-e8-bf-81-e8-87-b3-e7-be-8e-e5-9b-bd/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">博客搬迁至美国</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "JNkuYcclWoNLMyxDVcGUpjNW-gzGzoHsz",
+            appKey: "n4zR68sN642keJeesjIt4w90",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢投食~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Aaron Liu &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/&title=《终于解决了困扰已久的端口映射问题》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/&title=《终于解决了困扰已久的端口映射问题》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《终于解决了困扰已久的端口映射问题》 — Aaron's Blog&url=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/02/07/e7-bb-88-e4-ba-8e-e8-a7-a3-e5-86-b3-e4-ba-86-e5-9b-b0-e6-89-b0-e5-b7-b2-e4-b9-85-e7-9a-84-e7-ab-af-e5-8f-a3-e6-98-a0-e5-b0-84-e9-97-ae-e9-a2-98/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFSElEQVR42u3aQY4iMRAEQP7/afY6K6Yhs8qg1RJ9Gg3QtsNIVGf5douv+4/r+Xse359fj/e5uv/ViFdzfj5WsrrVhQ8fPnz48B0aJvlsMuJmVjn01YirdeHDhw8fPnwjvqQQaSedLCYvevK55QVN/qnL/+PDhw8fPnwf5Hu+sPb9yd1a4rz0wYcPHz58+P5Nvk2JkxQis1Fy6ORVfPjw4cOH7918s1h81jLf/z8va3L6t/c68OHDhw8fvgXH//334QsfPnz48OELfp7bwqIN3JNYYdZIaIub2YUPHz58+PCNNIqgPA8UZu88VTPkM2kLF3z48OHDh+8UXzJAQrkpYtpW+qrgKFsLRZscHz58+PDh6+Zflw7va5xvIPKNTMqpA81yfPjw4cP39XzJI3TeVJ79/OeI7bgtXP6Nw4cPHz58+DZ8+UTPTnfWRD8V1rdbfqCDgQ8fPnz4vp5vUzrkDeZZuDBr3m+Ih3E8Pnz48OHDV/7mnorac4J2Y/bH3dpwJJozPnz48OHDV/Ll4XUeH+SxeL49eZCxaTkMm/T48OHDhw/fgq+N1IthDoX1sxGT9+fly61dEj58+PDhwzcqWdqAIFleW4K0xcqHwnp8+PDhw4dv0SbfYOUom6h9uNTR9rwYFx8+fPjw4YvHbX/42/Z5W6zkx872LfxZQP/LKQN8+PDhw4ev7PNuno7zhnR+fG3WJKgPlgXzP3zhw4cPHz58Ac3sMFlSDM0i+FmzYRPWR6z48OHDhw9fwNeSzYjbJn0e0Oehf1JgrcJ6fPjw4cOHb9Hnzdvb+3KhjfvbECGPLY71OvDhw4cPH76gz7tvac/eM4vIT8UBm6YFPnz48OHDd5avLTvaQmfW2J6F9clXJN+GuteBDx8+fPjwxYfAkmW3RUmyjDaSaAusJP6IDt7hw4cPHz58C7725z8pTfLPbgqInDWfW1244MOHDx8+fN2ZsTqqng0zW2rbWmi3dhXW48OHDx8+fIFAUoLkYfd+im2TO3l1c7gtqvjw4cOHDx++RVgwCwLySbfxxCyCb8OLtvHwV+GCDx8+fPjwdWfGDoTX7WP/Pb5mD/95sXK4AYAPHz58+PAFfGdbwm0x1B5fayOPU5HEpQw+fPjw4cMXy7Rhd/t4v2mf58VTe5BuFmcMzwvgw4cPHz58ZSmQLLIFamP3fJRN6JAfDijOHeDDhw8fPnw/Ptu2jU8dYms7CUnBcTasx4cPHz58+N7Bl5csM7hZIdKG76eKrfpMAT58+PDhwzc6jpYM3D6W5//fh/XtPNsjApej4MOHDx8+fJNTWNFj+aZcSB7X9/fcgM42FR8+fPjw4Zvx7Q+B5az34JptWJuUzNoJq6wFHz58+PDhGz3SzwKCvDxKAoL9kbhNWB8VLvjw4cOHD9/Dp/IS5PlUZpF323rPY/T2/u2nVsPjw4cPH74v5muLgE3jvL3DrLGdhA77A3Mvvon48OHDhw/fxdxOLWN2n5Z73yAvCpFkdHz48OHDh2/EN3u0nk1rFrgnLfYDR83aOePDhw8fPnxrvvboWNtsbrch36q8wMqPwb3YZnz48OHDh6/ky6/8ONpswbPio311Fvq3XyZ8+PDhw4fvOd/sUTxvM7dlQb5Vm/sfK1zw4cOHDx++Ed+pxvOsHb4KzUeRwSYC+KVwwYcPHz58+N7Mt5l0G9PnTYJ8hvk8X8wEHz58+PDh+whfwtEubB/BJ/eZNRLeEhngw4cPH74v5kvKi/bV/bVffILbli/DNjk+fPjw4cM3iqfzNnMbKCQLbpvZdQSwni0+fPjw4cN3Mds/QP3tnelTFK0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

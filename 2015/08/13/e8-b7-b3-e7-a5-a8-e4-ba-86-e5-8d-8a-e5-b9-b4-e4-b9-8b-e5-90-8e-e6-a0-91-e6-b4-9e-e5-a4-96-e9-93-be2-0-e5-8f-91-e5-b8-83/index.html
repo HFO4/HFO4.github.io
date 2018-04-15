@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>修复Bug、优化细节-树洞外链2.1发布 | Aaron&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="树洞外链">
+    <meta name="description" content="原定于去年元旦发布。。跳票了大半年的树洞外链2.0终于发布了！全新的界面UI，全新的后台管理系统，全新的用户体验。。BLA..BLA…BLA 树洞外链是什么鬼？ 树洞外链是一款基于七牛云存储的开源PHP外链网盘系统。它既有外链的功能，又有网盘的分享功能，以匿名、简洁为主，无需注册，即传即用。先来介绍一下本次更新的亮点：  更新亮点首先是首页，首页以简洁为主，去除了图片介绍，只留下能随鼠标飘动的云">
+<meta name="keywords" content="树洞外链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="修复Bug、优化细节-树洞外链2.1发布">
+<meta property="og:url" content="http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/index.html">
+<meta property="og:site_name" content="Aaron&#39;s Blog">
+<meta property="og:description" content="原定于去年元旦发布。。跳票了大半年的树洞外链2.0终于发布了！全新的界面UI，全新的后台管理系统，全新的用户体验。。BLA..BLA…BLA 树洞外链是什么鬼？ 树洞外链是一款基于七牛云存储的开源PHP外链网盘系统。它既有外链的功能，又有网盘的分享功能，以匿名、简洁为主，无需注册，即传即用。先来介绍一下本次更新的亮点：  更新亮点首先是首页，首页以简洁为主，去除了图片介绍，只留下能随鼠标飘动的云">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/08/树洞外链-免费高速外链平台.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/08/树洞外链-免费高速15外链平台.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/08/文件上传成功-o_1a6sbepqu1gunfqr15r91lkb18eea.mp3-树洞外链.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/08/《从前的我》.mp4-树洞外链.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/08/管理面板首页-树洞外链管理中心.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/08/主题风格-树洞外链管理中心.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/08/基础设置-树洞外链管理中心.png">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.050Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="修复Bug、优化细节-树洞外链2.1发布">
+<meta name="twitter:description" content="原定于去年元旦发布。。跳票了大半年的树洞外链2.0终于发布了！全新的界面UI，全新的后台管理系统，全新的用户体验。。BLA..BLA…BLA 树洞外链是什么鬼？ 树洞外链是一款基于七牛云存储的开源PHP外链网盘系统。它既有外链的功能，又有网盘的分享功能，以匿名、简洁为主，无需注册，即传即用。先来介绍一下本次更新的亮点：  更新亮点首先是首页，首页以简洁为主，去除了图片介绍，只留下能随鼠标飘动的云">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2015/08/树洞外链-免费高速外链平台.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Aaron Liu</h5>
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">修复Bug、优化细节-树洞外链2.1发布</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">修复Bug、优化细节-树洞外链2.1发布</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-08-13T05:48:19.000Z" itemprop="datePublished" class="page-time">
+  2015-08-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新亮点"><span class="post-toc-number">1.</span> <span class="post-toc-text">更新亮点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新细节"><span class="post-toc-number">2.</span> <span class="post-toc-text">更新细节</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序下载"><span class="post-toc-number">3.</span> <span class="post-toc-text">程序下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-0-2-0-1更新至2-1"><span class="post-toc-number">4.</span> <span class="post-toc-text">2.0/2.0.1更新至2.1</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">修复Bug、优化细节-树洞外链2.1发布</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-08-13 13:48:19" datetime="2015-08-13T05:48:19.000Z"  itemprop="datePublished">2015-08-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>原定于去年元旦发布。。跳票了大半年的树洞外链2.0终于发布了！全新的界面UI，全新的后台管理系统，全新的用户体验。。BLA..BLA…BLA</p>
+<p>树洞外链是什么鬼？</p>
+<p>树洞外链是一款基于七牛云存储的开源PHP外链网盘系统。它既有外链的功能，又有网盘的分享功能，以匿名、简洁为主，无需注册，即传即用。<br>先来介绍一下本次更新的亮点：</p>
+</blockquote>
+<h2 id="更新亮点"><a href="#更新亮点" class="headerlink" title="更新亮点"></a>更新亮点</h2><p>首先是首页，首页以简洁为主，去除了图片介绍，只留下能随鼠标飘动的云：<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2015/08/树洞外链-免费高速外链平台.png" alt="树洞外链-免费高速外链平台](https://aoaoao.me/wp-content/uploads/2015/08/树洞外链-免费高速外链平台-1024x402.png)" title="">
+                </div>
+                <div class="image-caption">树洞外链-免费高速外链平台](https://aoaoao.me/wp-content/uploads/2015/08/树洞外链-免费高速外链平台-1024x402.png)</div>
+            </figure><br>然后是上传过程。修复了3大BUG，并且支持了手机端上传：<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2015/08/树洞外链-免费高速15外链平台.png" alt="树洞外链-免费高速15外链平台](https://aoaoao.me/wp-content/uploads/2015/08/树洞外链-免费高速15外链平台-1024x390.png)" title="">
+                </div>
+                <div class="image-caption">树洞外链-免费高速15外链平台](https://aoaoao.me/wp-content/uploads/2015/08/树洞外链-免费高速15外链平台-1024x390.png)</div>
+            </figure><br>文件详情页：优化了底部的UI，把各个功能整合成工具条，并且新增了文件管理、文件详情、还有文件分享！<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2015/08/文件上传成功-o_1a6sbepqu1gunfqr15r91lkb18eea.mp3-树洞外链.png" alt="文件上传成功 o_1a6sbepqu1gunfqr15r91lkb18eea.mp3 - 树洞外链](https://aoaoao.me/wp-content/uploads/2015/08/文件上传成功-o_1a6sbepqu1gunfqr15r91lkb18eea.mp3-树洞外链-1024x733.png)" title="">
+                </div>
+                <div class="image-caption">文件上传成功 o_1a6sbepqu1gunfqr15r91lkb18eea.mp3 - 树洞外链](https://aoaoao.me/wp-content/uploads/2015/08/文件上传成功-o_1a6sbepqu1gunfqr15r91lkb18eea.mp3-树洞外链-1024x733.png)</div>
+            </figure><br>说道分享功能，没错，文件可以创建分享链接。当然，这个比较烧流量，站长也可以在后台关闭这个功能<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2015/08/《从前的我》.mp4-树洞外链.png" alt="《从前的我》.mp4 - 树洞外链](https://aoaoao.me/wp-content/uploads/2015/08/《从前的我》.mp4-树洞外链-1024x540.png)" title="">
+                </div>
+                <div class="image-caption">《从前的我》.mp4 - 树洞外链](https://aoaoao.me/wp-content/uploads/2015/08/《从前的我》.mp4-树洞外链-1024x540.png)</div>
+            </figure><br>新增后台管理功能：<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2015/08/管理面板首页-树洞外链管理中心.png" alt="管理面板首页 - 树洞外链管理中心](https://aoaoao.me/wp-content/uploads/2015/08/管理面板首页-树洞外链管理中心-1024x582.png)" title="">
+                </div>
+                <div class="image-caption">管理面板首页 - 树洞外链管理中心](https://aoaoao.me/wp-content/uploads/2015/08/管理面板首页-树洞外链管理中心-1024x582.png)</div>
+            </figure><br>模板可以自由换了！！目前新模板正在开发中！<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2015/08/主题风格-树洞外链管理中心.png" alt="主题风格 - 树洞外链管理中心](https://aoaoao.me/wp-content/uploads/2015/08/主题风格-树洞外链管理中心-1024x484.png)" title="">
+                </div>
+                <div class="image-caption">主题风格 - 树洞外链管理中心](https://aoaoao.me/wp-content/uploads/2015/08/主题风格-树洞外链管理中心-1024x484.png)</div>
+            </figure><br>一键更新，更新真的很容易</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2015/08/基础设置-树洞外链管理中心.png" alt="基础设置 - 树洞外链管理中心](https://aoaoao.me/wp-content/uploads/2015/08/基础设置-树洞外链管理中心-1024x507.png)" title="">
+                </div>
+                <div class="image-caption">基础设置 - 树洞外链管理中心](https://aoaoao.me/wp-content/uploads/2015/08/基础设置-树洞外链管理中心-1024x507.png)</div>
+            </figure></p>
+<p><a name="gengxin"></a></p>
+<h2 id="更新细节"><a href="#更新细节" class="headerlink" title="更新细节"></a>更新细节</h2><p><strong>v2.1更新记录：</strong></p>
+<p><div>修复首页上传按钮逻辑错误</div></p>
+<p><div><strong>修复部分情况下文件扩展名获取错误</strong></div></p>
+<p><div><strong>修复部分情况下加密文件密码验证问题</strong></div></p>
+<p><div>修复二维码显示错误</div></p>
+<p><div>修复部分环境下上传400错误</div></p>
+<p><div>修复标题多出一个符号</div></p>
+<p><div><strong>详情页、分享页UI更新</strong></div></p>
+<p><div>更新模板机制</div></p>
+<p><div>更新检查更新机制</div></p>
+<p><div><strong>优化对PHP7的兼容</strong></div></p>
+<p><div>更新接口域名</div></p>
+<p><div>优化页脚样式</div></p>
+<p><div>后台前台Bootstrap文件分离</div><br><strong> v2.0 更新记录:</strong><br>Bug修复：<br>修复手机端无法上传<br>修复第一次上传出错后无法上传<br>修复部分注入漏洞<br>修复部分环境下无法获取Token<br>修复部分环境下无法上传<br>功能更新：<br>新增文件分享系统，可选择公开、私密分享<br>新增模板系统，自由切换主题风格<br>新增后台管理中心，管理网站更方便<br>新增数据统计模块<br>新增一键更新系统<br>新增公告管理<br>支持视频媒体上传<br>新增严格上传限制，让上传更安全<br>新增文件管理、查看文件详情<br>优化文件结构、代码，提高运行效率<br>全新简洁首页<br>优化详情页UI<br>更多细节优化等你发现！</p>
+<h2 id="程序下载"><a href="#程序下载" class="headerlink" title="程序下载"></a>程序下载</h2><p><span style="font-size: 12pt; color: #ff6600;"><strong>百度云下载： <a href="http://pan.baidu.com/s/1sk6qLch" title="http://pan.baidu.com/s/1qX1B05I" target="_blank" rel="noopener">http://pan.baidu.com/s/1qX1B05I</a> </strong></span></p>
+<p><span style="font-size: 12pt; color: #339966;"><strong>站长之家下载：<a href="http://down.chinaz.com/soft/36611.htm" title="http://down.chinaz.com/soft/36611.htm" target="_blank" rel="noopener">http://down.chinaz.com/soft/36611.htm</a></strong></span></p>
+<h2 id="2-0-2-0-1更新至2-1"><a href="#2-0-2-0-1更新至2-1" class="headerlink" title="2.0/2.0.1更新至2.1"></a>2.0/2.0.1更新至2.1</h2><p>对于2.0或2.0.1的用户可直接通过后台-在线更新更新至2.1.但要注意：更新时请耐心等待，未更新完就关闭页面可能会导致500错误！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-15T11:37:48.050Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/" target="_blank" rel="external">http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
+            Aaron Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树洞外链/">树洞外链</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/&title=《修复Bug、优化细节-树洞外链2.1发布》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/&title=《修复Bug、优化细节-树洞外链2.1发布》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《修复Bug、优化细节-树洞外链2.1发布》 — Aaron's Blog&url=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/08/14/e3-80-90-e9-95-bf-e6-9c-9f-e6-9b-b4-e6-96-b0-e3-80-91-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e4-bd-bf-e7-94-a8-e5-b8-b8-e8-a7-81-e9-97-ae-e9-a2-98-e8-a7-a3-e7-ad-94/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【长期更新】树洞外链使用常见问题解答</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/07/28/e8-a3-85-e9-80-bc-e5-8d-96-e8-90-8c-e7-9b-b4-e6-92-ad-e7-a5-9e-e5-99-a8-facerig-e7-a0-b4-e8-a7-a3-e7-89-88-trashed/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">装逼卖萌直播神器-Facerig破解版</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "JNkuYcclWoNLMyxDVcGUpjNW-gzGzoHsz",
+            appKey: "n4zR68sN642keJeesjIt4w90",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢投食~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Aaron Liu &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/&title=《修复Bug、优化细节-树洞外链2.1发布》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/&title=《修复Bug、优化细节-树洞外链2.1发布》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《修复Bug、优化细节-树洞外链2.1发布》 — Aaron's Blog&url=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2015/08/13/e8-b7-b3-e7-a5-a8-e4-ba-86-e5-8d-8a-e5-b9-b4-e4-b9-8b-e5-90-8e-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-0-e5-8f-91-e5-b8-83/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEf0lEQVR42u3aS27bQBAFQN3/0s46sGW/103BHLm4CgyR4pQC9PfxiK+PT9ezv3//mWdPTr7x8yfzN/n8yccrLkyYMGHCdEum2VFnL93Cff8tOfoMFxMmTJgwvRNT/rota86UEySUeRoRcWPChAkTpj/GtEkLogBcHrh9H0yYMGHChGlfgu5bqwlTC40JEyZMmP4mU/64tpjME4u2lZy3ejfjWEyYMGHCdDpTHpjf798XX5gwYcKE6WZM+yZs22DN28H7InnTbv7vCZgwYcKE6VimtpjcrODsD5+jtOV09L2YMGHChOlYpquGiPlKaBuM909Ohqx1GoQJEyZMmG7PlEC0yz1tkdzetRmdtoVxkZVgwoQJE6ZbMuWv0jK1YThPRGaUyX+FYvCJCRMmTJgOYcpfJWfKIfaj0NmT8xSh7lhjwoQJE6ZbMs1C5ibEtuPJvDmbPLMtmDFhwoQJ07lM+YJLO5LcF6uzUWt+V1vkY8KECROmE5naF5otvsyO3S4M5fTtvZgwYcKE6f2Y2nB77Vg0KW7bsjb/qb74CyZMmDBhegum9iU2I8lZIpIPUzdLPF98LyZMmDBhOpypXabJQ2xbiM7K42tbyU+bvJgwYcKE6UCmtgTdHDsps/OEY7amk5fTmDBhwoTpPZiS5ulsdWb4Ky1QZsV2lBJhwoQJE6ZjmZJQuhkWzpKJ/cJQ3jLO0wVMmDBhwnQi0yZs70Ps7LvakeqslXxZdoMJEyZMmH6VKS9Z2+Jzk1jM1nGS1ZyrhqOYMGHChOlEpk3w3gfmTZjPW9L7c2HChAkTphOZ8tDeHvUV6UX7Q7bnevpMTJgwYcJ0ONOjvNric9N4nf1lc64oY8KECRMmTLdnapc794E5f84s5G/C/9PPY8KECROmY5k2gfmyfKQ8avL5Tbu56IJjwoQJE6YDmfIlmxn0rDBO7qqbtt+eNyqAMWHChAnTUUyz9dCkQE2KzNkA8iroaJUHEyZMmDAdy5SkBa8LwPtUIw/tbbpTF8CYMGHChOmWTJtF0tm9V7WAi0DeBv5NKoAJEyZMmG7DlI8Jr2rRtk9og3f+5sXnMWHChAnT4UwXLLWUNLOFm7y0zgvpKHHBhAkTJkzHMs2GiFeVnTOIFrQt46NxJiZMmDBhOoRpNj5s11/yY+d3bVq9w80mTJgwYcJ0LFM7gGwL103J2gb1WRlf9MIxYcKECdOBTPlXtslBcvh8iSfn3rSVf+iFY8KECROmY5nawrIN6i1HW4EmrerhT4gJEyZMmI5laoE25e7mmh2+bfsWb4sJEyZMmA5h+iivWYm7b9fOVkvbn/wpOiZMmDBhOpbpFSE5B5rduz/MxTSYMGHChOn2TEkS0B4peX7bVp6tAc3Ke0yYMGHC9H5MeeCcFaX7Jm9Lv8+GitkvJkyYMGF6O6ZN6du2aHOsTeCPlnUwYcKECdMfYMoHgflwNIFry9q2Vf3De2LChAkTpsOZrhoczhZo9qlD3mhuExFMmDBhwnQ602zZpcVt+fKqM08C2jQFEyZMmDAdzvQPpMnJKul69NAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

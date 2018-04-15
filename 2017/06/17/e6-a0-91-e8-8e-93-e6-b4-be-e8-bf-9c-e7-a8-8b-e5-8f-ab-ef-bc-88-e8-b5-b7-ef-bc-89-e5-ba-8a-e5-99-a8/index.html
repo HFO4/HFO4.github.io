@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>树莓派远程叫起床器 | Aaron&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,树莓派">
+    <meta name="description" content="此叫床器大概功能就是实现在网页端远程给我发送摩斯电码或者语音，我家的树莓派收到后会大声播放出来。体验地址：https://aoaoao.me/rasp 网页部分截图如下：                                                                                                            实际执行效果我">
+<meta name="keywords" content="python,树莓派">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派远程叫起床器">
+<meta property="og:url" content="http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/index.html">
+<meta property="og:site_name" content="Aaron&#39;s Blog">
+<meta property="og:description" content="此叫床器大概功能就是实现在网页端远程给我发送摩斯电码或者语音，我家的树莓派收到后会大声播放出来。体验地址：https://aoaoao.me/rasp 网页部分截图如下：                                                                                                            实际执行效果我">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/06/NZL7E4H03YFHQVD3.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2017/06/QQ截图20170617082001.png">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派远程叫起床器">
+<meta name="twitter:description" content="此叫床器大概功能就是实现在网页端远程给我发送摩斯电码或者语音，我家的树莓派收到后会大声播放出来。体验地址：https://aoaoao.me/rasp 网页部分截图如下：                                                                                                            实际执行效果我">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2017/06/NZL7E4H03YFHQVD3.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Aaron Liu</h5>
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">树莓派远程叫起床器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">树莓派远程叫起床器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-17T01:01:21.000Z" itemprop="datePublished" class="page-time">
+  2017-06-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#硬件部分"><span class="post-toc-number">1.</span> <span class="post-toc-text">硬件部分</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#软件部分"><span class="post-toc-number">2.</span> <span class="post-toc-text">软件部分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语音播报"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">语音播报</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#收到的内容"><span class="post-toc-number">3.</span> <span class="post-toc-text">收到的内容</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">树莓派远程叫起床器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-17 09:01:21" datetime="2017-06-17T01:01:21.000Z"  itemprop="datePublished">2017-06-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>此<del datetime="2017-06-17T00:01:39+00:00">叫床器</del>大概功能就是实现在网页端远程给我发送摩斯电码或者语音，我家的树莓派收到后会大声播放出来。体验地址：<a href="https://aoaoao.me/rasp" target="_blank" rel="noopener">https://aoaoao.me/rasp</a></p>
+<p>网页部分截图如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/06/NZL7E4H03YFHQVD3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>实际执行效果我拍成视频传到秒拍了：<a href="http://www.miaopai.com/show/aEiPEgybaIkkK6-6~4Uf3zaaPmzKtCnv.htm" target="_blank" rel="noopener">http://www.miaopai.com/show/aEiPEgybaIkkK6-6~4Uf3zaaPmzKtCnv.htm</a></p>
+<h2 id="硬件部分"><a href="#硬件部分" class="headerlink" title="硬件部分"></a>硬件部分</h2><p>硬件部分非常简单，只是一个树莓派接了一个扬声器：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2017/06/QQ截图20170617082001.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="软件部分"><a href="#软件部分" class="headerlink" title="软件部分"></a>软件部分</h2><h3 id="语音播报"><a href="#语音播报" class="headerlink" title="语音播报"></a>语音播报</h3><p>语音播报使用的是百度翻译的TTS api，效果还不错，接口URL为：<code>http://tts.baidu.com/text2audio?lan=zh&amp;amp;ie=UTF-8&amp;amp;spd=3&amp;amp;text=</code> 树莓派获取到用户输入的文字后，使用此API转换为音频，保存后播放出。这里我使用pygame库来播放MP3，可能是因为采样率还是什么的没设置好，所以播放出来的音频是加快的，也就是视频中那个滑稽的声音。<br>此部分代码：</p>
+<pre><code># -*- coding: UTF-8 -*-
+import sys
+import pygame
+import time
+import requests
+s = time.time()
+r = requests.get(&quot;http://tts.baidu.com/text2audio?lan=zh&amp;amp;ie=UTF-8&amp;amp;spd=3&amp;amp;text=&quot;+str(sys.$
+with open(str(s)+&quot;.mp3&quot;, &quot;wb&quot;) as code:
+    code.write(r.content)
+pygame.mixer.init()
+pygame.mixer.music.load(str(s)+&quot;.mp3&quot;)
+pygame.mixer.music.play()
+while pygame.mixer.music.get_busy():
+        i=1
+`&lt;/pre&gt;
+
+### 摩斯电码播报
+
+原本打算使用Python直接发出特定频率的声音，在Windows下试验成功但在Linux下在发现winsound这个发声库只能在win下工作。所以我采用了一种笨拙的方式：生成一段600Hz的音频，使用pygame播放这段音频，通过调整音量来实现“滴答”的效果。似乎是因为Python本身的执行速率问题，如果将发生间隔设置太短，人的主观感受就是一直在响，所以最终的播报还是比较缓慢的，不太像正宗的发报机的声音。
+代码如下：
+&lt;pre class=&quot;language-python&quot;&gt;`import pygame
+import time
+import sys
+pygame.mixer.init()
+pygame.mixer.music.load(&quot;/home/dot.mp3&quot;)
+time.sleep(2)
+pygame.mixer.music.play()
+pygame.mixer.music.set_volume(0)
+t=str(sys.argv[1])
+for letter in t:
+        if letter == &quot;.&quot;:
+                pygame.mixer.music.set_volume(1)
+                time.sleep(0.2)
+                pygame.mixer.music.set_volume(0)
+                time.sleep(0.3)
+        elif letter == &quot;-&quot;:
+                pygame.mixer.music.set_volume(1)
+                time.sleep(0.4)
+                pygame.mixer.music.set_volume(0)
+                time.sleep(0.2)
+        else:
+                time.sleep(1)
+</code></pre><h2 id="收到的内容"><a href="#收到的内容" class="headerlink" title="收到的内容"></a>收到的内容</h2><p><del>如果我闲的话，会把收到的内容在这更新(～￣▽￣)～</del></p>
+<ul>
+<li>苟利国家生死以</li>
+<li>所以，这是啥</li>
+<li>好好学习</li>
+<li>哈哈哈哈哈哈</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/" target="_blank" rel="external">http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
+            Aaron Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/&title=《树莓派远程叫起床器》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/&title=《树莓派远程叫起床器》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派远程叫起床器》 — Aaron's Blog&url=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/19/e7-94-a8-e6-a0-91-e8-8e-93-e6-b4-be-e6-8e-a8-e6-b5-81b-e7-ab-99-e7-9b-b4-e6-92-ad-e6-90-ad-e5-bb-ba-e7-9a-84-e8-87-aa-e5-8a-a9mv-e7-82-b9-e6-ad-8c-e5-8f-b0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">用树莓派推流B站直播搭建的自助MV点歌台</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/08/e6-88-91-e8-bf-98-e6-b4-bb-e7-9d-80/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">我还活着</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "JNkuYcclWoNLMyxDVcGUpjNW-gzGzoHsz",
+            appKey: "n4zR68sN642keJeesjIt4w90",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢投食~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Aaron Liu &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/&title=《树莓派远程叫起床器》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/&title=《树莓派远程叫起床器》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派远程叫起床器》 — Aaron's Blog&url=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/06/17/e6-a0-91-e8-8e-93-e6-b4-be-e8-bf-9c-e7-a8-8b-e5-8f-ab-ef-bc-88-e8-b5-b7-ef-bc-89-e5-ba-8a-e5-99-a8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEgElEQVR42u3aW27iQBAF0Ox/08wCMsC9VUZyk+OvSIC7fRyp6/XzE1+PX1f+nd9/P/v02X2erZuskqx42YUJEyZMmG7JlGzrEVyvt558mn+zXff1nZNXggkTJkyYTme6aqOvD+8ksGjhkrXaV4UJEyZMmDDtk89NOp0EHLPEGxMmTJgwYWoP/tdhxKa4PIPGhAkTJkx/k2lWus23OEubkyM/echZ8RoTJkyYMH0H01UF1hP//sh8EyZMmDBhug3To7zyI39/MF8bXmwuTJgwYcJ0LlObTM42tA9EXq/bvrD2eTFhwoQJ0+lMs1JvPigzK+Mm6G25Nm+LYsKECROm72Bqm4WzIZikCTo7pDcvaZX0YsKECROmQ5jaoZwWJU9E2+O/pUxKw29WwYQJEyZMxzLNHjsvsOYNy9nkzOyxh8ENJkyYMGE6imlTxr326J2VdD/xX/OfTzFhwoQJ07FM7ZGcHO2zhdv0Owkv8l/tB4wwYcKECdM9mZJlklvPWpWzgnKeALeJ+puuLyZMmDBhOpApDwLasGC2uVljMk/U97vChAkTJkzfwZSnl21w0B7bs8bqLDRpnxoTJkyYMJ3FtDnak1+1Q0JtczEpPbdBzLDgiwkTJkyYbsPUlkQ3QzCzx2sHd1qOKLXGhAkTJkyHM+WbmA3xtG3CfBioTYNnYQQmTJgwYTqXKVly1m5sE+n969m8yKg8jQkTJkyYvoLpZ3S1yXC+Vju+M6xwJ3vDhAkTJkzHMrXp5SxBnaXQs3smB3/7AjBhwoQJ04lMs7RwljDPkuFNibZ9VU93hQkTJkyYDmfKi7ZtupinvhvczYBOIoAJEyZMmM5l2hReW6z9EE/7q7Zs/WZvmDBhwoTpQKbkATatxwSr/c6m/ZnvoX7PmDBhwoTplkyzVl++iTakiFLQ8jv7l4oJEyZMmM5lajeUF1U3BdlZ0jucV0r+UTBhwoQJ0+FM+yXb1uAjvnLiNuwokm1MmDBhwvR1TFcNx2wCguRXeQDRFnmjgAATJkyYMB3CNGthbtLRT/DtKZ+uiAkTJkyYjmXKF84fLz+M20AkJ0juMGzKYsKECROmA5nysukmLMgfb0OwD2tWpV5MmDBhwnR7pjxZze8wS4PbR23DmnrQBxMmTJgwHcvUPnxb3m3T3bw4247ytGEHJkyYMGH6Jqb2aJ/dYVau/VwC3Ja2MWHChAnTWUyvD9p8i23xt/00J8jDiGEjExMmTJgwHcvUHpP7YZ024GgbnC36008xYcKECdOxTAlQnhLXi43Gg2aBy8UFX0yYMGHCdAjTo7zyIZs26Z2xzvZfJ9KYMGHChOlYpv2RvEmVZ8XZ4ajNohCMCRMmTJhOZ9qMv+Tp8ay02gYis2Gd6LeYMGHChOlwppagbTHmBeJkh0ly3q74hgwTJkyYMP0ZpjZJvrZh2a61D24wYcKECdNfY8qLsG2bcx9MzMZ6opeECRMmTJgOZ5oNu6zKpnFDsW1wJuj1y8CECRMmTMcyzcqs1zYX8zvPCsTtaNHwwoQJEyZM92L6B3Bv6BkkHKCkAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

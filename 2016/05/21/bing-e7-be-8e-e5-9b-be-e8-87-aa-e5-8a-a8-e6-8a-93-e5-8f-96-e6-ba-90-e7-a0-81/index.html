@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Bing美图自动抓取源码 | Aaron&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="本来想做成一个Bing美图的主题站的，后来发现网上已经有成熟的了。于是把自己写的自动抓取Bing美图的Python脚本放出   支持Bing中国版和Bing国际版 支持采集国际版的动态背景(已死，原因不明) 图像，介绍都可传到七牛 图像简介，搜索链接可存入MySQL数据库使用前请先安装七牛sdk：pip install qiniu和MySQLdb中国版采集： #!/usr/bin/pythoni">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bing美图自动抓取源码">
+<meta property="og:url" content="http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/index.html">
+<meta property="og:site_name" content="Aaron&#39;s Blog">
+<meta property="og:description" content="本来想做成一个Bing美图的主题站的，后来发现网上已经有成熟的了。于是把自己写的自动抓取Bing美图的Python脚本放出   支持Bing中国版和Bing国际版 支持采集国际版的动态背景(已死，原因不明) 图像，介绍都可传到七牛 图像简介，搜索链接可存入MySQL数据库使用前请先安装七牛sdk：pip install qiniu和MySQLdb中国版采集： #!/usr/bin/pythoni">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bing美图自动抓取源码">
+<meta name="twitter:description" content="本来想做成一个Bing美图的主题站的，后来发现网上已经有成熟的了。于是把自己写的自动抓取Bing美图的Python脚本放出   支持Bing中国版和Bing国际版 支持采集国际版的动态背景(已死，原因不明) 图像，介绍都可传到七牛 图像简介，搜索链接可存入MySQL数据库使用前请先安装七牛sdk：pip install qiniu和MySQLdb中国版采集： #!/usr/bin/pythoni">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Aaron Liu</h5>
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Bing美图自动抓取源码</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Bing美图自动抓取源码</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-05-21T11:31:03.000Z" itemprop="datePublished" class="page-time">
+  2016-05-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Bing美图自动抓取源码</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-05-21 19:31:03" datetime="2016-05-21T11:31:03.000Z"  itemprop="datePublished">2016-05-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>本来想做成一个Bing美图的主题站的，后来发现网上已经有成熟的了。于是把自己写的自动抓取Bing美图的Python脚本放出</p>
+</blockquote>
+<ul>
+<li>支持Bing中国版和Bing国际版</li>
+<li><del datetime="2016-06-09T02:48:07+00:00">支持采集国际版的动态背景</del>(已死，原因不明)</li>
+<li>图像，介绍都可传到七牛</li>
+<li><p>图像简介，搜索链接可存入MySQL数据库<br>使用前请先安装七牛sdk：<code>pip install qiniu</code>和MySQLdb<br>中国版采集：</p>
+<p>#!/usr/bin/python<br>import urllib2<br>import json<br>import time<br>import MySQLdb<br>from qiniu import Auth, put_file, etag, urlsafe_base64_encode, BucketManager<br>import qiniu.config<br>def imgDownload():</p>
+<pre><code>print &quot;Loaing json data from bing...&quot;
+jsonContent = urllib2.urlopen(&apos;http://cn.bing.com/HPImageArchive.aspx?format=js&amp;amp;idx=0&amp;amp;n=1&amp;amp;&amp;amp;pid=hp&apos;)
+jsonData = jsonContent.read()
+s = json.loads(jsonData)
+imageUrl = s[&apos;images&apos;][0][&apos;url&apos;]
+print &quot;Downloading image...&quot;
+imgData = urllib2.urlopen(imageUrl)
+imgWrite = imgData.read() 
+fileName= time.strftime(&quot;%Y%m%d&quot;, time.localtime())
+with open(&quot;/home/bing/bing.jpg&quot;, &quot;wb&quot;) as code:     
+       code.write(imgWrite)
+   with open(&quot;/home/bing/info.json&quot;, &quot;wb&quot;) as code:     
+       code.write(jsonData)
+   conn=MySQLdb.connect(host=&apos;127.0.0.1&apos;,user=&apos;root&apos;,passwd=&apos;root&apos;,port=3306,read_default_file=&quot;/tmp/mysql.sock&quot;)
+cur=conn.cursor()     
+conn.select_db(&apos;hdlcom_diao&apos;)
+cur.execute(&apos;SET NAMES utf8;&apos;)
+dis = s[&apos;images&apos;][0][&apos;copyright&apos;].encode(&apos;utf-8&apos;)
+se =s[&apos;images&apos;][0][&apos;copyrightlink&apos;].encode(&apos;utf-8&apos;)
+videoUrl = &apos;&apos;
+value=[fileName,&apos;cn&apos;,dis,se,imageUrl,videoUrl,&apos;false&apos;]
+cur.execute(&apos;insert into bing(`date`, `area`, `info`, `search`, `img`, `vid`, `video`) values(%s,%s,%s,%s,%s,%s,%s)&apos;,value)
+conn.commit()
+cur.close()
+conn.close()
+</code></pre><p>def upToQiniu():</p>
+<pre><code>print &quot;Uploaing image to qiniu...&quot;
+access_key = &apos;&apos;
+secret_key = &apos;&apos;
+q = Auth(access_key, secret_key)
+bucket_name = &apos;空间名&apos;
+key = &apos;bing.jpg&apos;;
+bucket = BucketManager(q)
+print &quot;Deleting old image...&quot;
+ret, info = bucket.delete(bucket_name, key)
+assert ret == {}
+print &quot;Uploading images to qiniu...&quot;
+fileName= time.strftime(&quot;%Y%m%d&quot;, time.localtime())
+token = q.upload_token(bucket_name, key, 3600)
+localfile = &apos;/home/bing/bing.jpg&apos;
+ret, info = put_file(token, key, localfile)
+token1 = q.upload_token(bucket_name, fileName+&quot;_cn.jpg&quot;, 3600)
+localfile1 = &apos;/home/bing/bing.jpg&apos;
+ret1, info1 = put_file(token1, fileName+&quot;_cn.jpg&quot;, localfile1)
+token2 = q.upload_token(bucket_name, fileName+&quot;_cn.json&quot;, 3600)
+localfile2 = &apos;/home/bing/info.json&apos;
+ret1, info1 = put_file(token2, fileName+&quot;_cn.json&quot;, localfile2)
+assert ret[&apos;key&apos;] == key
+assert ret[&apos;hash&apos;] == etag(localfile)
+</code></pre><p>imgDownload()<br>upToQiniu()<br><code>&lt;/pre&gt;
+国际版采集：
+&lt;pre class=&quot;lang:python decode:true&quot; title=&quot;国际版 &quot;&gt;</code>#!/usr/bin/python</p>
+<p>import urllib2<br>import json<br>import time<br>import MySQLdb<br>from qiniu import Auth, put_file, etag, urlsafe_base64_encode, BucketManager<br>import qiniu.config<br>def imgDownload():</p>
+<pre><code>print &quot;Loaing json data from bing...&quot;
+jsonContent = urllib2.urlopen(&apos;http://global.bing.com/HPImageArchive.aspx?format=js&amp;amp;idx=-1&amp;amp;n=1&amp;amp;pid=hp&amp;amp;FORM=HPCNEN&amp;amp;setmkt=en-us&amp;amp;setlang=en-us&amp;amp;video=1&apos;)
+jsonData = jsonContent.read()
+s = json.loads(jsonData)
+try:
+    videoUrl =  &quot;http:&quot;+s[&apos;images&apos;][0][&apos;vid&apos;][&apos;sources&apos;][1][2]
+    video = &apos;true&apos;
+except:
+    video = &apos;false&apos;
+finally:
+    videoUrl=&apos;&apos;
+    imageUrl =  &quot;http://global.bing.com/&quot;+s[&apos;images&apos;][0][&apos;url&apos;]
+print &quot;Downloading image...&quot;
+imgData = urllib2.urlopen(imageUrl)
+imgWrite = imgData.read() 
+with open(&quot;/home/bing/bing.jpg&quot;, &quot;wb&quot;) as code:     
+       code.write(imgWrite)
+   with open(&quot;/home/bing/info.json&quot;, &quot;wb&quot;) as code:     
+       code.write(jsonData)
+   if (video == &apos;true&apos;):
+       print videoUrl
+       vidData = urllib2.urlopen(videoUrl)
+    vidWrite = vidData.read()
+    with open(&quot;/home/bing/bing.mp4&quot;, &quot;wb&quot;) as code:     
+           code.write(vidWrite)
+print &quot;Uploaing image to qiniu...&quot;
+access_key = &apos;AK&apos;
+secret_key = &apos;SK-&apos;
+q = Auth(access_key, secret_key)
+bucket_name = &apos;空间名&apos;
+key = &apos;/home/bing/bing_en.jpg&apos;;
+bucket = BucketManager(q)
+print &quot;Uploading images to qiniu...&quot;
+fileName= time.strftime(&quot;%Y%m%d&quot;, time.localtime())
+token1 = q.upload_token(bucket_name, fileName+&quot;_en.jpg&quot;, 3600)
+localfile1 = &apos;/home/bing/bing.jpg&apos;
+ret1, info1 = put_file(token1, fileName+&quot;_en.jpg&quot;, localfile1)
+token2 = q.upload_token(bucket_name, fileName+&quot;_en.json&quot;, 3600)
+localfile2 = &apos;/home/bing/info.json&apos;
+ret2, info2 = put_file(token2, fileName+&quot;_en.json&quot;, localfile2)
+if(video == &apos;true&apos;):
+    token3 = q.upload_token(bucket_name, fileName+&quot;_en.mp4&quot;, 3600)
+    localfile3 = &apos;/home/bing/bing.mp4&apos;
+    ret2, info2 = put_file(token3, fileName+&quot;_en.mp4&quot;, localfile3)
+conn=MySQLdb.connect(host=&apos;127.0.0.1&apos;,user=&apos;root&apos;,passwd=&apos;root&apos;,port=3306,read_default_file=&quot;/tmp/mysql.sock&quot;)
+cur=conn.cursor()     
+conn.select_db(&apos;hdlcom_diao&apos;)
+dis = s[&apos;images&apos;][0][&apos;copyright&apos;]
+se =s[&apos;images&apos;][0][&apos;copyrightlink&apos;]
+value=[fileName,&apos;en&apos;,dis,se,imageUrl,videoUrl,video]
+cur.execute(&apos;insert into bing(`date`, `area`, `info`, `search`, `img`, `vid`, `video`) values(%s,%s,%s,%s,%s,%s,%s)&apos;,value)
+conn.commit()
+cur.close()
+conn.close()
+</code></pre><p>imgDownload()</p>
+</li>
+</ul>
+<p>注意：使用前请先更改代码中的七牛ak，sk，空间名，MySQL帐号,图像储存的绝对路径<br>数据库结构如下</p>
+<pre title="sql">`
+CREATE TABLE IF NOT EXISTS `bing` (
+  `id` int(11) NOT NULL,
+  `date` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `area` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `info` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `search` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `img` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `vid` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `video` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bing`
+--
+ALTER TABLE `bing`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bing`
+--
+ALTER TABLE `bing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+`
+</pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/" target="_blank" rel="external">http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
+            Aaron Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/&title=《Bing美图自动抓取源码》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/&title=《Bing美图自动抓取源码》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Bing美图自动抓取源码》 — Aaron's Blog&url=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/06/07/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-4-e5-8f-91-e5-b8-83/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">树洞外链2.4发布</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/05/13/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e6-9b-b4-e6-96-b0-e8-87-b32-3/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">树洞外链更新至2.3</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "JNkuYcclWoNLMyxDVcGUpjNW-gzGzoHsz",
+            appKey: "n4zR68sN642keJeesjIt4w90",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢投食~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Aaron Liu &copy; 2015 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/&title=《Bing美图自动抓取源码》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/&title=《Bing美图自动抓取源码》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Bing美图自动抓取源码》 — Aaron's Blog&url=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD4ElEQVR42u3aQW7jQAwEQP//095rgIWsbnJkJEDpFDiJNFM6tMnh6xVf7x9X8snmurrb1Xo+3+H1xIUDBw4cOOKtzhb3/92Sz5NttC9g9qpw4MCBA8cTHJ83kD8sCbnhQsvVJuvBgQMHDhy/gSMp7fJaKSdrn4sDBw4cOP4ix6ZUyxuRSQdv8zpx4MCBA8cTHPkRzuw4Z3aw9HmFyS4e7JXiwIEDB4406YqC6q/8/Mh8Bw4cOHDgCAqhU4H0+RDobGmXNC6j3eHAgQMHjkNB0S4lWdDmOOpU+TckxoEDBw4chzjaoD01TNC2+WYNwSSYceDAgQPHKY7ZUMIprHaoYva/qy8BOHDgwIGj5MgLodni8lGJtoTLy7Yi7HHgwIEDx2Mcm+idkbXb27zCaHIQBw4cOHAsOPLbtUXXrJE3i/D8wAwHDhw4cDzBsRkImDHlBVv7qvKy7fIvceDAgQPHYxx5RM3Cchar7QRCDYcDBw4cOA5xtKGY3HpzKLUpF/NC8aaWxYEDBw4cC47ZEc7sgCr5ZBbG+deFaEgOBw4cOHCMOJK4Spp0s1Zg27xLDpn2B2A4cODAgWPDkTfyZlinwrvd9hAOBw4cOHAc4tgEWLLJTRGYsOYrj4IWBw4cOHAc4mgPkDaFU37/PLbb3970SnHgwIEDx5qjHSnIBxdmP2/GKdqwj7534MCBAweOmCMvdTaPbO/fEs+CvJbGgQMHDhzl4U27jZvo+pXNwWglOHDgwIFjxJGMArRhPAPddOfewRWtFgcOHDhwHOKY3ai9Q9vaaw+u8tLu8rk4cODAgWPNkY8a5I28JESTgnDzxNWqcODAgQPHYlX1YUw53JBHdRu3bdkZDUzgwIEDB46vcGzKpGTzOXEepe1TcODAgQPHKY4kzNpxh1NNvRnrbPAiGm7AgQMHDhzxvtrmYP7gTQw/Hd43A3M4cODAgWPEsWnD5QGZx+Hs6W2xd7lyHDhw4MBxlGMfk0kA558nAd8WhEXQ4sCBAweOBUcbdfkZzWxYISkUZ6A368eBAwcOHIc42gBrxwjahe5HE4a/xYEDBw4ca468fTa8ddwi3Myq5a8kCmwcOHDgwLHgeJdXG4Szv5kdJiVkN4GNAwcOHDjWHG3szcJsH6WbAb72IAoHDhw4cOw58mBrW35toLZHXEnp2L4YHDhw4MBximMfVHlZteplbr4vJFg4cODAgePrHLMaMcFNArgdkki+ItRJjgMHDhw4jnLkZVheYm1W0rYgb56LAwcOHDgOcWwafLNN5neelYXDUhAHDhw4cHylq9Y2BDd/Pxto2K8BBw4cOHCs1/AP47+v8lDQdLQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

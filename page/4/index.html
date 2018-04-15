@@ -17,6 +17,8 @@
     <title>Aaron&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
     
     <meta name="keywords" content="">
     <meta name="description" content="Aaron的个人博客">
@@ -32,7 +34,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -49,19 +51,68 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Aaron Liu</h5>
-          <a href="mailto:undefined" class="mail">
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
         
       </ul>
     </div>
@@ -76,6 +127,20 @@
         </a>
         <div class="flex-col header-title ellipsis">Aaron&#39;s Blog</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -170,7 +235,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        买了块PiFi DAC扩展板，准备把树莓派弄成网络音乐...
+        买了块PiFi DAC扩展板，准备把树莓派弄成网络音乐播放器。等到货了写个评测~
+
     
 
         <a href="/2016/06/22/e4-b9-b0-e4-ba-86-e5-9d-97pifi-dac-e6-89-a9-e5-b1-95-e6-9d-bf/" class="post-more waves-effect waves-button">
@@ -212,7 +278,11 @@
 
     
         
-树洞外链从2.4版本起加入自定义页面机制，用户可以根...
+树洞外链从2.4版本起加入自定义页面机制，用户可以根据当前模板开发自己的页面。本次将以一个最新的第三方页面 - 画廊为例 ，讲讲添加自定义页面的方法。先来个演示：http://yun.aoaoao.me/demo/views/pages.php?id=gallery
+                
+                    
+                    
+   ...
     
 
         <a href="/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/" class="post-more waves-effect waves-button">
@@ -260,7 +330,10 @@
 
     
         
-在国外视频网站都早已采用html5播放器的时候，绝大...
+在国外视频网站都早已采用html5播放器的时候，绝大部分国内视频网站还在用flash，比如B站。Flash这货已经快被淘汰了，刚好DIYgod开发了一款H5弹幕播放器DPlayer，可以拿来对接B站。原理很简单，服务端获取B站弹幕数据，转换为适用于DPlayer的格式用于播放。
+
+1.获取B站视频源GitHub上找到一个B站第三方API，可以获取视频源等信息：
+GET  http://bi...
     
 
         <a href="/2016/06/08/e7-94-a8dplayer-e5-ae-9e-e7-8e-b0-e7-9a-84b-e7-ab-99html5-e6-92-ad-e6-94-be-e5-99-a8/" class="post-more waves-effect waves-button">
@@ -307,7 +380,19 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        最近有点高产啊，主要是之前版本手机版体验极差，这次更新...
+        最近有点高产啊，主要是之前版本手机版体验极差，这次更新主要针对手机版进行优化，还修复了几个高危安全漏洞。详细更新：
+
+全新 Material Design主题 响应式布局
+修复XSS漏洞
+修复几处注入漏洞
+更新首页静态文件调用方式
+后台、默认模版调用文件分离
+新增自定义页面机制
+图片上传后可获取Markdown代码
+
+新版截图：
+                
+              ...
     
 
         <a href="/2016/06/07/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be2-4-e5-8f-91-e5-b8-83/" class="post-more waves-effect waves-button">
@@ -355,7 +440,14 @@
 
     
         
-本来想做成一个Bing美图的主题站的，后来发现网上已...
+本来想做成一个Bing美图的主题站的，后来发现网上已经有成熟的了。于是把自己写的自动抓取Bing美图的Python脚本放出
+
+
+支持Bing中国版和Bing国际版
+支持采集国际版的动态背景(已死，原因不明)
+图像，介绍都可传到七牛
+图像简介，搜索链接可存入MySQL数据库使用前请先安装七牛sdk：pip install qiniu和MySQLdb中国版采集：
+#!/usr/bin/pyth...
     
 
         <a href="/2016/05/21/bing-e7-be-8e-e5-9b-be-e8-87-aa-e5-8a-a8-e6-8a-93-e5-8f-96-e6-ba-90-e7-a0-81/" class="post-more waves-effect waves-button">
@@ -399,7 +491,14 @@
         树洞外链更新至2.3
 
 【更新详情】
-新增阿里云OSS...
+新增阿里云OSS、又拍云上传策略
+新增 清理加速面板
+更换音频播放器为APlayer
+更新模板策略：允许插入PHP代码
+优化安装时错误反馈机制
+修复批量删除失效
+修复添加用户一处Bug
+修复右上角登录按钮字体问题【下载地址】官方网站【更新方法】2.2.X用户可直接从后台-在线更新中升级。本次升级包较大，如下载长时间未反应请重试或手动更新【手动更新】仅适用...
     
 
         <a href="/2016/05/13/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e6-9b-b4-e6-96-b0-e8-87-b32-3/" class="post-more waves-effect waves-button">
@@ -440,7 +539,9 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Bing搜索的背景每天都要换，大部分情况下的图还是很漂...
+        Bing搜索的背景每天都要换，大部分情况下的图还是很漂亮的（有时候会掺进去一些奇怪的东西）。抓包可以得到bing官方的api，以json格式返回图像URL，但如果只是想要单纯的引用图像，官方的接口用起来很麻烦，而且速度较慢。
+我提供的调用方式很简单，直接调用http://7xtayk.com2.z0.glb.qiniucdn.com/bing.jpg即可。图像托管在七牛，速度有保证。
+比如下...
     
 
         <a href="/2016/04/24/e3-80-90api-e3-80-91-e6-9c-80-e7-ae-80-e5-8d-95-e5-bf-ab-e9-80-9f-e7-9a-84-e6-96-b9-e5-bc-8f-e8-b0-83-e7-94-a8-e5-bf-85-e5-ba-94-e7-be-8e-e5-9b-be/" class="post-more waves-effect waves-button">
@@ -529,7 +630,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        学校石楠花开了，花香充满校园，毕业的学长说最怀念一中的...
+        学校石楠花开了，花香充满校园，毕业的学长说最怀念一中的石楠花香，是什么香味这么吸引人？传送门
+
     
 
         <a href="/2016/04/08/4-e6-9c-887-e6-97-a5-e6-89-af-e6-b7-a1/" class="post-more waves-effect waves-button">
@@ -556,6 +658,15 @@
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
@@ -565,8 +676,10 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Aaron Liu &copy; 2018</span>
+        <p><span>Aaron Liu &copy; 2015 - 2018</span>
             <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
@@ -579,21 +692,108 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/page/4/&title=Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/page/4/&title=Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/page/4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Aaron's Blog&url=http://yoursite.com/page/4/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/page/4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByUlEQVR42u3aMW7DMBAEQP//0wqQ1oi8ezQZJxhWLixppOJw3OPjEa/rez3K9XzV9bQeOxYuLu4y97pdz/9pr/rpBdq74eLinufel6H7WyelKqe/sOHi4n4YNylz941L/jK4uLh/i5tQcHFx/wc338bcNyuz9mjLXg0XF3eB20afO35vzHdxcXFL7jVaSVMyK1gvnouLi3uEuyMMzRugfGBTpDW4uLjL3HtWG1gkr7p0OAMXF/cId33ImsciKyNbXFzc89z2MW242Q5XitgUFxd3GzcvH/u2SfXkBxcXdxs3L1XtN5g1LlGVxcXFPcLNL8uJ7fYp+g8uLu5BbhthrDQrKwNXXFzcM9zZwazZiGUWwtZQXFzcZW4+TJ2FnrMha31uFBcX963cvHi1dbG9No9icXFxd3PzbclsoJIPWaNAFhcX9wh3FoYmtbAdotTtFy4u7jbuLLJsh6z5QPdFEcTFxT3CXQlM203ObASLi4v7W9xZ8WrL0+wwR5HO4uLibuC2RWp9+JpvnH4cteLi4n4Yd/3cx/AT4OLifhg3H6++rWyttDi4uLjL3Hzz07Y4BSXZGuHi4h7hrkxo22KXhyNvy3dxcXE77heKYmzDsTnfcQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
 
 </script>
 
 <script src="/js/main.min.js?v=1.7.2"></script>
 
 
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
 
 
 
 
 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 
