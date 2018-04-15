@@ -20,9 +20,9 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="PHP,树洞外链,随机数">
+    <meta name="keywords" content="树洞外链,PHP,随机数">
     <meta name="description" content="树洞外链从2.4版本起加入自定义页面机制，用户可以根据当前模板开发自己的页面。本次将以一个最新的第三方页面 - 画廊为例 ，讲讲添加自定义页面的方法。先来个演示：http://yun.aoaoao.me/demo/views/pages.php?id=gallery">
-<meta name="keywords" content="PHP,树洞外链,随机数">
+<meta name="keywords" content="树洞外链,PHP,随机数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树洞外链自定义页面-画廊 安装说明">
 <meta property="og:url" content="http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/index.html">
@@ -385,6 +385,30 @@
 
 
 
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "JNkuYcclWoNLMyxDVcGUpjNW-gzGzoHsz",
+            appKey: "n4zR68sN642keJeesjIt4w90",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
 
 
 
@@ -447,6 +471,8 @@
         <p><span>Aaron Liu &copy; 2015 - 2018</span>
             <span>
                 
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
+                
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
         </p>
@@ -508,6 +534,8 @@
 <script>
 var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
 
 </script>
 
