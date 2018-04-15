@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>开启了全站HTTPS，内附多说表情使用HTTPS解决方案 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="HTTPS,SSL,多说">
+    <meta name="description" content="作为一个穷逼，我是不可能用付费的SSL证书的。我用的是Startssl提供的免费证书，有效期1年，可无限续期。（最近免费的SSL证书好像越来越多了）服务器上配置好后，要解决Wordpress从http更换至https的问题.我把我的更换步骤及遇到的问题，解决方案分享给大家。 1.更换站点URL再Wordpress后台-设置-常规中更换Wordpress地址和站点地址为https协议的，这样一来，由">
+<meta name="keywords" content="HTTPS,SSL,多说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开启了全站HTTPS，内附多说表情使用HTTPS解决方案">
+<meta property="og:url" content="http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="作为一个穷逼，我是不可能用付费的SSL证书的。我用的是Startssl提供的免费证书，有效期1年，可无限续期。（最近免费的SSL证书好像越来越多了）服务器上配置好后，要解决Wordpress从http更换至https的问题.我把我的更换步骤及遇到的问题，解决方案分享给大家。 1.更换站点URL再Wordpress后台-设置-常规中更换Wordpress地址和站点地址为https协议的，这样一来，由">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211143331.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211143730.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211144413.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211145144.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211151148.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211153205.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211153213.png">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开启了全站HTTPS，内附多说表情使用HTTPS解决方案">
+<meta name="twitter:description" content="作为一个穷逼，我是不可能用付费的SSL证书的。我用的是Startssl提供的免费证书，有效期1年，可无限续期。（最近免费的SSL证书好像越来越多了）服务器上配置好后，要解决Wordpress从http更换至https的问题.我把我的更换步骤及遇到的问题，解决方案分享给大家。 1.更换站点URL再Wordpress后台-设置-常规中更换Wordpress地址和站点地址为https协议的，这样一来，由">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211143331.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">John Doe</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">开启了全站HTTPS，内附多说表情使用HTTPS解决方案</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">开启了全站HTTPS，内附多说表情使用HTTPS解决方案</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-02-11T07:22:01.000Z" itemprop="datePublished" class="page-time">
+  2016-02-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-更换站点URL"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.更换站点URL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-更改数据库"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.更改数据库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-为七牛开启HTTPS"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.为七牛开启HTTPS</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-替换主题中的链接"><span class="post-toc-number">4.</span> <span class="post-toc-text">3.替换主题中的链接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-多说的问题"><span class="post-toc-number">5.</span> <span class="post-toc-text">4.多说的问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-添加侧边栏提醒"><span class="post-toc-number">6.</span> <span class="post-toc-text">5.添加侧边栏提醒</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">开启了全站HTTPS，内附多说表情使用HTTPS解决方案</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-02-11 15:22:01" datetime="2016-02-11T07:22:01.000Z"  itemprop="datePublished">2016-02-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>作为一个穷逼，我是不可能用付费的SSL证书的。我用的是Startssl提供的免费证书，有效期1年，可无限续期。（最近免费的SSL证书好像越来越多了）服务器上配置好后，要解决Wordpress从http更换至https的问题.我把我的更换步骤及遇到的问题，解决方案分享给大家。</p>
+<h4 id="1-更换站点URL"><a href="#1-更换站点URL" class="headerlink" title="1.更换站点URL"></a>1.更换站点URL</h4><p>再Wordpress后台-设置-常规中更换Wordpress地址和站点地址为https协议的，这样一来，由WordPress自动创建的链接就都变成https了.</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211143331.png" alt="QQ截图20160211143331" title="">
+                </div>
+                <div class="image-caption">QQ截图20160211143331</div>
+            </figure>
+<h4 id="2-更改数据库"><a href="#2-更改数据库" class="headerlink" title="2.更改数据库"></a>2.更改数据库</h4><p>以前文章中肯定免不了有博客内页的url，要把它们全手动换一遍很麻烦。你可以安装Search &amp; Replace插件，也可以从phpmyadmin中查找替换.以第二种为例，打开phpmyadmin，切换到存放wp数据表的数据库。打开wp_posts表，搜索-查找与替换</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211143730.png" alt="QQ截图20160211143730" title="">
+                </div>
+                <div class="image-caption">QQ截图20160211143730</div>
+            </figure>
+<p>以树洞为例 查找<a href="http://aoaoao.me" target="_blank" rel="noopener">http://aoaoao.me</a>  替换为<a href="https://aoaoao.me，字段就选post_content，执行" target="_blank" rel="noopener">https://aoaoao.me，字段就选post_content，执行</a></p>
+<p>替换成功</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211144413.png" alt="QQ截图20160211144413" title="">
+                </div>
+                <div class="image-caption">QQ截图20160211144413</div>
+            </figure>
+<h4 id="3-为七牛开启HTTPS"><a href="#3-为七牛开启HTTPS" class="headerlink" title="3.为七牛开启HTTPS"></a>3.为七牛开启HTTPS</h4><p>七牛的默认域名不支持https，需要自己绑定域名，也可以使用七牛随机生成的域名，HTTPS计费是普通方式的1.2倍。并且使用https的域名以http协议访问也按1.2倍计算。。。</p>
+<p>https域名开启方式：七牛后台-空间设置-域名设置-HTTPS，它会生成一个类似于<a href="https://o2d4gc37w.qnssl.com的随即域名。" target="_blank" rel="noopener">https://o2d4gc37w.qnssl.com的随即域名。</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211145144.png" alt="QQ截图20160211145144" title="">
+                </div>
+                <div class="image-caption">QQ截图20160211145144</div>
+            </figure>
+<h4 id="3-替换主题中的链接"><a href="#3-替换主题中的链接" class="headerlink" title="3.替换主题中的链接"></a>3.替换主题中的链接</h4><p>这一步也是比较麻烦的一步，要分析主题文件，善用Ctrl+F和F12找到那些http的链接</p>
+<p>我更换后百度分享是彻底死了，官方的js不支持https，想转到七牛发现它调用了更多文件，太麻烦，干脆去掉。</p>
+<h4 id="4-多说的问题"><a href="#4-多说的问题" class="headerlink" title="4.多说的问题"></a>4.多说的问题</h4><p>多说1.2版本已经支持HTTPS，但还是有点问题，用户头像，表情调用的仍然是http协议。关于头像，网上已经有不少教程，大家可以根据 <a href="http://www.wanghailin.cn/duoshuo-avatar-https/" target="_blank" rel="noopener">解决多说在HTTPS下的头像HTTP调用问题</a> 这篇文章操作。但网络上找不到关于表情的解决方案，大部分人的做法是直接禁用表情。我是使用七牛镜像加速解决的，简单粗暴。<br>前提是你的embed.js托管再七牛或者能自己修改内容。<br>先打开七牛，新建一个空间，然后空间设置-基本设置-镜像存储，设置镜源为<a href="http://img.t.sinajs.cn/" target="_blank" rel="noopener">http://img.t.sinajs.cn/</a> 如果你不想用自己的，可以跳过这一步，用我搭建的。<br>打开embed.js大概第1725行，或者查找<code>var i = 0 === e.indexOf(&quot;微博&quot;)</code>，把后面的<code>var i = 0 === e.indexOf(&quot;微博&quot;) ? &quot;http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/&quot;</code>改为<code>var i = 0 === e.indexOf(&quot;微博&quot;) ? &quot;https://o2d7sesam.qnssl.com/t35/style/images/common/face/ext/normal/&quot;</code><br>其中的o2d7sesam.qnssl.com是你自己的七牛域名，也可以用我的。<br>然后再大概823行（或者查找<code>r = s.author;</code>）下面，添加以下代码</p>
+<p><pre class="lang:js decode:true">s.message = s.message.replace(“&lt;img src=\”<a href="http://img.t.sinajs.cn/&quot;" target="_blank" rel="noopener">http://img.t.sinajs.cn/&quot;</a>, “&lt;img src=\”<a href="https://o2d7sesam.qnssl.com/&quot;)" target="_blank" rel="noopener">https://o2d7sesam.qnssl.com/&quot;)</a>;</pre><br>它的作用是把用户评论内容的表情源换掉，所以已经发过的表情还是能换到七牛的。<br>目前已知bug是和多说的插入图片功能冲突。。把它禁用就行了</p>
+<p>这一步后，我博客URL栏的图标已经由黄色变成小绿锁了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211151148.png" alt="QQ截图20160211151148" title="">
+                </div>
+                <div class="image-caption">QQ截图20160211151148</div>
+            </figure>
+<h4 id="5-添加侧边栏提醒"><a href="#5-添加侧边栏提醒" class="headerlink" title="5.添加侧边栏提醒"></a>5.添加侧边栏提醒</h4><p>由于之前有别的网站引用了我博客的URL，所以一部分用户访问还是以HTTP形式进入的，而QQ邮箱订阅有不支持HTTPS，所以我不能完全禁用HTTP，不如再侧边栏加一个提醒，当用户点击后，自动跳转到HTTPS</p>
+<p>效果就在右面，大家可以体验一下。</p>
+<p>以HTTP协议访问时：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211153205.png" alt="QQ截图20160211153205" title="">
+                </div>
+                <div class="image-caption">QQ截图20160211153205</div>
+            </figure>
+<p>点击后自动跳转到HTTPS：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/02/QQ截图20160211153213.png" alt="QQ截图20160211153213" title="">
+                </div>
+                <div class="image-caption">QQ截图20160211153213</div>
+            </figure>
+<p>现在主题style.css中添加：</p>
+<p><pre class="lang:css decode:true ">.ishttps {<br>    background-color: #2ecc71;<br>    padding-top: 5px;<br>    border-radius: 2px;<br>    color: #fff;<br>    box-shadow: 0 2px 3px rgba(0,0,0,.1);<br>}</pre></p>
+<p>.nothttps {<br>    background-color: #d9534f;<br>    padding-top: 5px;<br>    border-radius: 2px;<br>    color: #fff;<br>    box-shadow: 0 2px 3px rgba(0,0,0,.1);<br>}</p>
+<p>.nothttps:hover {<br>    color: #fff;<br>    background-color: #e6162d;<br>}</p>
+<p>.ishttps:hover {<br>    color: #fff;<br>    background-color: #24ae5f;<br>}</p>
+<p>.warn-content {<br>    padding: 15px;<br>}<br>然后侧边栏小工具中添加：</p>
+<p><pre class="lang:js decode:true ">&lt;a class=”” id=”wcp” href=”<a href="https://aoaoao.me/&quot;" target="_blank" rel="noopener">https://aoaoao.me/&quot;</a>&gt;<br>    &lt;div class=”warn-content” align=”center” id=”wc”&gt;&lt;/div&gt;<br>&lt;/a&gt;<br>&lt;script type=”text/javascript”&gt;<br>    if (‘https:’ == document.location.protocol) {<br>        document.getElementById(“wc”).innerHTML = “&lt;i class=\”fa fa-lock\”&gt;&lt;/i&gt; 当前采用HTTPS加密传输”;<br>        document.getElementById(‘wcp’).className = “ishttps”;<br>    } else {<br>        document.getElementById(“wc”).innerHTML = “&lt;i class=\”fa fa-exclamation-triangle\”&gt;&lt;/i&gt; 警告：当前连接未经加密”;<br>        document.getElementById(‘wcp’).className = “nothttps”;<br>    }<br>    document.getElementById(“wcp”).href = “https:” + window.location.href.substring(window.location.protocol.length);<br>&lt;/script&gt;</pre><br>&nbsp;</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" target="_blank" rel="external">http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="John Doe">
+            John Doe
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTPS/">HTTPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSL/">SSL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多说/">多说</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/&title=《开启了全站HTTPS，内附多说表情使用HTTPS解决方案》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/&title=《开启了全站HTTPS，内附多说表情使用HTTPS解决方案》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开启了全站HTTPS，内附多说表情使用HTTPS解决方案》 — Hexo&url=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/02/26/e5-bc-80-e5-ad-a6-e9-80-82-e5-ba-94-e6-80-a7-e8-80-83-e8-af-95-e6-88-90-e7-bb-a9-e5-8d-95/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">“开学适应性考试”成绩单</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/02/09/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-bf-9c-e7-a8-8b-e4-b8-8a-e4-bc-a0-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-90-ad-e5-bb-ba-e8-af-b4-e6-98-8e/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">树洞外链远程上传服务器搭建说明</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>John Doe &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/&title=《开启了全站HTTPS，内附多说表情使用HTTPS解决方案》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/&title=《开启了全站HTTPS，内附多说表情使用HTTPS解决方案》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开启了全站HTTPS，内附多说表情使用HTTPS解决方案》 — Hexo&url=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/02/11/e5-bc-80-e5-90-af-e4-ba-86-e5-85-a8-e7-ab-99https-ef-bc-8c-e5-86-85-e9-99-84-e5-a4-9a-e8-af-b4-e8-a1-a8-e6-83-85-e4-bd-bf-e7-94-a8https-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,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" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

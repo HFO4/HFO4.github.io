@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>树莓派实现Web端控制GPIO&amp;内网穿透教程 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,树莓派,物联网">
+    <meta name="description" content="前段时间买了个树莓派2B，一直没用，元旦期间做出了这个无聊的玩意儿先看效果，下面这个站就是搭建在树莓派上的，可以通过Web端获取传感器数据，控制GPIO接口。[                                                                                             My Raspberry Pi - 一个由树莓派驱动">
+<meta name="keywords" content="python,树莓派,物联网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派实现Web端控制GPIO&amp;内网穿透教程">
+<meta property="og:url" content="http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前段时间买了个树莓派2B，一直没用，元旦期间做出了这个无聊的玩意儿先看效果，下面这个站就是搭建在树莓派上的，可以通过Web端获取传感器数据，控制GPIO接口。[                                                                                             My Raspberry Pi - 一个由树莓派驱动">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/psb.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.050Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派实现Web端控制GPIO&amp;内网穿透教程">
+<meta name="twitter:description" content="前段时间买了个树莓派2B，一直没用，元旦期间做出了这个无聊的玩意儿先看效果，下面这个站就是搭建在树莓派上的，可以通过Web端获取传感器数据，控制GPIO接口。[                                                                                             My Raspberry Pi - 一个由树莓派驱动">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">John Doe</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">树莓派实现Web端控制GPIO&amp;内网穿透教程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">树莓派实现Web端控制GPIO&amp;内网穿透教程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-01-02T07:52:53.000Z" itemprop="datePublished" class="page-time">
+  2016-01-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原理"><span class="post-toc-number">1.</span> <span class="post-toc-text">原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">实现步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-安装必要组件"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">1.安装必要组件</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内网穿透"><span class="post-toc-number">3.</span> <span class="post-toc-text">内网穿透</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">树莓派实现Web端控制GPIO&内网穿透教程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-01-02 15:52:53" datetime="2016-01-02T07:52:53.000Z"  itemprop="datePublished">2016-01-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>前段时间买了个树莓派2B，一直没用，元旦期间做出了这个无聊的玩意儿<br>先看效果，下面这个站就是搭建在树莓派上的，可以通过Web端获取传感器数据，控制GPIO接口。<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站.png" alt="My Raspberry Pi - 一个由树莓派驱动的小站](https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站-1024x575.png)" title="">
+                </div>
+                <div class="image-caption">My Raspberry Pi - 一个由树莓派驱动的小站](https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站-1024x575.png)</div>
+            </figure><br><strong>URL：<a href="http://mysmpi.ngrok.natapp.cn" target="_blank" rel="noopener">http://mysmpi.ngrok.natapp.cn</a></strong><br>根据网络条件不同，打开有时会非常慢。。</p>
+</blockquote>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>原理很简单，使用Flask框架开发，直接用Python的GPIO库进行操作。端口映射使用的是Ngrok，官方服务被墙了，这里用的是国人搭建的免费服务。</p>
+<h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><h4 id="1-安装必要组件"><a href="#1-安装必要组件" class="headerlink" title="1.安装必要组件"></a>1.安装必要组件</h4><p>总的来说需要装的组件有Python、Flask、GPIO库。如果使用的是官方镜像的话只需要安装Flask即可。</p>
+<p>首先安装pip。<a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="noopener">右键这里另存为</a> 并在树莓派中运行即可自动下载安装。</p>
+<p>然后安装Flask。以Root权限执行下面命令即可安装</p>
+<p><pre class="lang:sh decode:true">sudo pip install Flask</pre><br>2.连接元件</p>
+<p>这里根据大家的需要可以自己连接，我只是把我的连接方式说一下。</p>
+<p>用到的元件有：杜邦线一把，面包板跳线一把、各种颜色的LED灯，220Ω电阻4个、电位器一个、有源蜂鸣器一个、lcd1602一个。</p>
+<p>lcd的连接图如下：</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb.jpg" alt="Untitled Sketch 2_bb](https://aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb-960x1024.jpg)" title="">
+                </div>
+                <div class="image-caption">Untitled Sketch 2_bb](https://aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb-960x1024.jpg)</div>
+            </figure></p>
+<p>再加上LED、蜂鸣器。。混乱的实物图：</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/psb.jpg" alt="psb](https://aoaoao.me/wp-content/uploads/2016/01/psb-768x1024.jpg)" title="">
+                </div>
+                <div class="image-caption">psb](https://aoaoao.me/wp-content/uploads/2016/01/psb-768x1024.jpg)</div>
+            </figure></p>
+<p>&nbsp;</p>
+<p>实物图连接好后开始写代码。首先要实现打开首页时最左边的LED闪一下。代码如下：</p>
+<p><pre class="lang:python decode:true ">@app.route(‘/‘)<br>def index():<br>    GPIO.setmode(GPIO.BCM)<br>    GPIO.setup(26,GPIO.OUT)<br>    GPIO.output(26,GPIO.HIGH)<br>    time.sleep(0.5)<br>    GPIO.output(26,GPIO.LOW)<br>    return render_template(‘index.html’)</pre><br>注意这里设置time.sleep()的时间不能太长，否则首页打开会很慢<br>LCD屏的控制使用了rpimenu,github：<a href="https://github.com/lifanxi/rpimenu" target="_blank" rel="noopener">https://github.com/lifanxi/rpimenu</a><br>其他的控制原理类似，这里就不多说了，代码打包下载：<a href="http://pan.baidu.com/s/1i4gSAQL" target="_blank" rel="noopener">http://pan.baidu.com/s/1i4gSAQL</a><br>解压后先su 获取root权限然后执行下面命令即可</p>
+<p><pre class="lang:sh decode:true ">python web.py</pre><br>出现下图就表示成功了。</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png" alt="搜狗截图20160102153349](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png)" title="">
+                </div>
+                <div class="image-caption">搜狗截图20160102153349](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png)</div>
+            </figure></p>
+<p>默认端口设为了80，你可以在web.py第363行更改。</p>
+<h2 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h2><p>如果你的树莓派连接的是家用网络，那么外网可能并不能访问你的页面，因为你的宽带运营商可能把端口封了（移动就是这样）。想要实现外网访问，就要用内网穿透解决。国内比较知名的是花生棒，直接网线插上就能用，但硬件需要额外购买。不想花钱用Ngrok是个不错的选择，但他的官方服务被墙了，我用的是国人用阿里云搭建的免费服务natapp.<br>主页地址：<a href="http://natapp.cn/" target="_blank" rel="noopener">http://natapp.cn/</a><br>往下拉到客户端下载，由于树莓派是arm架构的，我们就下载“Linux ARM”.下载后解压到树莓派上。在此目录下打开终端，获取root后执行下面命令：</p>
+<p><pre class="lang:sh decode:true ">./ngrok -config ngrok.cfg -subdomain myapp 80</pre><br>其中“myapp”为你自定义的域名，日后你可以通过<strong><a href="http://myapp.ngrok.natapp.cn" target="_blank" rel="noopener">http://myapp.ngrok.natapp.cn</a></strong>访问网站。<br>最后面的80为端口，一般不用改。<br>执行后会出现下面界面，这就表示内网穿透成功了，可以访问http://自定义域名.ngrok.natapp.cn试试看能不能打开<br>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png" alt="搜狗截图20160102154321](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png)" title="">
+                </div>
+                <div class="image-caption">搜狗截图20160102154321](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png)</div>
+            </figure><br>打开的速度肯定比较慢，毕竟不是专业机房。。</p>
+<p>最后附上一张树莓派2的引脚示意图：</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png" alt="6a40313b5bb5c9ea80201914d139b60038f3b355](https://aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png)" title="">
+                </div>
+                <div class="image-caption">6a40313b5bb5c9ea80201914d139b60038f3b355](https://aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png)</div>
+            </figure></p>
+<p>P.S.网站上线后，LCD收到了第一条消息：</p>
+<p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg" alt="psb (1)](https://aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg)" title="">
+                </div>
+                <div class="image-caption">psb (1)](https://aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg)</div>
+            </figure></p>
+<p>&nbsp;</p>
+<p>。。。。[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg" alt="12926209_934800](https://aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg)" title="">
+                </div>
+                <div class="image-caption">12926209_934800](https://aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg)</div>
+            </figure>。。。。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2018-04-15T11:37:48.050Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" target="_blank" rel="external">http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="John Doe">
+            John Doe
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/物联网/">物联网</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派实现Web端控制GPIO&内网穿透教程》 — Hexo&url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">树莓派做FM发射器架设小型电台</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/12/05/e6-9c-ac-e7-ab-99-e5-9f-9f-e5-90-8d-e5-b7-b2-e6-9b-b4-e6-8d-a2-e8-87-b3aoaoao-me/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">本站域名已更换至aoaoao.me</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>John Doe &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派实现Web端控制GPIO&内网穿透教程》 — Hexo&url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFPElEQVR42u3dQY4bORAEwPn/p71XLwYjZWa1DGM3dBIsdTcZFDDFLAL++opfv357/f4vyfvv136/8/f3r7+ZX/vrh1c+wgde+PDhw4cPX/CAnx6T3zNZgNfPfT3JhCxfmG1s+PDhw4cP38bXlhT50JMJ5N/JS6VtIXMTfPjw4cOH78/wJUXMBaLd5OfF1hZ84MOHDx8+fH8bX1KsbGVQO5427NjCCHz48OHDh+/OlwziEsrnTfS2ELkUW1t5hA8fPnz48F347uH4f+/9wy98+PDhw4cvDr7zwiJvseeN9rbh3T69bQP86yp8+PDhw4dv0SiC8vaw19bMvtcMl8WoHfDhw4cPH74D31PHxS6lzDbhBG5b/uKUAT58+PDhw/eSr20DJy3wdqvf3mErgy70P44NHz58+PDhm/he37TdZiflS/7cFqj9QWxFDD58+PDhw7fxtXBtwP3Ulr5tDCRFUt6eH0/w4cOHDx8+fOUkE8Qt6M838O03W+KoKMGHDx8+fPge4rsMNG94v37utpCf/llEs8aHDx8+fPgOfFt4nZQFG03bdL9HG/lc6pviw4cPHz58QTxdZw9lWXA/OvbUYbjteBw+fPjw4cP3FN8WnW+t63arv5UsT7XSv9raCh8+fPjw4TtPo21Lt4F4Xjq0S5uDRmL48OHDhw/fgS8vMpKH5UuSL0BbvlzaAFFDAh8+fPjw4Tvz3cOFos0cN7Dz8eQL9kCLHR8+fPjw4Tv0u+8R+aWB/Wwevo0kmTs+fPjw4cN34UvKgjYaqI95lQXHVmp8Yjz48OHDhw9fy5c0j5Oi5HKHS6Tetu3zuKG+Ch8+fPjw4YuvyoPv/ChYPrgi1TiXVpdn/fhcfPjw4cOHb+JrJ5kXH3m+fW/e542Ebb6PdfLx4cOHD9//ni+Js5OIfKNsn7sFDXn7PAkd8OHDhw8fvpbvExv7S4i/EVxigrxgwocPHz58+J7luzPlQ0/KoHt8X2z7t/geHz58+PDhWzq/43/5kJc7CWLbdG8jjLEFnqDjw4cPHz58E1++wc75LgH6xpFDJO+juePDhw8fPnwxX3vs7P79/C/+1tJ+NrZ483R8+PDhw4dv4mu36HkpcDnK1pZQW1i/HarDhw8fPnz4Nr42fG+HtRUrbSt9LDumn0KRT+DDhw8fPnzfrkqi87YFfi8d2lA+/7RtIbyhxIcPHz58+KbTXJc29rb5vyzbFvRf6N+UPvjw4cOHD1/Md2lpt1v0fBrt8ly2/W0MUeQf+PDhw4cPX7m1zmP6NhZPmt9bQ/3ZxSsGjQ8fPnz48MV/c/Ph5tvpPHrIm/FtqXGJEiIZfPjw4cOHb+LLg4CxG3AoQS733wKRIl7Bhw8fPnz4Jr47UD69tgS5t7ovo3ojgw8fPnz48B26w1uD+amI4R61t0fr2mBiPHGADx8+fPjwnbfNrwe9fb+N0XPEp4qhN9fiw4cPHz58Ad+9HNlKgaIV/VA0sFUab+6PDx8+fPjwTXztcbGt4Z2XO+2UEvQidr8MAh8+fPjw4TsM4hLEb6VMfp/2Ka9nsf0s8OHDhw8fvpZv+xvdhgvPljVbrN8WMdtS4cOHDx8+fAnfZfudlwt5KZBclY/8qXMEP36KDx8+fPjwTXzPbuk/HZfncBtx0WLHhw8fPnz4PsyXN9rzbf+zrYKtDBqDfnz48OHDh++P8G1BQxuLPxsNPNXUx4cPHz58+O58CUT+nTyUz0OKdiHzEif59IE2OT58+PDhw7fF01O4kB9Za4/EtbHCdqDt9Wjx4cOHDx++gO8fUna6+lGi428AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

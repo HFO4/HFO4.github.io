@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等） | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="树莓派,我的世界">
+    <meta name="description" content="树莓派上开MC服务器是很平常的事，大部分新手买来树莓派的第一个应用就是MC服务器。今天摸索出了树莓派上开MCPE服的方式。 MCPE开服唯一一种选择就是PocketMine,但这款服务端还处于不完善的状态，无法刷怪、无地狱、红石。国人通过修改PocketMine源代码开发了itx核心，本质上是PocketMine的优化版本，相比于PM的特性如下：   性能提升（允许 100+ 的玩家加入服务器）">
+<meta name="keywords" content="树莓派,我的世界">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）">
+<meta property="og:url" content="http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="树莓派上开MC服务器是很平常的事，大部分新手买来树莓派的第一个应用就是MC服务器。今天摸索出了树莓派上开MCPE服的方式。 MCPE开服唯一一种选择就是PocketMine,但这款服务端还处于不完善的状态，无法刷怪、无地狱、红石。国人通过修改PocketMine源代码开发了itx核心，本质上是PocketMine的优化版本，相比于PM的特性如下：   性能提升（允许 100+ 的玩家加入服务器）">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/03/71f58b389b504fc20af297dbe0dde71192ef6d9e.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/03/dcd968afa40f4bfbb09cb88a064f78f0f53618fe.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325185429.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325192605.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325192628.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325192644.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325192744.png">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）">
+<meta name="twitter:description" content="树莓派上开MC服务器是很平常的事，大部分新手买来树莓派的第一个应用就是MC服务器。今天摸索出了树莓派上开MCPE服的方式。 MCPE开服唯一一种选择就是PocketMine,但这款服务端还处于不完善的状态，无法刷怪、无地狱、红石。国人通过修改PocketMine源代码开发了itx核心，本质上是PocketMine的优化版本，相比于PM的特性如下：   性能提升（允许 100+ 的玩家加入服务器）">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2016/03/71f58b389b504fc20af297dbe0dde71192ef6d9e.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">John Doe</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-03-25T12:35:46.000Z" itemprop="datePublished" class="page-time">
+  2016-03-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开服前的准备"><span class="post-toc-number">1.</span> <span class="post-toc-text">开服前的准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内网穿透"><span class="post-toc-number">2.</span> <span class="post-toc-text">内网穿透</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-03-25 20:35:46" datetime="2016-03-25T12:35:46.000Z"  itemprop="datePublished">2016-03-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>树莓派上开MC服务器是很平常的事，大部分新手买来树莓派的第一个应用就是MC服务器。今天摸索出了树莓派上开MCPE服的方式。</p>
+<p>MCPE开服唯一一种选择就是PocketMine,但这款服务端还处于不完善的状态，无法刷怪、无地狱、红石。国人通过修改PocketMine源代码开发了itx核心，本质上是PocketMine的优化版本，相比于PM的特性如下：</p>
+<blockquote>
+<ul>
+<li>性能提升（允许 100+ 的玩家加入服务器）</li>
+<li>修复 PocketMine-MP 的 Bug</li>
+<li>天气系统</li>
+<li>经验系统</li>
+<li>更多的（药水）效果</li>
+<li>红石系统（按钮、拉杆、压力板、红石（线）、红石火把，更多待添加）</li>
+<li>地狱（红色的天空！）</li>
+<li>铁轨、充能铁轨</li>
+<li>矿车（暂时还不能在轨道上运行）</li>
+<li>船</li>
+<li>更多的门</li>
+<li>药水</li>
+<li>喷溅型药水</li>
+<li>铁毡</li>
+<li>更好的合成</li>
+<li>更好的物品栏</li>
+<li>更多的物品</li>
+<li>饥饿系统（基于 Katana 的代码）</li>
+<li>生物 AI（基于 MOW 的代码）</li>
+<li>更多的指令</li>
+</ul>
+<pre><code>*   bancid（按设备编号或玩家 ID）
+*   banip（按 IP 或玩家 ID）
+*   ms
+*   DevTools 相关指令（打包与解包插件）
+*   pardoncid
+*   weather
+*   loadplugin
+*   lvdat
+*   xp
+*   setblock
+*   fill
+*   summon
+</code></pre><ul>
+<li>文件夹插件加载器</li>
+<li>刷怪箱</li>
+<li>物品展示柜</li>
+<li>发射器和投掷器</li>
+<li>五彩缤纷的羊</li>
+<li>不同种类的船，村民和兔子</li>
+<li>原版附魔</li>
+<li>酿造</li>
+<li>注意: 请编辑 <strong>genisys.yml</strong> 来启用红石、生物AI和地狱等功能。</li>
+</ul>
+</blockquote>
+<h2 id="开服前的准备"><a href="#开服前的准备" class="headerlink" title="开服前的准备"></a>开服前的准备</h2><p>首先设置树莓派超频（转自贴吧）：<br>putty连上树莓派，登录，sudo raspi-config 进入设置界面<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/03/71f58b389b504fc20af297dbe0dde71192ef6d9e.png" alt="71f58b389b504fc20af297dbe0dde71192ef6d9e" title="">
+                </div>
+                <div class="image-caption">71f58b389b504fc20af297dbe0dde71192ef6d9e</div>
+            </figure></p>
+<p>选择7，对树莓派进行超频，保证服务器顺畅，之后选择Turbo。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/03/dcd968afa40f4bfbb09cb88a064f78f0f53618fe.png" alt="dcd968afa40f4bfbb09cb88a064f78f0f53618fe" title="">
+                </div>
+                <div class="image-caption">dcd968afa40f4bfbb09cb88a064f78f0f53618fe</div>
+            </figure>
+<p>选择8，再选择A3，之后把64改成16，OK。<br>因为运行服务器不需要图形界面，所以把分配给图形界面的内存降到最低，把更多资源让给服务器。</p>
+<p>按Tab键到下面，选择Finish结束设置</p>
+<p>然后开始配置itx核心：</p>
+<p>依次执行（不一定严格按照我的来，目录位置什么的可以变通）</p>
+<p><pre class="lang:sh decode:true ">su<br>cd /home<br>mkdir pimc<br>git clone <a href="https://github.com/iTXTech/Genisys.git" target="_blank" rel="noopener">https://github.com/iTXTech/Genisys.git</a></pre><br>等待克隆完毕</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325185429.png" alt="搜狗截图20160325185429" title="">
+                </div>
+                <div class="image-caption">搜狗截图20160325185429</div>
+            </figure>
+<p>然后依次执行：</p>
+<p><pre class="lang:sh decode:true">cd Genisys<br>mkdir -p bin/php7/bin<br>cd bin/php7/bin</pre><br>安装php：</p>
+<p>下载<a href="http://pan.baidu.com/s/1qYuwSS8" target="_blank" rel="noopener">http://pan.baidu.com/s/1qYuwSS8</a> 解压，把得到的文件上传到刚刚创建的目录，即/home/pimc/bin/php7/bin,检查是不是有读写权限，没有就执行<code>chmod 777 php</code></p>
+<p>然后执行：</p>
+<p><pre class="lang:sh decode:true ">cd /home/pimc/Genisys<br>./start.sh</pre><br>如果出现提示<code>Couldn&#39;t find a working PHP binary, please use the installer.</code>表示上一步中php支持库没弄好，可能位置放错了或者没权限。<br>如果出现下图，itx就成功运行了<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325192605.png" alt="搜狗截图20160325192605" title="">
+                </div>
+                <div class="image-caption">搜狗截图20160325192605</div>
+            </figure></p>
+<p>y，回车，是否进入向导，y</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325192628.png" alt="搜狗截图20160325192628" title="">
+                </div>
+                <div class="image-caption">搜狗截图20160325192628</div>
+            </figure>
+<p>按照提示填写信息</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325192644.png" alt="搜狗截图20160325192644" title="">
+                </div>
+                <div class="image-caption">搜狗截图20160325192644</div>
+            </figure>
+<p>之后等一会，服务器就成功运行！</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/03/搜狗截图20160325192744.png" alt="搜狗截图20160325192744" title="">
+                </div>
+                <div class="image-caption">搜狗截图20160325192744</div>
+            </figure>
+<p>打开mcpe，添加服务器进去试试。我大概体验了一下，流畅性尚可，但生成新区块的时候很慢。</p>
+<p><strong>默认情况下生物AI、红石等是关闭的，请编辑 genisys.yml 来启用红石、生物AI和地狱等功能。</strong></p>
+<h2 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h2><p>想把服务器暴露在广域网和朋友一起玩？请按照下面步骤确定你的网络环境。<br>百度搜索IP获取外网ip，打开路由器管理页面查看WAN口ip地址，如果两者一样，那么恭喜你，你可以直接通过路由器设置端口映射。<br>结果不一样？确定你的宽带运营商，电信还是移动？如果是电信，可以试试<a href="https://aoaoao.me/844.html" target="_blank" rel="noopener">这篇文章</a>和客服反映一下，看能不能给一个公网ip</p>
+<p>如果你是。。移动的网络？恭喜你，这是最复杂的一种情况，你需要用第三方提供的内网穿透服务。</p>
+<p>可以根据<a href="http://tieba.baidu.com/p/4383422157" target="_blank" rel="noopener">这篇帖子</a> 试试免费的ngrok</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/" target="_blank" rel="external">http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="John Doe">
+            John Doe
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我的世界/">我的世界</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/&title=《在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/&title=《在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）》 — Hexo&url=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/03/26/945/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">945</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/03/05/openvpn-e5-ae-9e-e7-8e-b0-e7-a7-bb-e5-8a-a8-e5-85-8d-e6-b5-81-e9-87-8f/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">OpenVPN实现移动免流量</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>John Doe &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/&title=《在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/&title=《在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在树莓派上搭建MCPE服务器（itx核心，带红石、地狱、生物AI等）》 — Hexo&url=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/03/25/e5-9c-a8-e6-a0-91-e8-8e-93-e6-b4-be-e4-b8-8a-e6-90-ad-e5-bb-bamcpe-e6-9c-8d-e5-8a-a1-e5-99-a8-ef-bc-88itx-e6-a0-b8-e5-bf-83-ef-bc-8c-e5-b8-a6-e7-ba-a2-e7-9f-b3-e3-80-81-e5-9c-b0-e7-8b-b1-e3-80-81/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,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" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

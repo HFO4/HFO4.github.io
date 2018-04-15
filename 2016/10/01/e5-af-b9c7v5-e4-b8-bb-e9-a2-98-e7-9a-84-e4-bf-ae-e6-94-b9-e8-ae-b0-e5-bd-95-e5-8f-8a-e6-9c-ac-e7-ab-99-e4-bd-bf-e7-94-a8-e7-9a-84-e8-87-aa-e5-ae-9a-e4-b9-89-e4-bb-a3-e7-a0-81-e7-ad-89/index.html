@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>对C7V5主题的修改记录及本站使用的自定义代码等 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="css,wordpress">
+    <meta name="description" content="本篇文章主要记录了我对本博正在使用的主题-C7V5进行的一些修改，方便给有需要的人参考，也为了日后升级主题时做一个参考。其中在functions.php中添加的代码几乎都不是原创的。 让C7V5支持使用UPYUN API获取题图主题色默认情况下C7V5只支持从七牛获取主题色，如果博客的图片不放在七牛的话就没法获取。上次被七牛坑了之后博客图片全部转移到了又拍云，而主题色获取也只要修改一点JS代码即可">
+<meta name="keywords" content="css,wordpress">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对C7V5主题的修改记录及本站使用的自定义代码等">
+<meta property="og:url" content="http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本篇文章主要记录了我对本博正在使用的主题-C7V5进行的一些修改，方便给有需要的人参考，也为了日后升级主题时做一个参考。其中在functions.php中添加的代码几乎都不是原创的。 让C7V5支持使用UPYUN API获取题图主题色默认情况下C7V5只支持从七牛获取主题色，如果博客的图片不放在七牛的话就没法获取。上次被七牛坑了之后博客图片全部转移到了又拍云，而主题色获取也只要修改一点JS代码即可">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对C7V5主题的修改记录及本站使用的自定义代码等">
+<meta name="twitter:description" content="本篇文章主要记录了我对本博正在使用的主题-C7V5进行的一些修改，方便给有需要的人参考，也为了日后升级主题时做一个参考。其中在functions.php中添加的代码几乎都不是原创的。 让C7V5支持使用UPYUN API获取题图主题色默认情况下C7V5只支持从七牛获取主题色，如果博客的图片不放在七牛的话就没法获取。上次被七牛坑了之后博客图片全部转移到了又拍云，而主题色获取也只要修改一点JS代码即可">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">John Doe</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">对C7V5主题的修改记录及本站使用的自定义代码等</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">对C7V5主题的修改记录及本站使用的自定义代码等</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-10-01T06:34:28.000Z" itemprop="datePublished" class="page-time">
+  2016-10-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#让C7V5支持使用UPYUN-API获取题图主题色"><span class="post-toc-number">1.</span> <span class="post-toc-text">让C7V5支持使用UPYUN API获取题图主题色</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">对C7V5主题的修改记录及本站使用的自定义代码等</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-10-01 14:34:28" datetime="2016-10-01T06:34:28.000Z"  itemprop="datePublished">2016-10-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本篇文章主要记录了我对本博正在使用的主题-C7V5进行的一些修改，方便给有需要的人参考，也为了日后升级主题时做一个参考。其中在functions.php中添加的代码几乎都不是原创的。</p>
+<h3 id="让C7V5支持使用UPYUN-API获取题图主题色"><a href="#让C7V5支持使用UPYUN-API获取题图主题色" class="headerlink" title="让C7V5支持使用UPYUN API获取题图主题色"></a>让C7V5支持使用UPYUN API获取题图主题色</h3><p>默认情况下C7V5只支持从七牛获取主题色，如果博客的图片不放在七牛的话就没法获取。上次被七牛坑了之后博客图片全部转移到了又拍云，而主题色获取也只要修改一点JS代码即可：<br>打开主题目录下js/script.js，大概在第269行（已格式化）：</p>
+<pre><code>if (T) d(T.split(&quot;,&quot;));
+else if (C7V5.qiniu_host &amp;amp;&amp;amp; V.indexOf(C7V5.qiniu_host) &amp;gt; -1) e.getJSON(V.split(&quot;?&quot;)[0] + &quot;?imageAve&quot;,
+function(e) {
+        var t = c(e.RGB);
+        d(t),
+        z &amp;amp;&amp;amp; localStorage.setItem(&quot;pcc_&quot; + V, t.join(&quot;,&quot;))
+});
+`&lt;/pre&gt;
+修改为：
+&lt;pre class=&quot;language-javascript&quot;&gt;`
+if (T) d(T.split(&quot;,&quot;));
+else if (C7V5.qiniu_host &amp;amp;&amp;amp; V.indexOf(C7V5.qiniu_host) &amp;gt; -1) e.getJSON(V.split(&quot;?&quot;)[0] + &quot;!/excolor/1/exformat/hex&quot;,
+function(e) {
+        var t = c(e[0].color);
+        d(t),
+        z &amp;amp;&amp;amp; localStorage.setItem(&quot;pcc_&quot; + V, t.join(&quot;,&quot;))
+});
+`&lt;/pre&gt;
+
+### 评论框添加插入图片按钮
+
+主题commentform.php大概第117行：
+&lt;pre class=&quot;language-php&quot;&gt;`
+&amp;lt;?php if ( c7v5_get_option(&apos;smilies&apos;) &amp;amp;&amp;amp; function_exists(&apos;c7v5_smilies&apos;) ) : ?&amp;gt; 
+       &amp;lt;i class=&quot;icon-smilies&quot; title=&quot;表情&quot;&amp;gt;&amp;lt;/i&amp;gt;
+&amp;lt;div class=&quot;comment-smilies&quot;&amp;gt;&amp;lt;?php c7v5_smilies(); ?&amp;gt;&amp;lt;/div&amp;gt; `&lt;/pre&gt;
+在其中增加一个插入图片的按钮：
+&lt;pre class=&quot;language-php&quot;&gt;`
+&amp;lt;?php if ( c7v5_get_option(&apos;smilies&apos;) &amp;amp;&amp;amp; function_exists(&apos;c7v5_smilies&apos;) ) : ?&amp;gt; 
+       &amp;lt;i class=&quot;icon-smilies&quot; title=&quot;表情&quot;&amp;gt;&amp;lt;/i&amp;gt;
+       &amp;lt;i class=&quot;icon-pic&quot; title=&quot;图片&quot; onclick=&quot;addimg();&quot;&amp;gt;&amp;amp;#xE3C4;&amp;lt;/i&amp;gt;
+&amp;lt;div class=&quot;comment-smilies&quot;&amp;gt;&amp;lt;?php c7v5_smilies(); ?&amp;gt;&amp;lt;/div&amp;gt; `&lt;/pre&gt;
+主题选项-自定义代码中添加：
+&lt;pre class=&quot;language-javascript&quot;&gt;`
+function addimg(){
+      document.getElementById(&apos;comment&apos;).value = document.getElementById(&apos;comment&apos;).value + &apos;&amp;lt;img src=&quot;请输入图像地址，请上传到我的图床(file.aoaoao.me)后获取&quot; alt=&quot;图像描述&quot; /&amp;gt;&apos;;
+}        
+`&lt;/pre&gt;
+主题选项-自定义CSS中添加：
+&lt;pre class=&quot;language-css&quot;&gt;`
+.icon-pic{
+    float:left;
+    position: relative;
+    top: -1px;
+    width: 1em;
+    height: 1em;
+    font-size: 21px;
+    color: #999;
+    cursor: pointer;
+    display: inline-block;
+    font-family: &quot;Material Icons&quot;;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: &quot;liga&quot;;
+    font-feature-settings: &quot;liga&quot;;
+}
+`&lt;/pre&gt;
+functions-diy.php中添加：
+&lt;pre class=&quot;language-php&quot;&gt;`
+function auto_comment_image( $comment ) {// by https://mufeng.me
+      global $allowedtags;
+      $content = $comment[&quot;comment_content&quot;];
+      // alt部分自行填写
+      $content = preg_replace(&apos;/((https|http|ftp):\/\/){1}.+?.(jpg|gif|bmp|bnp|png)$/is&apos;,&apos;&amp;lt;img src=&quot;$0&quot; alt=&quot;&quot; /&amp;gt;&apos;,$content);
+      //允许发布img标签
+      $allowedtags[&apos;img&apos;] = array(&apos;src&apos; =&amp;gt; array (), &apos;alt&apos; =&amp;gt; array (),&apos;class&apos; =&amp;gt;array());
+      // 重新给$comment赋值
+      $comment[&quot;comment_content&quot;] = $content;
+      return $comment;
+}
+`&lt;/pre&gt;
+效果图：
+![qq%e6%88%aa%e5%9b%be20161001142355](https://aoaoao.me/wp-content/uploads/2016/10/QQ截图20161001142355.png)
+
+### 给LOGO和标题添加阴影
+
+最近把首页大图换成了我老婆，但默认白色的logo看不清了，所以给logo加上了阴影特效（前提是你的logo是svg绘制的）\
+主题设置-自定义CSS中添加：
+&lt;pre class=&quot;language-css&quot;&gt;`
+#logo {
+        -webkit-filter: drop-shadow(0px 0px 5px black);
+}
+#site-description,#site-title{
+        text-shadow:0px 0px 5px #000 ;
+}
+`&lt;/pre&gt;
+
+### 让Prism.js右上方显示语言名称
+
+主题-自定义CSS中添加：
+&lt;pre class=&quot;language-css&quot;&gt;`
+div.prism-show-language {
+    position: relative;
+}
+div.prism-show-language &gt; div.prism-show-language-label {
+    color: black;
+    background-color: #CFCFCF;
+    display: inline-block;
+    position: absolute;
+    bottom: auto;
+    left: auto;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    font-size: 0.9em;
+    border-radius: 0 0 0 5px;
+    padding: 0 0.5em;
+    text-shadow: none;
+    z-index: 1;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/" target="_blank" rel="external">http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="John Doe">
+            John Doe
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/&title=《对C7V5主题的修改记录及本站使用的自定义代码等》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/&title=《对C7V5主题的修改记录及本站使用的自定义代码等》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《对C7V5主题的修改记录及本站使用的自定义代码等》 — Hexo&url=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/10/30/1231/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">我喜欢的音乐</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/09/18/e4-b8-80-e4-b8-aa-e4-b8-a7-e5-bf-83-e7-97-85-e7-8b-82-e7-9a-84-e9-aa-8c-e8-af-81-e7-a0-81-e7-9a-84-e8-af-9e-e7-94-9f/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">一个丧心病狂的验证码的诞生</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>John Doe &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/&title=《对C7V5主题的修改记录及本站使用的自定义代码等》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/&title=《对C7V5主题的修改记录及本站使用的自定义代码等》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《对C7V5主题的修改记录及本站使用的自定义代码等》 — Hexo&url=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/01/e5-af-b9c7v5-e4-b8-bb-e9-a2-98-e7-9a-84-e4-bf-ae-e6-94-b9-e8-ae-b0-e5-bd-95-e5-8f-8a-e6-9c-ac-e7-ab-99-e4-bd-bf-e7-94-a8-e7-9a-84-e8-87-aa-e5-ae-9a-e4-b9-89-e4-bb-a3-e7-a0-81-e7-ad-89/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,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" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

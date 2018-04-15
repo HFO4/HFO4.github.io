@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>构建一个在线ASCII视频流服务 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Go">
+    <meta name="description" content="什么是ASCII视频流服务？其实这个名字是咱胡乱起的，具体叫啥我也不清楚，但效果如下：                                                                                                            大家可以在自己的命令行里试下，效果比较暴力，就不截图了 如何搭建这么一个服务？需要用到的工具：">
+<meta name="keywords" content="Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="构建一个在线ASCII视频流服务">
+<meta property="og:url" content="http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="什么是ASCII视频流服务？其实这个名字是咱胡乱起的，具体叫啥我也不清楚，但效果如下：                                                                                                            大家可以在自己的命令行里试下，效果比较暴力，就不截图了 如何搭建这么一个服务？需要用到的工具：">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2018/03/图像-1.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2018/03/图像-2.png">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.053Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="构建一个在线ASCII视频流服务">
+<meta name="twitter:description" content="什么是ASCII视频流服务？其实这个名字是咱胡乱起的，具体叫啥我也不清楚，但效果如下：                                                                                                            大家可以在自己的命令行里试下，效果比较暴力，就不截图了 如何搭建这么一个服务？需要用到的工具：">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2018/03/图像-1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">John Doe</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">构建一个在线ASCII视频流服务</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">构建一个在线ASCII视频流服务</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-26T11:12:41.000Z" itemprop="datePublished" class="page-time">
+  2018-03-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是ASCII视频流服务？"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是ASCII视频流服务？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何搭建这么一个服务？"><span class="post-toc-number">2.</span> <span class="post-toc-text">如何搭建这么一个服务？</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">构建一个在线ASCII视频流服务</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-26 19:12:41" datetime="2018-03-26T11:12:41.000Z"  itemprop="datePublished">2018-03-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="什么是ASCII视频流服务？"><a href="#什么是ASCII视频流服务？" class="headerlink" title="什么是ASCII视频流服务？"></a>什么是ASCII视频流服务？</h2><p>其实这个名字是咱胡乱起的，具体叫啥我也不清楚，但效果如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2018/03/图像-1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>大家可以在自己的命令行里试下，效果比较暴力，就不截图了</p>
+<h2 id="如何搭建这么一个服务？"><a href="#如何搭建这么一个服务？" class="headerlink" title="如何搭建这么一个服务？"></a>如何搭建这么一个服务？</h2><p>需要用到的工具：</p>
+<ul>
+<li>ffmpeg</li>
+<li><a href="https://github.com/hit9/img2txt" target="_blank" rel="noopener">hit9/img2txt</a></li>
+<li><a href="https://github.com/HFO4/plus1s.live" target="_blank" rel="noopener">HFO4/plus1s.live</a></li>
+<li><p>Go和Python的运行环境<br><strong>1.执行以下命令将视频中的某个片段（或全部）截取为图像</strong></p>
+<p>ffmpeg -i HongkongReporter.mp4 -r 5 -ss 00:01:13 -t 00:00:15 %03d.png<code>&lt;/pre&gt;
+以上命令代表将</code>HongkongReporter.mp4`的第1分13秒后的15秒以每秒5帧的速度保存为图像，图像名格式为001.png 002.png ……<br>效果如下：<br><img src="https://aoaoao.me/wp-content/uploads/2018/03/图像-2.png" alt=""></p>
+<p><strong>2.使用修改过的hit9/img2txt将图像转换为ASCII画.</strong></p>
+<p>原版hit9/img2txt只能单张转换，我稍微改了下，可以批量转换并保存为txt。修改后的版本：<a href="https://github.com/HFO4/img2txt/blob/gh-pages/img2txt.py" target="_blank" rel="noopener">https://github.com/HFO4/img2txt/blob/gh-pages/img2txt.py</a></p>
+<p>clone下来后修改<code>img2txt.py</code><a href="https://github.com/HFO4/img2txt/blob/gh-pages/img2txt.py#L246" target="_blank" rel="noopener">第246行</a>的目录为上一步存放图像的目录，然后执行：<br><pre class="language-shell"><code>pip install img2txt.py
+python img2txt.py h</code></pre><br>稍等片刻，ASCII字符文件会存放到与<code>img2txt.py</code>同级的<code>pic</code>目录下</p>
+<p><strong>3.部署在线服务</strong></p>
+<p>将<a href="https://github.com/HFO4/plus1s.live" target="_blank" rel="noopener">HFO4/plus1s.live</a>克隆下来，并将上一步得到的pic目录替换到此项目的目录下，修改<code>stream.go</code>的<a href="https://github.com/HFO4/plus1s.live/blob/master/stream.go#L13" target="_blank" rel="noopener">第13行</a>为你得到的单帧图像的总个数。保存后执行：<br><pre class="language-shell">`go build stream.go<br>./stream</pre></p>
+</li>
+</ul>
+<p>然后程序会默认开放1926端口，使用<code>curl 您的ip:1926</code>命令即可查看效果。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2018-04-15T11:37:48.053Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" target="_blank" rel="external">http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="John Doe">
+            John Doe
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《构建一个在线ASCII视频流服务》 — Hexo&url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/15/hello-world/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/02/04/cloudreve1-0-e9-9a-8f-e6-97-b6-e9-9a-8f-e5-9c-b0-ef-bc-8c-e4-ba-91-e7-ab-af-e7-ad-89-e4-bd-a0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Cloudreve1.0 - 随时随地，云端等你</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>John Doe &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《构建一个在线ASCII视频流服务》 — Hexo&url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEjUlEQVR42u3ay27bMBAF0P7/T6dAVwXauPfOMIjoHq0Mx6LIowDkPH78iK+PX9fvn//8Jr/rz98n47/+/vXMk9keuDBhwoQJ0yOZPl5enw2d//410P5Vtc96/ftP78WECRMmTJczJcNtDgoJdMuxeW6+LkyYMGHC9P8w5Yt5jbIPsM8G1ZgwYcKECVOSWs233jwAbhe/CdExYcKECdN7MyXD5cnT/ZHiKxK7yb0HcuGYMGHChOlhTLNS4nt8/vL+JkyYMGHC9K1MH4euNtSclTaT37d3RavDhAkTJkzXMuWFxjbBOksKt81Dp4LtaD6YMGHChOlapnyznJU526NAUWIsS5vt66kz4pgwYcKE6ZFMs5LhLEydtdScavrZFEQxYcKECdONTLOU6ybBuk/Czjg2rxkTJkyYMN3LtA8p8418800buM7Qo2MBJkyYMGG6imnTmpOXKpNptWXUWfvOsMCJCRMmTJiuZWqHW+WS40afNmnbHiOSY039ljBhwoQJ0yOZ2iW1D5v9tU0Tt+F0HtJjwoQJE6bbmfbJ1jzozVH2L+BUsjjKiGPChAkTpkuY9k02s4Jovux2tm3yt05AY8KECROmS5jaBe9TqPvF5IeMTbC9+r/AhAkTJkyPYXqd0p1t9rMjxSY5Owun6+MIJkyYMGG6iqmd1qnqXh52ztqA8pR09C+CCRMmTJiuZcqbYGZMs5B4Fn7PrqLUigkTJkyYLmfalA/3LTKb9HG+7FWyGxMmTJgwXcvUhqDtlp9MIm9mbdPBh8u3mDBhwoTpQqa8YDkrMeYB9vd+LjIEmDBhwoTpEqZkYbMNeBYeJ8/Kx8+Ll/9YFyZMmDBhupypTci2LTI5/aylJk/+DpO8mDBhwoTpcqZ24/yKQ8OpIDxP4OaBOiZMmDBhupdpVg7MS6H5yLN2nFnYfKyoiQkTJkyYLmeaNe7koXJ7jGhfXr6W4omYMGHChOkqpvzmWXFxk5ZtU7Gv0TcHDkyYMGHC9B5Mm8PBrDx59jiSp3pX/U2YMGHChOlCpiR1+xVbfn7XJnCdBeR1pxImTJgwYXowU97mkmzhs+Rs/vRZqnc1K0yYMGHCdC3TZr/bh6DD7blsAJp9U2SXMWHChAnTg5mSdO2mTLhpssm/ma0lT/ViwoQJE6Z7mfIHbyDyVGxbHD31IqM5YMKECROmC5mSULYtKLbbdhtIt+XSWZkTEyZMmDC9K9MssMy381nat20VmpF9io4JEyZMmN6CqY6YgxLjbEntQeTUS8KECRMmTO/HlA+0DzWTsLM9HOwT0MOkNiZMmDBhuoTpo7xm5c+ceFOAnJU5o79iwoQJE6ZrmTab5Wxz3ZczZwF2e3A5dqbAhAkTJkwPYMoPAbO72kac/JUks90UPjFhwoQJ0zsxJanVTYi4CimDMU89cVj7xYQJEyZMb8Q0a995vVW3m3oblreHgL+MiQkTJkyY/gOm/Iiw2c7b5qFZcbRuTsKECRMmTJcztenanKltCdqUWs8mfIe5cEyYMGHC9DCmdiotQU68mUMbEh9uTsWECRMmTE9k+glwamKDRZgKAgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

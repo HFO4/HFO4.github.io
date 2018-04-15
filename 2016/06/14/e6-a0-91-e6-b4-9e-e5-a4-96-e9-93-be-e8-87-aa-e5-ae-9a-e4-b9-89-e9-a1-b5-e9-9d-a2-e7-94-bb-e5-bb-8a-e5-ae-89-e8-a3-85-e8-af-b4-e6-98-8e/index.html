@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>树洞外链自定义页面-画廊 安装说明 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="PHP,树洞外链,随机数">
+    <meta name="description" content="树洞外链从2.4版本起加入自定义页面机制，用户可以根据当前模板开发自己的页面。本次将以一个最新的第三方页面 - 画廊为例 ，讲讲添加自定义页面的方法。先来个演示：http://yun.aoaoao.me/demo/views/pages.php?id=gallery">
+<meta name="keywords" content="PHP,树洞外链,随机数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树洞外链自定义页面-画廊 安装说明">
+<meta property="og:url" content="http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="树洞外链从2.4版本起加入自定义页面机制，用户可以根据当前模板开发自己的页面。本次将以一个最新的第三方页面 - 画廊为例 ，讲讲添加自定义页面的方法。先来个演示：http://yun.aoaoao.me/demo/views/pages.php?id=gallery">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/06/360截图20160614121954096-1024x457.png">
+<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/06/360截图20160614122739739.png">
+<meta property="og:updated_time" content="2018-04-15T11:37:48.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树洞外链自定义页面-画廊 安装说明">
+<meta name="twitter:description" content="树洞外链从2.4版本起加入自定义页面机制，用户可以根据当前模板开发自己的页面。本次将以一个最新的第三方页面 - 画廊为例 ，讲讲添加自定义页面的方法。先来个演示：http://yun.aoaoao.me/demo/views/pages.php?id=gallery">
+<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2016/06/360截图20160614121954096-1024x457.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">John Doe</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">树洞外链自定义页面-画廊 安装说明</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">树洞外链自定义页面-画廊 安装说明</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-06-14T04:29:14.000Z" itemprop="datePublished" class="page-time">
+  2016-06-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-下载"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-配置"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#题外话"><span class="post-toc-number">3.</span> <span class="post-toc-text">题外话</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">树洞外链自定义页面-画廊 安装说明</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-06-14 12:29:14" datetime="2016-06-14T04:29:14.000Z"  itemprop="datePublished">2016-06-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/正常的文章/">正常的文章</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>树洞外链从2.4版本起加入自定义页面机制，用户可以根据当前模板开发自己的页面。本次将以一个最新的第三方页面 - 画廊为例 ，讲讲添加自定义页面的方法。<br>先来个演示：<a href="http://yun.aoaoao.me/demo/views/pages.php?id=gallery" target="_blank" rel="noopener">http://yun.aoaoao.me/demo/views/pages.php?id=gallery</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/06/360截图20160614121954096-1024x457.png" alt="360截图20160614121954096" title="">
+                </div>
+                <div class="image-caption">360截图20160614121954096</div>
+            </figure><br><strong>注：</strong>画廊页面将会列出所有用户上传的文件，不管是不是公开。所以本页面并不适用于一些私密性图床。</p>
+</blockquote>
+<h3 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h3><p>下载地址：<a href="http://file.aoaoao.me/f.php?k=1931a" target="_blank" rel="noopener">http://yun.aoaoao.me/demo/f.php?k=1931a</a><br>下载后解压到主题目录下的pages目录下，以material为例，把所有文件解压到<code>/content/themes/material/pages/</code>下。如果你的主题没有该目录，请新建一个。</p>
+<h3 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h3><p>树洞外链的每一个自定义页面都要在<code>config.json</code>中注册。打开pages目录下的config.json文件（没有请新建一个）。以material主题为例，内容如下：</p>
+<pre><code>[
+    {
+        &quot;id&quot;: &quot;explore&quot;,
+        &quot;file&quot;: &quot;shares&quot;
+    },{
+        &quot;id&quot;: &quot;exsplore&quot;,
+        &quot;file&quot;: &quot;shares&quot;
+    },{
+        &quot;id&quot;: &quot;exsddplore&quot;,
+        &quot;file&quot;: &quot;shares&quot;
+    },{
+        &quot;id&quot;: &quot;exsdddplore&quot;,
+        &quot;file&quot;: &quot;shares&quot;
+    }
+]`&lt;/pre&gt;
+这里共注册了4个页面，第一个就是“文件广场”，标示为explore，页面文件为shares.php，访问该页面时程序会引入pages目录下的shares.php文件。其他四个是测试时留下的。我们在后面添加一项，id为gallery，页面文件名为gallery。如下：
+&lt;pre class=&quot;language-json&quot;&gt;`[
+    {
+        &quot;id&quot;: &quot;explore&quot;,
+        &quot;file&quot;: &quot;shares&quot;
+    },{
+        &quot;id&quot;: &quot;exsplore&quot;,
+        &quot;file&quot;: &quot;shares&quot;
+    },{
+        &quot;id&quot;: &quot;exsddplore&quot;,
+        &quot;file&quot;: &quot;shares&quot;
+    },{
+        &quot;id&quot;: &quot;exsdddplore&quot;,
+        &quot;file&quot;: &quot;shares&quot;
+    },**{
+        &quot;id&quot;: &quot;gallery&quot;,
+        &quot;file&quot;: &quot;gallery&quot;
+    }**
+]`&lt;/pre&gt;
+保存后访问http://您的域名/views/pages.php?id=gallery，测试能否正常显示。
+
+### 3.修改
+
+我们要在导航条上添加一个链接指向这个页面。以material为例。打开模板目录下的head.html，在导航条上添加：
+&lt;pre class=&quot;language-html&quot;&gt;`&amp;lt;li&amp;gt;&amp;lt;a href=&quot;~$zzurl~~views/pages.php?id=gallery&quot;&amp;gt;&amp;lt;i class=&quot;fa fa-photo&quot; aria-hidden=&quot;true&quot;&amp;gt;&amp;lt;/i&amp;gt; 画廊&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+</code></pre><p>默认情况下画廊每页展示12张图片，图片过多时会卡顿。你可以手动修改每页展示个数。打开pages目录下的gallery.php，修改第41行<code>$pagesize=12;</code> 即可。</p>
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>在开发测试画廊页面时，我使用的是默认的上传方案，命名方式为f_+8位随机数，随机数采用PHP的rand函数生成。然而，我上传一个图片后，被文件名吓住了：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://aoaoao.me/wp-content/uploads/2016/06/360截图20160614122739739.png" alt="360截图20160614122739739" title="">
+                </div>
+                <div class="image-caption">360截图20160614122739739</div>
+            </figure><br><strong>rand函数产生了10000000这个随机数！！！</strong><br>这可是一千万分十一的概率啊！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2018-04-15T11:37:48.051Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/" target="_blank" rel="external">http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="John Doe">
+            John Doe
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树洞外链/">树洞外链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随机数/">随机数</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/&title=《树洞外链自定义页面-画廊 安装说明》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/&title=《树洞外链自定义页面-画廊 安装说明》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树洞外链自定义页面-画廊 安装说明》 — Hexo&url=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/06/22/e4-b9-b0-e4-ba-86-e5-9d-97pifi-dac-e6-89-a9-e5-b1-95-e6-9d-bf/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">买了块PiFi DAC扩展板</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/06/08/e7-94-a8dplayer-e5-ae-9e-e7-8e-b0-e7-9a-84b-e7-ab-99html5-e6-92-ad-e6-94-be-e5-99-a8/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">用DPlayer实现的B站HTML5播放器</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>John Doe &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/&title=《树洞外链自定义页面-画廊 安装说明》 — Hexo&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/&title=《树洞外链自定义页面-画廊 安装说明》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树洞外链自定义页面-画廊 安装说明》 — Hexo&url=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/06/14/e6-a0-91-e6-b4-9e-e5-a4-96-e9-93-be-e8-87-aa-e5-ae-9a-e4-b9-89-e9-a1-b5-e9-9d-a2-e7-94-bb-e5-bb-8a-e5-ae-89-e8-a3-85-e8-af-b4-e6-98-8e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFLklEQVR42u3aQW7jMBAEQP//095zkEjbPUMZAVI+BbEtkUUDGvbw9Ypf74vX1Se//31/5avP79+9H3MyowMvfPjw4cOHL7jN98Fd/edqGvcDSu7bLl5OefVuOzZ8+PDhw4dvxrcpQe5LivxqOdypgub+P8kI8eHDhw8fvs/wJY/5NiZog4m82GrLLHz48OHDh+/38G0o7zftp2L9WViADx8+fPjwfZLvk9vydgHyrX4SAbT3OtbrwIcPHz58+MpTWH/n70fO9+HDhw8fvj/P9y5fT2zI28NkTzS836MXPnz48OHDN9PIg/JZ03oW329qhlkcP3TAhw8fPnz4YoeWo43XZ0B5K31WfJxqKuDDhw8fPnwt3+zRPkPPA4hNEp5c+XCbHx8+fPjw4Yv53odep4DyZUiumQQByXcvr4kPHz58+PCN+JLHfH6DDeipUqYtp9r2/KutkvDhw4cPH74YdBZ2t83sNpiYHXTLGw/tDw4fPnz48OFLfKI2cFCyJMH9qcJoNqo8GshLKHz48OHDh2/D1zahc4I2Im+b92eXuYg/8OHDhw8fvkVynpcXecSQxwqzo2ObZcgXPlo8fPjw4cOHL+bbHBQ7VcrMSpa21NjMYjhcfPjw4cOHLz7+tYfIJzkrHWbHyNrlGYb1+PDhw4cPXxwc5OXIqSZ3+622Bd4u7axRgQ8fPnz48M0Kl/yx/Znp5cVHu6NfHW7Dhw8fPnz4Sr68EGmPnSURQzvcdkuflCOzH0Q9eXz48OHDh29RCrSb/OLxPyqh8vAiiTZmsT4+fPjw4cOX8M0Cglnbu43Fi5VfNBvyH8oPn8eHDx8+fPhGfNGWuGwtb8qO/RgOxwFX6Pjw4cOHD9+CL98wb4L+TUu7jSHa5cmXofgCPnz48OHDN3qo5xv1fUmxDyxmP4g23MeHDx8+fPie4JttxWcb/lME7cIP54sPHz58+PCN+DZxeb53fiKyT2L3zTL/51748OHDhw/f9l7R47yFyGP0hGDWHtgUOjU6Pnz48OHDd8HXDjeBSDbhSUyQTHVWQm2W8IcDavjw4cOHD9+Ibzbt+9vM2t5Fo7qMM2afuZw1Pnz48OHDt+Bri4B9wdFu/vNoYxYHtMEEPnz48OHDN+PLj4u1TfH8yFdb1rQBfV4eFY18fPjw4cOHr+SbtbqTSe6HWPf2F9dvQ/wv7+LDhw8fPnwxX9vk3sQB+/JiT5Of2otmig8fPnz48JV8s0ZyizKLEjafzFvdmxHiw4cPHz58p/jyCKCNtmfv1ilIEHPkwUQR1uPDhw8fPnxxmzzfSG9oNofJ2q1+zp3f98s48eHDhw8fvpKvjdGTp3YeLuQ1wD4aaJehCBHw4cOHDx++Se5dH9SeFQqrEmFBMJtjcn18+PDhw4ev5TsVBLQN9Tzob8P6fZshHwM+fPjw4cPX8uVFQN5Kz6+fT7VdsNloh811fPjw4cOHL+DLj6blUX5elGy+mwf9p4IGfPjw4cOH7xTfpuE9C+I3BdOpEOFAQx0fPnz48OFb87W3mZULs6NsTy9YHdbjw4cPHz58iz5vG823Bc2mSJpNso3190uFDx8+fPjwJXxtBL8vHZJt/9mjbGcLF3z48OHDh2/PdzYOyKH3YX3eRG9j+mgB8OHDhw8fvof5nojF99PblCP5qOob48OHDx8+fA/wJZ9si4y2QNkEB3lEgg8fPnz48J3iy5vZLdasUMinmi/PvjG/apPjw4cPHz586w15O/RZs3yzpZ+Nrf1Z4MOHDx8+fAHfP0RVaWhLuY5kAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
