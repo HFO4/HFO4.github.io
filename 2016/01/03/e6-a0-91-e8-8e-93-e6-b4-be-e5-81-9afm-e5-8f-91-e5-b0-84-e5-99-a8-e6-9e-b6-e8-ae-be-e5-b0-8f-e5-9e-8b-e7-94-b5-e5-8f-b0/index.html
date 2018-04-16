@@ -25,18 +25,18 @@
 <meta name="keywords" content="树莓派,电台">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派做FM发射器架设小型电台">
-<meta property="og:url" content="http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/index.html">
+<meta property="og:url" content="https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/index.html">
 <meta property="og:site_name" content="Aaron&#39;s Blog">
 <meta property="og:description" content="首先说明一下，私人架设FM电台是违法的，轻的应该是会治安拘留30天，重的应该被判刑。本教程仅供学习娱乐，出了事别找我！以前介绍过如何架设网络电台：传送门，今天来介绍一下如何使用树莓派假设一个真正意义上使用无线电传播的电台。所需材料只有杜邦线，用来当天线用。现在网上有不少针对树莓派架设电台的项目，但大部分在Pi2下不能用。我找到一个在Pi2下能用的，效果还不错。Github：https://git">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103095625.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/Screenshot_2016-01-03-09-54-53.png">
-<meta property="og:updated_time" content="2018-04-15T11:37:48.050Z">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103095625.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/Screenshot_2016-01-03-09-54-53.png">
+<meta property="og:updated_time" content="2018-04-16T01:13:32.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派做FM发射器架设小型电台">
 <meta name="twitter:description" content="首先说明一下，私人架设FM电台是违法的，轻的应该是会治安拘留30天，重的应该被判刑。本教程仅供学习娱乐，出了事别找我！以前介绍过如何架设网络电台：传送门，今天来介绍一下如何使用树莓派假设一个真正意义上使用无线电传播的电台。所需材料只有杜邦线，用来当天线用。现在网上有不少针对树莓派架设电台的项目，但大部分在Pi2下不能用。我找到一个在Pi2下能用的，效果还不错。Github：https://git">
-<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png">
+<meta name="twitter:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png">
     
         <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
     
@@ -205,30 +205,30 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <blockquote>
-<p>首先说明一下，私人架设FM电台是违法的，轻的应该是会治安拘留30天，重的应该被判刑。本教程仅供学习娱乐，出了事别找我！<br>以前介绍过如何架设网络电台：<a href="https://aoaoao.me/73.html" target="_blank" rel="noopener">传送门</a>，今天来介绍一下如何使用树莓派假设一个真正意义上使用无线电传播的电台。所需材料只有杜邦线，用来当天线用。<br>现在网上有不少针对树莓派架设电台的项目，但大部分在Pi2下不能用。我找到一个在Pi2下能用的，效果还不错。<br>Github：<a href="https://github.com/ChristopheJacquet/PiFmRds" target="_blank" rel="noopener">https://github.com/ChristopheJacquet/PiFmRds</a></p>
+<p>首先说明一下，私人架设FM电台是违法的，轻的应该是会治安拘留30天，重的应该被判刑。本教程仅供学习娱乐，出了事别找我！<br>以前介绍过如何架设网络电台：<a href="https://aoaoao.me/73.html">传送门</a>，今天来介绍一下如何使用树莓派假设一个真正意义上使用无线电传播的电台。所需材料只有杜邦线，用来当天线用。<br>现在网上有不少针对树莓派架设电台的项目，但大部分在Pi2下不能用。我找到一个在Pi2下能用的，效果还不错。<br>Github：<a href="https://github.com/ChristopheJacquet/PiFmRds" target="_blank" rel="noopener">https://github.com/ChristopheJacquet/PiFmRds</a></p>
 </blockquote>
 <h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><p>首先安装必要组件libsndfile。<a href="http://pan.baidu.com/s/1eRzqajg" target="_blank" rel="noopener">点击这里下载</a> 下载完成后传到树莓派上，依次执行：</p>
 <p><pre class="lang:default decode:true ">tar -xvzf libsndfile-1.0.25.tar.gz<br>cd libsndfile-1.0.25<br>./configure<br>make<br>make install</pre><br>会出现下图：<br>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png" alt="搜狗截图20160103093243](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png" alt="搜狗截图20160103093243](https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png)" title="">
                 </div>
-                <div class="image-caption">搜狗截图20160103093243](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png)</div>
+                <div class="image-caption">搜狗截图20160103093243](https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103093243.png)</div>
             </figure><br>等待其安装完成，完成后依次执行：</p>
 <p><pre class="lang:default decode:true ">git clone <a href="https://github.com/ChristopheJacquet/PiFmRds.git" target="_blank" rel="noopener">https://github.com/ChristopheJacquet/PiFmRds.git</a><br>cd PiFmRds/src<br>make clean<br>make</pre><br>然后运行：</p>
 <p><pre class="lang:default decode:true ">./pi_fm_rds -audio sound.wav</pre><br>之后程序就会以107.9 MHz向外循环播放sound.wav<br>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103095625.png" alt="搜狗截图20160103095625](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103095625.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103095625.png" alt="搜狗截图20160103095625](https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103095625.png)" title="">
                 </div>
-                <div class="image-caption">搜狗截图20160103095625](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103095625.png)</div>
+                <div class="image-caption">搜狗截图20160103095625](https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160103095625.png)</div>
             </figure><br>当然也能自定义频率：</p>
 <p><pre class="lang:default decode:true ">./pi_fm_rds -freq 107.9 -audio sound.wav </pre><br>还没有结束，我没还要在GPIO 4（PIN7）上接一根长长的杜邦线增强信号<br>接好后，信号、音质提升显著。<br>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/Screenshot_2016-01-03-09-54-53.png" alt="Screenshot_2016-01-03-09-54-53](https://aoaoao.me/wp-content/uploads/2016/01/Screenshot_2016-01-03-09-54-53.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/Screenshot_2016-01-03-09-54-53.png" alt="Screenshot_2016-01-03-09-54-53](https://cdn.aoaoao.me/wp-content/uploads/2016/01/Screenshot_2016-01-03-09-54-53.png)" title="">
                 </div>
-                <div class="image-caption">Screenshot_2016-01-03-09-54-53](https://aoaoao.me/wp-content/uploads/2016/01/Screenshot_2016-01-03-09-54-53.png)</div>
+                <div class="image-caption">Screenshot_2016-01-03-09-54-53](https://cdn.aoaoao.me/wp-content/uploads/2016/01/Screenshot_2016-01-03-09-54-53.png)</div>
             </figure></p>
 
         </div>
@@ -238,17 +238,15 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-04-15T11:37:48.050Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+    最后更新时间：<time datetime="2018-04-16T01:13:32.282Z" itemprop="dateUpdated">2018-04-16 09:13:32</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" target="_blank" rel="external">http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/</a>
-        
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://aoaoao.me">
             <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
             Aaron Liu
         </a>
@@ -274,7 +272,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&title=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&title=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -284,22 +282,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&title=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&title=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&url=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&url=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -450,7 +448,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&title=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&title=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -460,22 +458,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&title=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&title=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&url=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派做FM发射器架设小型电台》 — Aaron's Blog&url=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2016/01/03/e6-a0-91-e8-8e-93-e6-b4-be-e5-81-9afm-e5-8f-91-e5-b0-84-e5-99-a8-e6-9e-b6-e8-ae-be-e5-b0-8f-e5-9e-8b-e7-94-b5-e5-8f-b0/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -486,7 +484,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEkUlEQVR42u3aUY4iMQwFwLn/pdkD7ADv2VmJsNVfCDXppBoptuOfn/h6/HU9uycf59mvHi+v5M7Xc07mObwwYcKECdNHMiXTar9pR2tZX7+q1yPnc8aECRMmTN/ElAzX3t9u9s/uz5+bhC+zMTFhwoQJ0//DlCfGybadb+H5a8hfHiZMmDBhwpQ/LMHKk979xt/ODRMmTJgwfTdTu9SkYJps0ptk9fU4echyuBaOCRMmTJg+jKndjL/p8z/pb8KECRMmTB/D9CivFrFNQWeb8ayFqFg1JkyYMGG6linfINvUcXOU2KaySfn4wHMxYcKECdO1TPtNNIFoA4IkKGnLtbNxMGHChAnTvUz5hpq34MzS4E2Ku2k2imaFCRMmTJi+mmm2mFNF2NmxaxIHJa8ZEyZMmDB9N1ObxCZpaj65zfFk+8Q388GECRMmTNcybVLNPK2dHTHmB6WzQCQ/rMWECRMmTN/B1BZ5Z+0y7QFke2c+22GSjwkTJkyYLmTaNNzMjjlnW35eXM5DjeLvggkTJkyYrmVq225mLTX5mGcPI/M/QR0cYMKECROmq5iSqeQPa5PeWaLbbvx5Yboo8mLChAkTpg9myh+cbKIzlP3mPZtDkfpiwoQJE6bLmdqpt6B5Epu35uSF5nbmq2YdTJgwYcL08Uzt56R0uy8ct8FH+8IOtOxgwoQJE6aPZ5oVeZNlzJ6YF3lzypz1lyIvJkyYMGH6Cqaf+Npv2PlTNq0/7a/eFHkxYcKECdOFTJv2mk2gsCn1toXattz8k/wYEyZMmDB9PFM+xXxabTK8KSKfLQQX7TuYMGHChOlCpnbj3KSyebn2bJF30yqECRMmTJhuZGoXmaejm9Lw2XLtgbI1JkyYMGG6linfpDccmxJtwtQWeYerw4QJEyZMFzK1B5b7RLdtS00WuW+TfTNzTJgwYcJ0OVNb6m1LsW1SOjsibUOBvLiMCRMmTJjuZWq32Nny8unOxkkKxDnxm/ExYcKECdOFTLMi7yxBPXXAmRMnYU0S9GDChAkTpnuZZk0zSXBwauNvl50EMbOyNSZMmDBhupHpwIFf/P0Ma1Y4bgORKG7ChAkTJkxXMW2OAPOjwfbOTUNPvpsXgQ4mTJgwYbqWaXa02QYBryHaJW3ajGYvGBMmTJgw3cu0Gej1YeepRHqz+H1zzy+pLyZMmDBhuoop52jP9YrHL8bMX8CB0AcTJkyYMF3INCvR7pt42kPKHKV9bn3eiwkTJkyYrmVKktXZxjwbLZ/Vfs5vAghMmDBhwnQt0wbocAk1ntWm5aht7nn6W0yYMGHCdAnTo7ySppnN8mab92z+eeiACRMmTJjuZWq39tnBYTuhvKBcLyMYbRb6YMKECROmT2Y6FQS0Bd88IGiLs3mYsqoKYMKECROmq5hmJdp9erwpv+ZhStvo88s3mDBhwoTpv2FqN/vNcWkyWl5ibsdcBQSYMGHChOlypn3o0CbJedK7KTc//R4TJkyYMF3OlDe7tEXbNmFO0um2SJ2zHjjOxIQJEyZMH8a0KbO2d55KmGdF3tkImDBhwoTpWqY/CI0mBvX0qFYAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEoklEQVR42u3aQXLbQAwEQP3/08k1qUTSDEBVceXWySXb5LJ5WGCwj0f8+fXH599v/v08+5vX13x95derSv7mz28en/hgwoQJE6ZbMl37wPl/PVvJs28210mu+Wa1mDBhwoTpcKbkcsl2mzxey52jJA+cPxcmTJgwYfqZTG1xcG1zW2zh8QvDhAkTJkyYNouYta+bljt/JZgwYcKE6ecwtZdrw9zkaq/v24a8yQo/koVjwoQJE6abMc2C1O/4+SPnmzBhwoQJ022YZhFqsm3vN+Z8dJpfefjUmDBhwoTpWKZ8g8yb0ryZbO97bRvc/hcmTJgwYTqRKQ9z8xJhc7WWNR92ti/7r99iwoQJE6ZjmWYHdFqavIColx5E0vkdo6kvJkyYMGE6kGkTv7alQHvoJ293NyFv0ZBjwoQJE6ajmNqBYt525s1ne1So3cJnzTwmTJgwYfompvw2s9h006bu2+m86X26fkyYMGHCdCxTWwpcNapsUT4x+GwLIEyYMGHCdC7T7LBLe4NZODuLiVv65HtMmDBhwnQiU76svGVtl5VfbVNwbIa4mDBhwoTpXKZZu5gXCsn2PBs35mVK236/KXcwYcKECdNRTLPoc7PEWaycNL15e5z85WOfEGPChAkTphswbZrYNjDNQ94Z3LUjT0yYMGHC9E1M+aZ47ex0s3l/OuR9U0NhwoQJE6ajmK7a/jd8r2k252faguOy4zuYMGHChOmWTMmnvWURpI5C3vwgTrvO7BeYMGHChOm+TO1xlvYozCbqnbXKeWFRpwKYMGHChOlApqQdbbfztlBoA98k6s2j6jyGxoQJEyZM38E0O2A6Oyq6P8yaDEEvK3QwYcKECdOxTO1G3m7Ps4HoPrrdhNePfb2DCRMmTJhuwNRGrm2Qmgwm2wM6s/Hn5lkwYcKECdO5TPlD5k3vbKvOB5kb9LYo+U9CgAkTJkyYjmVqL7dpR9umN490k2g4ucubLBwTJkyYMB3ClLSFxahv0QbPmtjZq03uUicBmDBhwoTplkzteDIvBfIyIt/m82FnfsyoeIWYMGHChOlApuRRk2Zy1hgnrO312+Z5NSPFhAkTJkxfwdRGq+2GPdvmZ6vNR7NPQ15MmDBhwnQgU77R5g1kArc5JJT/VxvpPm19MWHChAnTsUybtnY2sGxLkBy9ja2jF4AJEyZMmA5naiPXPMZN4tR2CNrefbNyTJgwYcL0TUzJN1cNEWfhbLK2thmO1oAJEyZMmL6CaR/v5mXBJorNiWeFxZssHBMmTJgwHcu0OWqTL2vWV2760DaGfhPyYsKECROmo5hmAWi76c448hfQjmPbdh0TJkyYMJ3LNDvO0jbJSZFx1b3aEDlqqjFhwoQJ07FM+Wc2wrx2MDmLktufh0CYMGHChOnGTO2oMgleZwd99qFw8mLy0gETJkyYMH0TU7715g3trLDIaZL7XnVHTJgwYcL005hmcW07UGw3+DZuLgafmDBhwoTpxzBtDt8kB30+d0xndQwIEyZMmDAdztRu8/sjPrP2uB2OtsXBBeNMTJgwYcJ0M6Y29NxTzkaPmxIhX+1j88GECRMmTPdi+g1ynYLTcafkUQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

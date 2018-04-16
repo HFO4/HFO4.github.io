@@ -25,20 +25,20 @@
 <meta name="keywords" content="PHP,源码,词语接龙">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写了一个词语接龙游戏，开放接口">
-<meta property="og:url" content="http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/index.html">
+<meta property="og:url" content="https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/index.html">
 <meta property="og:site_name" content="Aaron&#39;s Blog">
 <meta property="og:description" content="关于这个词语接龙接口，很早以前就已经构思好了，一直没有时间实现，今天下午搞了出来，并写了个Demo。主要分为两个接口，一个用来返回接好的词语，另一个用来验证用户输入的是不是词语。  接口使用说明1.词语接龙接口词语接龙接口地址为：https://aoaoao.me/api/do.php，使用时请以get方式将词语首字传递给接口。请求格式：https://aoaoao.me/api/do.php?">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215819.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215835.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215910.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215955.png">
-<meta property="og:updated_time" content="2018-04-15T11:37:48.050Z">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215819.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215835.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215910.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215955.png">
+<meta property="og:updated_time" content="2018-04-16T01:13:31.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写了一个词语接龙游戏，开放接口">
 <meta name="twitter:description" content="关于这个词语接龙接口，很早以前就已经构思好了，一直没有时间实现，今天下午搞了出来，并写了个Demo。主要分为两个接口，一个用来返回接好的词语，另一个用来验证用户输入的是不是词语。  接口使用说明1.词语接龙接口词语接龙接口地址为：https://aoaoao.me/api/do.php，使用时请以get方式将词语首字传递给接口。请求格式：https://aoaoao.me/api/do.php?">
-<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png">
+<meta name="twitter:image" content="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png">
     
         <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
     
@@ -209,7 +209,7 @@
             <blockquote>
 <p>关于这个词语接龙接口，很早以前就已经构思好了，一直没有时间实现，今天下午搞了出来，并写了个Demo。主要分为两个接口，一个用来返回接好的词语，另一个用来验证用户输入的是不是词语。</p>
 </blockquote>
-<h2 id="接口使用说明"><a href="#接口使用说明" class="headerlink" title="接口使用说明"></a>接口使用说明</h2><p><strong>1.词语接龙接口</strong><br>词语接龙接口地址为：<a href="https://aoaoao.me/api/do.php，使用时请以get方式将词语首字传递给接口。" target="_blank" rel="noopener">https://aoaoao.me/api/do.php，使用时请以get方式将词语首字传递给接口。</a><br>请求格式：<a href="https://aoaoao.me/api/do.php?w=词语首字" target="_blank" rel="noopener">https://aoaoao.me/api/do.php?w=词语首字</a><br>比如想要获取首字为“一”的成语：<br><a href="https://aoaoao.me/api/do.php?w=一" target="_blank" rel="noopener">https://aoaoao.me/api/do.php?w=一</a><br>接口会反馈类似于下面这样的数据：</p>
+<h2 id="接口使用说明"><a href="#接口使用说明" class="headerlink" title="接口使用说明"></a>接口使用说明</h2><p><strong>1.词语接龙接口</strong><br>词语接龙接口地址为：<a href="https://aoaoao.me/api/do.php，使用时请以get方式将词语首字传递给接口。">https://aoaoao.me/api/do.php，使用时请以get方式将词语首字传递给接口。</a><br>请求格式：<a href="https://aoaoao.me/api/do.php?w=词语首字">https://aoaoao.me/api/do.php?w=词语首字</a><br>比如想要获取首字为“一”的成语：<br><a href="https://aoaoao.me/api/do.php?w=一">https://aoaoao.me/api/do.php?w=一</a><br>接口会反馈类似于下面这样的数据：</p>
 <pre class="lang:default decode:true ">{"code":"1","result":"一板一眼","message":"找到100条词语"}</pre>
 其中各项参数说明如下表：
 <table class="table table-bordered" width="692">
@@ -393,40 +393,40 @@ $arr1["message"]=urlencode($message1);
 echo urldecode(json_encode($arr1));
 ?&gt;</pre>
 
-<h2 id="词语接龙演示"><a href="#词语接龙演示" class="headerlink" title="词语接龙演示"></a>词语接龙演示</h2><p>于是乎用上面的两个接口做了一个demo.用户输词后先验证，验证后再查词.<br>演示地址：<a href="https://aoaoao.me/api/demo/play.html" target="_blank" rel="noopener">https://aoaoao.me/api/demo/play.html</a><br>截图：<br>[<figure class="image-bubble">
+<h2 id="词语接龙演示"><a href="#词语接龙演示" class="headerlink" title="词语接龙演示"></a>词语接龙演示</h2><p>于是乎用上面的两个接口做了一个demo.用户输词后先验证，验证后再查词.<br>演示地址：<a href="https://aoaoao.me/api/demo/play.html">https://aoaoao.me/api/demo/play.html</a><br>截图：<br>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png" alt="搜狗截图20151128215747](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png" alt="搜狗截图20151128215747](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png)" title="">
                 </div>
-                <div class="image-caption">搜狗截图20151128215747](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png)</div>
+                <div class="image-caption">搜狗截图20151128215747](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215747.png)</div>
             </figure></p>
 <p>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215819.png" alt="搜狗截图20151128215819](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215819.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215819.png" alt="搜狗截图20151128215819](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215819.png)" title="">
                 </div>
-                <div class="image-caption">搜狗截图20151128215819](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215819.png)</div>
+                <div class="image-caption">搜狗截图20151128215819](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215819.png)</div>
             </figure></p>
 <p>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215835.png" alt="搜狗截图20151128215835](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215835.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215835.png" alt="搜狗截图20151128215835](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215835.png)" title="">
                 </div>
-                <div class="image-caption">搜狗截图20151128215835](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215835.png)</div>
+                <div class="image-caption">搜狗截图20151128215835](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215835.png)</div>
             </figure></p>
 <p>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215910.png" alt="搜狗截图20151128215910](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215910.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215910.png" alt="搜狗截图20151128215910](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215910.png)" title="">
                 </div>
-                <div class="image-caption">搜狗截图20151128215910](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215910.png)</div>
+                <div class="image-caption">搜狗截图20151128215910](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215910.png)</div>
             </figure></p>
 <p>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215955.png" alt="搜狗截图20151128215955](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215955.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215955.png" alt="搜狗截图20151128215955](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215955.png)" title="">
                 </div>
-                <div class="image-caption">搜狗截图20151128215955](https://aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215955.png)</div>
+                <div class="image-caption">搜狗截图20151128215955](https://cdn.aoaoao.me/wp-content/uploads/2015/11/搜狗截图20151128215955.png)</div>
             </figure><br>以后有时间了会改进一下，调用图灵机器人的接口<br>源代码及演示打包下载：<a href="http://pan.baidu.com/s/1pJs12XH" target="_blank" rel="noopener">http://pan.baidu.com/s/1pJs12XH</a></p>
 
         </div>
@@ -436,17 +436,15 @@ echo urldecode(json_encode($arr1));
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-04-15T11:37:48.050Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+    最后更新时间：<time datetime="2018-04-16T01:13:31.324Z" itemprop="dateUpdated">2018-04-16 09:13:31</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/" target="_blank" rel="external">http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/</a>
-        
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://aoaoao.me">
             <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
             Aaron Liu
         </a>
@@ -472,7 +470,7 @@ echo urldecode(json_encode($arr1));
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&title=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&title=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -482,22 +480,22 @@ echo urldecode(json_encode($arr1));
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&title=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&title=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&url=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&url=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -648,7 +646,7 @@ echo urldecode(json_encode($arr1));
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&title=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&title=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -658,22 +656,22 @@ echo urldecode(json_encode($arr1));
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&title=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&title=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&url=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《写了一个词语接龙游戏，开放接口》 — Aaron's Blog&url=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2015/11/29/e5-86-99-e4-ba-86-e4-b8-80-e4-b8-aa-e8-af-8d-e8-af-ad-e6-8e-a5-e9-be-99-e6-b8-b8-e6-88-8f-ef-bc-8c-e5-bc-80-e6-94-be-e6-8e-a5-e5-8f-a3/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -684,7 +682,7 @@ echo urldecode(json_encode($arr1));
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFP0lEQVR42u3aQW7jMBAEwPz/015gTzlYcvcMbQRw6RQYskQWA3jYw5+f+Hr8uu7vST7//cnV38mdyXevrqt7ft5x4cOHDx8+fOvXtC9+lNf9d2cLdn9/Pl98+PDhw4dvz3c/iKSAuJ/e/RD3xcfsmfm3Lj/Hhw8fPnz4PsI3K2XyyefPycud5O348OHDhw/fX+PLS5ZZfJ83A/IJvy+MwIcPHz58+GZ8+Q98O7hTd+aL1BYoH+p14MOHDx8+fOUprO/5+y3n+/Dhw4cP39fzzQ6NzWL02WGy+ymdang/Rhc+fPjw4cM30iiC8mTD3z5hthXPFykPQdpZ4MOHDx8+fDO+/DX5BnsTdrcT3kTtyXcjYnz48OHDh29eY9ShwPs2/DOOfTDRsuLDhw8fPnwt3wYr3/xvovNkqz+7vyXDhw8fPnz4Znz5z3zOcXYTPmtm75e/iAbw4cOHDx++km9zQG3Wfm6jhLzs2AcNRcMeHz58+PDhG/G1G/5NKJDTz5rcs5m2c38SGeDDhw8fPnxx6j47apZvudvpzZ6WlFn70g0fPnz48OHb8LWvmW34N4FCGwRs7q/LMnz48OHDh2/ENxvQvijJt/c5dM730V4HPnz48OHDN9qo55/kwXqClYQUyRjaMOLFGPDhw4cPH7438CVDbAuIfKlmEcM+dIiCD3z48OHDh2/E15YIm41620Rvi49Tbf4o4MCHDx8+fPgWfHlp0k4gKSDaCL5d7E1YfzkGfPjw4cOHr+TbT7i9pw3T92VTG/G3C4wPHz58+PDlfPvNf7Kx35zmmkUM+dhW78WHDx8+fPhGfPVmuCRr29j529uofVbBXb4FHz58+PDhG/HlDeYkUDj1d94CzwusfEkiaHz48OHDh2/B13LkTfQ8Jtg0v2e47XxfhPX48OHDhw/fmi/fnG+a5Xnh0n5rU/ocKFzw4cOHDx++o33enLUtIzYjyRsD7XsP9zrw4cOHD98X8yVXXuLsy4i8MZAHCnm0ERHjw4cPHz58JV9egtxPbFYinG0ADAP3cgmfjAEfPnz48OE7xDdrVOfN7LzImC1nzlSTtX0JfPjw4cOHb7Eh34TpSbifh/ibUmnzhCeFCz58+PDhwxc4bI6I7UuKnGNT+mwihrrXgQ8fPnz48AV87VGt5CDaZqqnDqvly5zc+eR+fPjw4cOHb9T13pQLefmyOQbXtuE37fA6XMCHDx8+fPji589igk2h0AbibZE0+1eYHQLAhw8fPnz4Wr78Efl2PW94tyXRZvJ5+VK37fHhw4cPH77Ria+87JgNpQ3r91v9HCIPIy7HgA8fPnz48AXzSoqSZLiz5nS7+Z/RzOZVV3z48OHDhw/f6NxXW5TMjqnNKPPFaEuZfPwv3osPHz58+PDdarTt7eQnvN2WJ83sPJJog/v83+Ky7sOHDx8+fPi6M2bDEHwWvt8PLl+eU8VQW3IN0xd8+PDhw4fvos+7/5lPhjUrbmYF06mYHh8+fPjw4TvFlwQHm+KmDdA3Lfl2PLOGOj58+PDhw3eKb7PJb5vZedTettI3i5rMtyDAhw8fPnz40jphuCHPh5KEDm3D/h2hf/4PgQ8fPnz48CV8sxi9JchLk3YMCWsSE7RLjg8fPnz48G34Zlv6vCDI71+1rkft+dWFDx8+fPjwfYQvTyMeh67NLPKCpn47Pnz48OHD9xG++419svFOmt/7VkHSJEjGeflefPjw4cOHb8Q3Q8lf3E6mDSzyUZ1tReDDhw8fPnwtX5tIz4iTLX37/HY5ZzH9/gn48OHDhw/f/+sf8mNAn+5GwHkAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFNUlEQVR42u3dwWojSRAEUP//T89eFwZJEZGtGdh9fTJWS131yqCsjAL//MTXrxfXv199/97k1cudv8rr1bt+vnHhw4cPHz588YPbe36/P6d5NY1kJO+fkj89ny8+fPjw4cN34dtKinxiCev7p1wWIMeqlwEfPnz48OH7Ml+7tW4bAZeyaYPb/lzw4cOHDx++P8nXtsWfXZJ2hG25gw8fPnz48H2br23EP1sKXMqXFjTnezjrwIcPHz58+B4qEf57Pz984cOHDx8+fIfN//b7p4qJtuTaov1IAx8+fPjw4Zu66MkXdoKSNAUuW/HtE/LSZHPAhw8fPnz4coc2Zk5+07bg2wkkJUh7PG6LIvDhw4cPH76NL9+ivx9W+wktax6TtxH71p7Ahw8fPnz4Wr7tmNr74iAf9MbajiHqmpRk+PDhw4cP38a3QVw2+clUk/KlLTjaBkG0GPjw4cOHD9+y93+gnb09fluMZCSXaKEOEvDhw4cPH76Y79JjSJrm7f3bAbhL0ZO/q2gZ4MOHDx8+fAe+p6Lop6LxS9MhL6R+BRc+fPjw4cPX8m0x82XDv01+K0fypcqLNnz48OHDh+97fPnVBtJPFRz3Rvxljvjw4cOHD1/L10bg74uGdtufP/HeYtiC/A9K+PDhw4cP34Gvbb5v9DlK2y7PY/X2Ez60CfDhw4cPH74usy5KkKea8lvI3ZJtS143O/Dhw4cPH76Yrw2YH1ir6b1/pt2Q/zEVaT8+fPjw4cN32ELnQ9/KiHwDny/PJTaIxoAPHz58+PCVfHnknDQO2hB6K1kuB922aqSYET58+PDhw/eWr/hKPsfSG+59gfOiJ1men22d8eHDhw/f/57vEhu3sXrbgLiUSvnitcHAh14LPnz48OHDFzwl/+JvH7NF4G3xsUUIW/xQtAzw4cOHDx++3169HA7L29zJ9rstXNol3KL0Dxr48OHDhw/fUlHU0fKlBNkaEPen1ycFtvQAHz58+PDhK8Pm5DEb1v3A2RaB522Cejnx4cOHDx++pRI4/duGvEHwVEy+HSlLjrKNLQN8+PDhw4dvata3WG0rfwun88KlbR+07ZIPMTk+fPjw4cMX8z31sKdi9a2Q2oLwpPB6OTZ8+PDhw4dvGVu0ac+b4/k927a/XbBtLqdTBvjw4cOHD985LG9z4a1F3sbVW8HxVOiODx8+fPjwtXyXbfn91cvPW6h/L5KiUwD48OHDhw/f2936vc29DfFSZGyhex4M5E/Bhw8fPnz4Nr68vd6WF0/lCZe2Qn4IoA0V8OHDhw8fvgtfvWGOS5CnnriF9G0RVhRM+PDhw4cPX8y3Nce3CW+fti1Jcv/ljwMfPnz48OHb+Nqt+NbszoP5tl2eh/FbIz5qN+DDhw8fPnwl39YCaGnySV7OgG3E7YLhw4cPHz58d752GnmL4X5QrA0DnmrQFyUXPnz48OHDF8x9+7LPN+FtoXBZnmS0bfPiw+fjw4cPHz58E18+7TaWbu/5ia/LArfl2sv78eHDhw8fvjPfPX5uA4C2rXAP3esjaK9Gjg8fPnz48D0ak+dvTobe/iYna0P0Nubfon18+PDhw4fv1ai21nm+Fd+msZU4beC9FS748OHDhw/fna8NkvPGd7JRv+zBvxcJRKPFhw8fPnz4/hLffdptpN2WVu0soi4LPnz48OHD92W+tr2+EbRtgq1VkYQH+PDhw4cP3zf42u13O9ytlZ9/Wn6s7fL5p5gcHz58+PDhm5rU9wNkeUHThuJt6L6NEx8+fPjw4Zv4/gGsauPDNvLfBgAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

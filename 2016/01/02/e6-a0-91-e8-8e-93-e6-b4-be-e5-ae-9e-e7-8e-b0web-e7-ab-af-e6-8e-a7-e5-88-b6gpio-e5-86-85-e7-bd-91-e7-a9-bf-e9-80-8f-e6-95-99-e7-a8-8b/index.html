@@ -25,23 +25,23 @@
 <meta name="keywords" content="python,树莓派,物联网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派实现Web端控制GPIO&amp;内网穿透教程">
-<meta property="og:url" content="http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/index.html">
+<meta property="og:url" content="https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/index.html">
 <meta property="og:site_name" content="Aaron&#39;s Blog">
 <meta property="og:description" content="前段时间买了个树莓派2B，一直没用，元旦期间做出了这个无聊的玩意儿先看效果，下面这个站就是搭建在树莓派上的，可以通过Web端获取传感器数据，控制GPIO接口。[                                                                                             My Raspberry Pi - 一个由树莓派驱动">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb.jpg">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/psb.jpg">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg">
-<meta property="og:updated_time" content="2018-04-15T11:37:48.050Z">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb.jpg">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/psb.jpg">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg">
+<meta property="og:updated_time" content="2018-04-16T01:13:32.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派实现Web端控制GPIO&amp;内网穿透教程">
 <meta name="twitter:description" content="前段时间买了个树莓派2B，一直没用，元旦期间做出了这个无聊的玩意儿先看效果，下面这个站就是搭建在树莓派上的，可以通过Web端获取传感器数据，控制GPIO接口。[                                                                                             My Raspberry Pi - 一个由树莓派驱动">
-<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站.png">
+<meta name="twitter:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站.png">
     
         <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
     
@@ -213,9 +213,9 @@
 <p>前段时间买了个树莓派2B，一直没用，元旦期间做出了这个无聊的玩意儿<br>先看效果，下面这个站就是搭建在树莓派上的，可以通过Web端获取传感器数据，控制GPIO接口。<br>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站.png" alt="My Raspberry Pi - 一个由树莓派驱动的小站](https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站-1024x575.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站.png" alt="My Raspberry Pi - 一个由树莓派驱动的小站](https://cdn.aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站-1024x575.png)" title="">
                 </div>
-                <div class="image-caption">My Raspberry Pi - 一个由树莓派驱动的小站](https://aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站-1024x575.png)</div>
+                <div class="image-caption">My Raspberry Pi - 一个由树莓派驱动的小站](https://cdn.aoaoao.me/wp-content/uploads/2016/01/My-Raspberry-Pi-一个由树莓派驱动的小站-1024x575.png)</div>
             </figure><br><strong>URL：<a href="http://mysmpi.ngrok.natapp.cn" target="_blank" rel="noopener">http://mysmpi.ngrok.natapp.cn</a></strong><br>根据网络条件不同，打开有时会非常慢。。</p>
 </blockquote>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>原理很简单，使用Flask框架开发，直接用Python的GPIO库进行操作。端口映射使用的是Ngrok，官方服务被墙了，这里用的是国人搭建的免费服务。</p>
@@ -229,17 +229,17 @@
 <p>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb.jpg" alt="Untitled Sketch 2_bb](https://aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb-960x1024.jpg)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb.jpg" alt="Untitled Sketch 2_bb](https://cdn.aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb-960x1024.jpg)" title="">
                 </div>
-                <div class="image-caption">Untitled Sketch 2_bb](https://aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb-960x1024.jpg)</div>
+                <div class="image-caption">Untitled Sketch 2_bb](https://cdn.aoaoao.me/wp-content/uploads/2016/01/Untitled-Sketch-2_bb-960x1024.jpg)</div>
             </figure></p>
 <p>再加上LED、蜂鸣器。。混乱的实物图：</p>
 <p>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/psb.jpg" alt="psb](https://aoaoao.me/wp-content/uploads/2016/01/psb-768x1024.jpg)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/psb.jpg" alt="psb](https://cdn.aoaoao.me/wp-content/uploads/2016/01/psb-768x1024.jpg)" title="">
                 </div>
-                <div class="image-caption">psb](https://aoaoao.me/wp-content/uploads/2016/01/psb-768x1024.jpg)</div>
+                <div class="image-caption">psb](https://cdn.aoaoao.me/wp-content/uploads/2016/01/psb-768x1024.jpg)</div>
             </figure></p>
 <p>&nbsp;</p>
 <p>实物图连接好后开始写代码。首先要实现打开首页时最左边的LED闪一下。代码如下：</p>
@@ -248,42 +248,42 @@
 <p>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png" alt="搜狗截图20160102153349](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png" alt="搜狗截图20160102153349](https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png)" title="">
                 </div>
-                <div class="image-caption">搜狗截图20160102153349](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png)</div>
+                <div class="image-caption">搜狗截图20160102153349](https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102153349.png)</div>
             </figure></p>
 <p>默认端口设为了80，你可以在web.py第363行更改。</p>
 <h2 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h2><p>如果你的树莓派连接的是家用网络，那么外网可能并不能访问你的页面，因为你的宽带运营商可能把端口封了（移动就是这样）。想要实现外网访问，就要用内网穿透解决。国内比较知名的是花生棒，直接网线插上就能用，但硬件需要额外购买。不想花钱用Ngrok是个不错的选择，但他的官方服务被墙了，我用的是国人用阿里云搭建的免费服务natapp.<br>主页地址：<a href="http://natapp.cn/" target="_blank" rel="noopener">http://natapp.cn/</a><br>往下拉到客户端下载，由于树莓派是arm架构的，我们就下载“Linux ARM”.下载后解压到树莓派上。在此目录下打开终端，获取root后执行下面命令：</p>
 <p><pre class="lang:sh decode:true ">./ngrok -config ngrok.cfg -subdomain myapp 80</pre><br>其中“myapp”为你自定义的域名，日后你可以通过<strong><a href="http://myapp.ngrok.natapp.cn" target="_blank" rel="noopener">http://myapp.ngrok.natapp.cn</a></strong>访问网站。<br>最后面的80为端口，一般不用改。<br>执行后会出现下面界面，这就表示内网穿透成功了，可以访问http://自定义域名.ngrok.natapp.cn试试看能不能打开<br>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png" alt="搜狗截图20160102154321](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png" alt="搜狗截图20160102154321](https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png)" title="">
                 </div>
-                <div class="image-caption">搜狗截图20160102154321](https://aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png)</div>
+                <div class="image-caption">搜狗截图20160102154321](https://cdn.aoaoao.me/wp-content/uploads/2016/01/搜狗截图20160102154321.png)</div>
             </figure><br>打开的速度肯定比较慢，毕竟不是专业机房。。</p>
 <p>最后附上一张树莓派2的引脚示意图：</p>
 <p>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png" alt="6a40313b5bb5c9ea80201914d139b60038f3b355](https://aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png" alt="6a40313b5bb5c9ea80201914d139b60038f3b355](https://cdn.aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png)" title="">
                 </div>
-                <div class="image-caption">6a40313b5bb5c9ea80201914d139b60038f3b355](https://aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png)</div>
+                <div class="image-caption">6a40313b5bb5c9ea80201914d139b60038f3b355](https://cdn.aoaoao.me/wp-content/uploads/2016/01/6a40313b5bb5c9ea80201914d139b60038f3b355.png)</div>
             </figure></p>
 <p>P.S.网站上线后，LCD收到了第一条消息：</p>
 <p>[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg" alt="psb (1)](https://aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg" alt="psb (1)](https://cdn.aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg)" title="">
                 </div>
-                <div class="image-caption">psb (1)](https://aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg)</div>
+                <div class="image-caption">psb (1)](https://cdn.aoaoao.me/wp-content/uploads/2016/01/psb-1.jpg)</div>
             </figure></p>
 <p>&nbsp;</p>
 <p>。。。。[<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg" alt="12926209_934800](https://aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg)" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg" alt="12926209_934800](https://cdn.aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg)" title="">
                 </div>
-                <div class="image-caption">12926209_934800](https://aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg)</div>
+                <div class="image-caption">12926209_934800](https://cdn.aoaoao.me/wp-content/uploads/2016/01/12926209_934800.jpg)</div>
             </figure>。。。。</p>
 
         </div>
@@ -293,17 +293,15 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-04-15T11:37:48.050Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+    最后更新时间：<time datetime="2018-04-16T01:13:32.350Z" itemprop="dateUpdated">2018-04-16 09:13:32</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" target="_blank" rel="external">http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/</a>
-        
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://aoaoao.me">
             <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
             Aaron Liu
         </a>
@@ -329,7 +327,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -339,22 +337,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&url=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -505,7 +503,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -515,22 +513,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&title=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《树莓派实现Web端控制GPIO&内网穿透教程》 — Aaron's Blog&url=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2016/01/02/e6-a0-91-e8-8e-93-e6-b4-be-e5-ae-9e-e7-8e-b0web-e7-ab-af-e6-8e-a7-e5-88-b6gpio-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8f-e6-95-99-e7-a8-8b/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -541,7 +539,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFPElEQVR42u3dQY4bORAEwPn/p71XLwYjZWa1DGM3dBIsdTcZFDDFLAL++opfv357/f4vyfvv136/8/f3r7+ZX/vrh1c+wgde+PDhw4cPX/CAnx6T3zNZgNfPfT3JhCxfmG1s+PDhw4cP38bXlhT50JMJ5N/JS6VtIXMTfPjw4cOH78/wJUXMBaLd5OfF1hZ84MOHDx8+fH8bX1KsbGVQO5427NjCCHz48OHDh+/OlwziEsrnTfS2ELkUW1t5hA8fPnz48F347uH4f+/9wy98+PDhw4cvDr7zwiJvseeN9rbh3T69bQP86yp8+PDhw4dv0SiC8vaw19bMvtcMl8WoHfDhw4cPH74D31PHxS6lzDbhBG5b/uKUAT58+PDhw/eSr20DJy3wdqvf3mErgy70P44NHz58+PDhm/he37TdZiflS/7cFqj9QWxFDD58+PDhw7fxtXBtwP3Ulr5tDCRFUt6eH0/w4cOHDx8+fOUkE8Qt6M838O03W+KoKMGHDx8+fPge4rsMNG94v37utpCf/llEs8aHDx8+fPgOfFt4nZQFG03bdL9HG/lc6pviw4cPHz58QTxdZw9lWXA/OvbUYbjteBw+fPjw4cP3FN8WnW+t63arv5UsT7XSv9raCh8+fPjw4TtPo21Lt4F4Xjq0S5uDRmL48OHDhw/fgS8vMpKH5UuSL0BbvlzaAFFDAh8+fPjw4Tvz3cOFos0cN7Dz8eQL9kCLHR8+fPjw4Tv0u+8R+aWB/Wwevo0kmTs+fPjw4cN34UvKgjYaqI95lQXHVmp8Yjz48OHDhw9fy5c0j5Oi5HKHS6Tetu3zuKG+Ch8+fPjw4YuvyoPv/ChYPrgi1TiXVpdn/fhcfPjw4cOHb+JrJ5kXH3m+fW/e542Ebb6PdfLx4cOHD9//ni+Js5OIfKNsn7sFDXn7PAkd8OHDhw8fvpbvExv7S4i/EVxigrxgwocPHz58+J7luzPlQ0/KoHt8X2z7t/geHz58+PDhWzq/43/5kJc7CWLbdG8jjLEFnqDjw4cPHz58E1++wc75LgH6xpFDJO+juePDhw8fPnwxX3vs7P79/C/+1tJ+NrZ483R8+PDhw4dv4mu36HkpcDnK1pZQW1i/HarDhw8fPnz4Nr42fG+HtRUrbSt9LDumn0KRT+DDhw8fPnzfrkqi87YFfi8d2lA+/7RtIbyhxIcPHz58+KbTXJc29rb5vyzbFvRf6N+UPvjw4cOHD1/Md2lpt1v0fBrt8ly2/W0MUeQf+PDhw4cPX7m1zmP6NhZPmt9bQ/3ZxSsGjQ8fPnz48MV/c/Ph5tvpPHrIm/FtqXGJEiIZfPjw4cOHb+LLg4CxG3AoQS733wKRIl7Bhw8fPnz4Jr47UD69tgS5t7ovo3ojgw8fPnz48B26w1uD+amI4R61t0fr2mBiPHGADx8+fPjwnbfNrwe9fb+N0XPEp4qhN9fiw4cPHz58Ad+9HNlKgaIV/VA0sFUab+6PDx8+fPjwTXztcbGt4Z2XO+2UEvQidr8MAh8+fPjw4TsM4hLEb6VMfp/2Ka9nsf0s8OHDhw8fvpZv+xvdhgvPljVbrN8WMdtS4cOHDx8+fAnfZfudlwt5KZBclY/8qXMEP36KDx8+fPjwTXzPbuk/HZfncBtx0WLHhw8fPnz4PsyXN9rzbf+zrYKtDBqDfnz48OHDh++P8G1BQxuLPxsNPNXUx4cPHz58+O58CUT+nTyUz0OKdiHzEif59IE2OT58+PDhw7fF01O4kB9Za4/EtbHCdqDt9Wjx4cOHDx++gO8fUna6+lGi428AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFNUlEQVR42u3bwW7jOBAE0Pz/T89eF9hEqepSMsDi6RR4bIl8NOBiN+fjI77+/Ot6/tfnd3712f/+/dUrz599HsnzK/mY6wsfPnz48OELJp8MLpnk80AT+j/BlSxG/uVInoUPHz58+PAtfG2keH7wMug8MN3CRx5onk3w4cOHDx++3+HL48ISiW5Rpl2GNvTgw4cPHz58f4vvrRJ/W3R4YZMfFzLw4cOHDx++n+O7FcGfp5Rv6fPWdX63JL7c4hQ+fPjw4cP30u94fYzs//r3yxc+fPjw4cNXFsrzcvwNfbnnrUzwggY+fPjw4cN30Tge7G5b1O9uxfM7tGOr2w/48OHDhw9fzJcfHUsesGzLb9WO/c5tLPvke4cPHz58+PDNfLfNf37860bQhpUcIo9fRcUFHz58+PDhi4+pJRv+vCiQB4V8wYp4UeLm3Pjw4cOHD1/Lt5TgW6yEOI8jP1esLwol+PDhw4cP38C3bNHbwX0MVx5oklHlxN8U6/Hhw4cPH74TXxsa2tZyGyPyZnYbiW6B6cuSAT58+PDhw1fyLU3lPKy0jfl8G9++cwle+PDhw4cP387XHhfLN/b7Bv6tVkHePo9CDD58+PDhw3fi25vQebi5RYpbsFjiUTQ2fPjw4cOH78S3F9Z/7rDafuf9nUXFBR8+fPjw4UvHcPwvx69tv0/3XyJRG2Lw4cOHDx++nW9peC9xZJ9qO8K9Zf7J6/jw4cOHD9/Adytw5w3p9j55saAt3OfL8M3y4MOHDx8+fJfOdX3I7K22+i2U7EEngVja+fjw4cOHD19y/2WTn/+0vxWD8qnm1zIGfPjw4cOHb+F76zE51m2q7QG7W4Krgws+fPjw4cP3+Kl2g92WttvWeP6pZElu5Yxk4fHhw4cPH74bX954bn/UkwNtyeRv0WqJULeiCT58+PDhw/f8ztsP+S2IJIg/HZjaJsE3Gvjw4cOHD1/Jt19ty/x4Vi64Z1usf40AHz58+PDhm5vNbdE8n9hyiC0p7uezW0aIDx8+fPjwLXz5Jj//yW+33C1HG6TybX9dccGHDx8+fPjmYv1Spr8V02+xI29431rm38wUHz58+PDhO/HlO+I23LQTW7b6beTaQww+fPjw4cP3Fl8+uJavrX7/xDG4ZAmjYgQ+fPjw4cM38yU/5O1wl0Z4GyluY8tBv+x14MOHDx8+fDFfW1jPCW5Dz7f67eTbxSva5Pjw4cOHD1/M127y25bzraC/FNnzwkEy0y/niw8fPnz48J34kob0Xmrfr7xAsLccIgd8+PDhw4fvxJc88ja424G2HGt/1q3BEPU68OHDhw8fvuC3e9lU7++8FRRuI7+11b+5Jz58+PDhwxfcc4kIz7FjaYonhYylzZ+Hp28iCz58+PDhw3fZib82gbxpvTQD8m18ezzu2GbAhw8fPnz4Br68ebxMNQ8ct2Z8HrZuy4APHz58+PC1fG0cSYabBJ12kfKN/S12HAsT+PDhw4cP34nvVqReNt75krTt/Ns4j5UBfPjw4cOHb+Zr28/7lPIFWEoAe03lk9fx4cOHDx++dc9et7fb19vG+a18sDT+26fgw4cPHz58LV8eVm6Hw9pjbXnZPYdLDgQcR4UPHz58+PCd+JbBLW3sPEMtpY1pw/9Mjw8fPnz48P0KXxtWbhztwbU2JN2KEfjw4cOHD99v8h3r/cMQl7CSF+7brwU+fPjw4cO38L27/c4ncFvI/UTA7ejb1CbHhw8fPnz4hsBx28zvg761AW5Fh+RrgQ8fPnz48MV8/wBVGrr6NTxLKwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

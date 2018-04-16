@@ -25,13 +25,13 @@
 <meta name="keywords" content="API,二维码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【API】树洞二维码接口上线">
-<meta property="og:url" content="http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/index.html">
+<meta property="og:url" content="https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/index.html">
 <meta property="og:site_name" content="Aaron&#39;s Blog">
 <meta property="og:description" content="前段时间做项目时要用到二维码接口，到网上一搜，不是收费的，就是特别慢的。这么常用的东西竟然没有一个好接口。自己搭建一个！用个人的服务器肯定响应速度很慢，于是我换了一种思路。。。  简述二维码接口分为GET、POST两种。接口并不会直接返回二维码图像，其中GET接口会重定向至二维码，POST接口会返回二维码URL。接口演示：https://aoaoao.me/api/GET方式接口URL:http">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7jpowa.com1.z0.glb.clouddn.com/qr_14523268515325?qrcode/1/level/H">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2016/01/360截图20160109161231388-1024x498.png">
-<meta property="og:updated_time" content="2018-04-15T11:37:48.050Z">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2016/01/360截图20160109161231388-1024x498.png">
+<meta property="og:updated_time" content="2018-04-16T01:13:31.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【API】树洞二维码接口上线">
 <meta name="twitter:description" content="前段时间做项目时要用到二维码接口，到网上一搜，不是收费的，就是特别慢的。这么常用的东西竟然没有一个好接口。自己搭建一个！用个人的服务器肯定响应速度很慢，于是我换了一种思路。。。  简述二维码接口分为GET、POST两种。接口并不会直接返回二维码图像，其中GET接口会重定向至二维码，POST接口会返回二维码URL。接口演示：https://aoaoao.me/api/GET方式接口URL:http">
@@ -206,7 +206,7 @@
             <blockquote>
 <p>前段时间做项目时要用到二维码接口，到网上一搜，不是收费的，就是特别慢的。这么常用的东西竟然没有一个好接口。自己搭建一个！用个人的服务器肯定响应速度很慢，于是我换了一种思路。。。</p>
 </blockquote>
-<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>二维码接口分为GET、POST两种。接口并不会直接返回二维码图像，其中GET接口会重定向至二维码，POST接口会返回二维码URL。<br><strong>接口演示：<a href="https://aoaoao.me/api/" target="_blank" rel="noopener">https://aoaoao.me/api/</a></strong><br>GET方式接口URL:<code>https://aoaoao.me/api/qr.php?t=something&amp;amp;l=H</code><br>POST方式接口URL:<code>https://aoaoao.me/api/qr_p.php</code></p>
+<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>二维码接口分为GET、POST两种。接口并不会直接返回二维码图像，其中GET接口会重定向至二维码，POST接口会返回二维码URL。<br><strong>接口演示：<a href="https://aoaoao.me/api/">https://aoaoao.me/api/</a></strong><br>GET方式接口URL:<code>https://aoaoao.me/api/qr.php?t=something&amp;amp;l=H</code><br>POST方式接口URL:<code>https://aoaoao.me/api/qr_p.php</code></p>
 <h2 id="GET方式接口使用说明"><a href="#GET方式接口使用说明" class="headerlink" title="GET方式接口使用说明"></a>GET方式接口使用说明</h2><p>GET接口需要发送两个参数，具体如下表：</p>
 <p><table class="table table-bordered" width="692"></table></p>
 <p><thead></thead></p>
@@ -234,7 +234,7 @@
 <p><pre class="lang:js decode:true">{“code”:”500”,”message”:”individual value”}</pre><br>code代表错误代码，message为错误信息。目前主要会返回两种错误，分别是：<code>individual value</code>（输入的值不合法），<code>failed to upload file to qiniu</code>无法生成二维码。<br>具体大家可以到Demo中体验<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2016/01/360截图20160109161231388-1024x498.png" alt="360截图20160109161231388" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/01/360截图20160109161231388-1024x498.png" alt="360截图20160109161231388" title="">
                 </div>
                 <div class="image-caption">360截图20160109161231388</div>
             </figure><br>GET方式接口特点是调用简单，快捷</p>
@@ -250,17 +250,15 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-04-15T11:37:48.050Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+    最后更新时间：<time datetime="2018-04-16T01:13:31.261Z" itemprop="dateUpdated">2018-04-16 09:13:31</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/" target="_blank" rel="external">http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/</a>
-        
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://aoaoao.me">
             <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
             Aaron Liu
         </a>
@@ -286,7 +284,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&title=《【API】树洞二维码接口上线》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&title=《【API】树洞二维码接口上线》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -296,22 +294,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&title=《【API】树洞二维码接口上线》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&title=《【API】树洞二维码接口上线》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【API】树洞二维码接口上线》 — Aaron's Blog&url=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【API】树洞二维码接口上线》 — Aaron's Blog&url=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -462,7 +460,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&title=《【API】树洞二维码接口上线》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&title=《【API】树洞二维码接口上线》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -472,22 +470,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&title=《【API】树洞二维码接口上线》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&title=《【API】树洞二维码接口上线》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【API】树洞二维码接口上线》 — Aaron's Blog&url=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【API】树洞二维码接口上线》 — Aaron's Blog&url=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2016/01/09/e5-85-8d-e8-b4-b9-e9-ab-98-e9-80-9f-e7-9a-84-e4-ba-8c-e7-bb-b4-e7-a0-81-e6-8e-a5-e5-8f-a3/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -498,7 +496,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD50lEQVR42u3aW07rQBAFQPa/ae4vV2DnnO6xCFL5CznJeKaC1OnHx0d8fX65vt/ffPbr/fv175+VrHbswoEDBw4c8Xa/X/cbTYCSQ149K9nV/f38jDhw4MCB4yzHVcTJt9ge4/5IbbDMiV+sjwMHDhw4fpWj3dYsMZvtBwcOHDhwvD9Hsehtirip0SVpJA4cOHDgeAeOTRmuLeTla+ags5QSBw4cOHA8wTErvf2tvx+Z78CBAwcOHHFwygNSHhQ34bNN22YXDhw4cODYc7QpXFsQPBX/W8pNGREHDhw4cJzluA9dbTDLKduC3XNDGDhw4MCBY8PRjqzlLaX9FpP3b8YscODAgQPHcxzJmEJS+Ms58sDc8uWIP7yKAwcOHDjWHLNi3P1CSdluxrrfbfIqDhw4cOA4y5EExdkDEoJT5cX2Th2xceDAgQPHxcr7VtOssDhLwJIBvjwVvMxoceDAgQPHmqNNuvKHzYYScsTZe14EWhw4cODAseBoH5A/Pgl+bYjNjzprm+HAgQMHjic42qZOkpjNwnlbIszT0ZoABw4cOHCMODYHyxtObThPgnE+YFH8X+DAgQMHjgc49offp14z3NmPABw4cODAcYqjHTjYtJra1LFN+fYr48CBAweOzcqnRtySYJkncsnBnhh3wIEDBw4ce46k3JaX4Wbtq6RplJf52rP8cAcHDhw4cBziyMt87TjCbP1NYrZZBwcOHDhw7DnaAt8GaFYcbINxm/5dVkxx4MCBA0fJkaRAsyGDPHnLU8R8b+1Y3nBbOHDgwIEjjqdJkykJsZuV8/XzltJsVzhw4MCBI+eYjRrsA+G+KZWnhUUyiQMHDhw41hyzkl/+qbz5NCv5tS2uoh2FAwcOHDhGHLN2Uf7qHvqJkYtLYhw4cODAseZorySgnmpo7YPrrPSJAwcOHDj2HEkath8saIcV2pC5GXfAgQMHDhynOGZJ0SYBa9Ot5LObcPvfp3DgwIEDxyGOzejAZ3nVvwLWUwfJyjhw4MCB4wmOdjRhVoNs15+F1dk7ceDAgQPHKY42jLXNp025cBaGo8NfBVocOHDgwLHgKN6UJ0LrI82eMkv8fjg7Dhw4cOBYcMxKe0nRcJ+23d9pRx+itBMHDhw4cKw59sFphpIwtbjt19B+qThw4MCBI+doRxDaMuKpVlNe7MsDbf3N48CBAweOdZOmXTofknju62n/CXDgwIEDx+9y5IW5JOzl6EkSOCss4sCBAweOd+PYl+c2iVnblHpxChw4cODAcYijTZnaoYfk1dkgRV5YjMIwDhw4cOBYc7S9mP12k4A9e0p+sPZHAw4cOHDgCE70D9E54pW1htqFAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD7UlEQVR42u3aS47jMAwFwNz/0untANN23iPlmSzKqwY6kaXSguHn9Yqf9+3z52f+/tbVCldvuf9ussOr/Rx7cODAgQPHoaPebzc5WHLUe6yr1ZI178+IAwcOHDjOcrRhLw9mSXC9J3uaGAcOHDhwfAPHfcDL07z747VPzocDBw4cOL6TI0/tkgJfm27NSo04cODAgePfcGxaSrNWUAu6v6TDtVIcOHDgwJFGute+UPhtfz8y34EDBw4cOMpkqQ267bBaHhRnF1afDgcOHDhwrDlmyVjb7NkPQLQp2awQiQMHDhw4TnHMwud+gCAv7bVDD0nA/oCFAwcOHDhGHLO2TULWplVtmJ+V/z5cEg4cOHDgOMrRHnIW9mbrPDce90utFAcOHDhwLDiScNiW1ZJvbcYmZglhBIEDBw4cONYcbSjKl47uYT3WMCtZFq0mHDhw4MAx4kjCW9suykFzyryYeJ80XgrgwIEDB441x6bYNwvJp8Ya8uZTno7iwIEDB45THJui3jt+2i3O0rxNuogDBw4cOPYcSYGvbf+cGi+YFQfbHwpFrREHDhw4cMQcbYiaDR9sGlotVn61l7VSHDhw4MAx4pgF4NkrZ6W9NpFry5HRHnDgwIEDx4gj31Y+ADdbuU3/2nGHOrjiwIEDB45455sRt01baN9M2uwqmuzAgQMHDhwjjvt/tGnPrGCXB+NZMTEvOOLAgQMHjlMceZsnT6La5lD+3k2bKkpfceDAgQPHguNUE6gdZXiiOHig+IgDBw4cOB7jaMtzs3QuD9h5Upckopefx4EDBw4chzg2LaIk7LWIyXfz8FmQ4cCBAweONUfyynysYRO8k2PnLau2hfbKbwAHDhw4cMTzYHuUWaspf++s3VUA4cCBAweONccTQTcv583GI/L0rA3eOHDgwIHjLMes2TMrz7Whd5abrtJRHDhw4MBxiGM/pvYhkq8H6TYXVuwZBw4cOHCMOIreVDmg0I41zNLCfCfRYAQOHDhw4FhznFooCX5tWM1TyrPlQhw4cODAseE4W5hrm0ltc6hNGtvSJA4cOHDgOMXRtm3ytKodlZih50w4cODAgeNpjny5WTicNaXykL9fHwcOHDhwnOV4l0+yuWSFPDFrx/I25UUcOHDgwLHnyJ/keLNgmQf1TXOr7sXhwIEDB44Fxz64tqyzZtKmaJhcHg4cOHDgOMvRJkhtiG2H3vYp4iwM48CBAweO/8XRtoLakYW2dDi7vOg2cODAgQPHwxz3oTRJ8PKEapZYbtpXOHDgwIHjFEfy4jaYFSW5dYBMUsfo2nDgwIEDx5pjltdshhU24w5tupj/UMCBAwcOHGuOHzfrr/IKyw/ZAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

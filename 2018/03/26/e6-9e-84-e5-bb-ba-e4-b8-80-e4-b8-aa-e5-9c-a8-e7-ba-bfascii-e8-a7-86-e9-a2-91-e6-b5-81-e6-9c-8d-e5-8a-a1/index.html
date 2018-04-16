@@ -25,17 +25,17 @@
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构建一个在线ASCII视频流服务">
-<meta property="og:url" content="http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/index.html">
+<meta property="og:url" content="https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/index.html">
 <meta property="og:site_name" content="Aaron&#39;s Blog">
 <meta property="og:description" content="什么是ASCII视频流服务？其实这个名字是咱胡乱起的，具体叫啥我也不清楚，但效果如下：                                                                                                            大家可以在自己的命令行里试下，效果比较暴力，就不截图了 如何搭建这么一个服务？需要用到的工具：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2018/03/图像-1.png">
-<meta property="og:image" content="https://aoaoao.me/wp-content/uploads/2018/03/图像-2.png">
-<meta property="og:updated_time" content="2018-04-15T11:37:48.053Z">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2018/03/图像-1.png">
+<meta property="og:image" content="https://cdn.aoaoao.me/wp-content/uploads/2018/03/图像-2.png">
+<meta property="og:updated_time" content="2018-04-16T01:13:31.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构建一个在线ASCII视频流服务">
 <meta name="twitter:description" content="什么是ASCII视频流服务？其实这个名字是咱胡乱起的，具体叫啥我也不清楚，但效果如下：                                                                                                            大家可以在自己的命令行里试下，效果比较暴力，就不截图了 如何搭建这么一个服务？需要用到的工具：">
-<meta name="twitter:image" content="https://aoaoao.me/wp-content/uploads/2018/03/图像-1.png">
+<meta name="twitter:image" content="https://cdn.aoaoao.me/wp-content/uploads/2018/03/图像-1.png">
     
         <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
     
@@ -207,7 +207,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://aoaoao.me/wp-content/uploads/2018/03/图像-1.png" alt="" title="">
+                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2018/03/图像-1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -219,7 +219,7 @@
 <li><a href="https://github.com/HFO4/plus1s.live" target="_blank" rel="noopener">HFO4/plus1s.live</a></li>
 <li><p>Go和Python的运行环境<br><strong>1.执行以下命令将视频中的某个片段（或全部）截取为图像</strong></p>
 <p>ffmpeg -i HongkongReporter.mp4 -r 5 -ss 00:01:13 -t 00:00:15 %03d.png<code>&lt;/pre&gt;
-以上命令代表将</code>HongkongReporter.mp4`的第1分13秒后的15秒以每秒5帧的速度保存为图像，图像名格式为001.png 002.png ……<br>效果如下：<br><img src="https://aoaoao.me/wp-content/uploads/2018/03/图像-2.png" alt=""></p>
+以上命令代表将</code>HongkongReporter.mp4`的第1分13秒后的15秒以每秒5帧的速度保存为图像，图像名格式为001.png 002.png ……<br>效果如下：<br><img src="https://cdn.aoaoao.me/wp-content/uploads/2018/03/图像-2.png" alt=""></p>
 <p><strong>2.使用修改过的hit9/img2txt将图像转换为ASCII画.</strong></p>
 <p>原版hit9/img2txt只能单张转换，我稍微改了下，可以批量转换并保存为txt。修改后的版本：<a href="https://github.com/HFO4/img2txt/blob/gh-pages/img2txt.py" target="_blank" rel="noopener">https://github.com/HFO4/img2txt/blob/gh-pages/img2txt.py</a></p>
 <p>clone下来后修改<code>img2txt.py</code><a href="https://github.com/HFO4/img2txt/blob/gh-pages/img2txt.py#L246" target="_blank" rel="noopener">第246行</a>的目录为上一步存放图像的目录，然后执行：<br><pre class="language-shell"><code>pip install img2txt.py
@@ -237,17 +237,15 @@ python img2txt.py h</code></pre><br>稍等片刻，ASCII字符文件会存放到
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-04-15T11:37:48.053Z" itemprop="dateUpdated">2018-04-15 19:37:48</time>
+    最后更新时间：<time datetime="2018-04-16T01:13:31.872Z" itemprop="dateUpdated">2018-04-16 09:13:31</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" target="_blank" rel="external">http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/</a>
-        
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://aoaoao.me">
             <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
             Aaron Liu
         </a>
@@ -273,7 +271,7 @@ python img2txt.py h</code></pre><br>稍等片刻，ASCII字符文件会存放到
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -283,22 +281,22 @@ python img2txt.py h</code></pre><br>稍等片刻，ASCII字符文件会存放到
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《构建一个在线ASCII视频流服务》 — Aaron's Blog&url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《构建一个在线ASCII视频流服务》 — Aaron's Blog&url=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -449,7 +447,7 @@ python img2txt.py h</code></pre><br>稍等片刻，ASCII字符文件会存放到
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -459,22 +457,22 @@ python img2txt.py h</code></pre><br>稍等片刻，ASCII字符文件会存放到
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&title=《构建一个在线ASCII视频流服务》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《构建一个在线ASCII视频流服务》 — Aaron's Blog&url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《构建一个在线ASCII视频流服务》 — Aaron's Blog&url=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/&via=https://aoaoao.me" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2018/03/26/e6-9e-84-e5-bb-ba-e4-b8-80-e4-b8-aa-e5-9c-a8-e7-ba-bfascii-e8-a7-86-e9-a2-91-e6-b5-81-e6-9c-8d-e5-8a-a1/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -485,7 +483,7 @@ python img2txt.py h</code></pre><br>稍等片刻，ASCII字符文件会存放到
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEjUlEQVR42u3ay27bMBAF0P7/T6dAVwXauPfOMIjoHq0Mx6LIowDkPH78iK+PX9fvn//8Jr/rz98n47/+/vXMk9keuDBhwoQJ0yOZPl5enw2d//410P5Vtc96/ftP78WECRMmTJczJcNtDgoJdMuxeW6+LkyYMGHC9P8w5Yt5jbIPsM8G1ZgwYcKECVOSWs233jwAbhe/CdExYcKECdN7MyXD5cnT/ZHiKxK7yb0HcuGYMGHChOlhTLNS4nt8/vL+JkyYMGHC9K1MH4euNtSclTaT37d3RavDhAkTJkzXMuWFxjbBOksKt81Dp4LtaD6YMGHChOlapnyznJU526NAUWIsS5vt66kz4pgwYcKE6ZFMs5LhLEydtdScavrZFEQxYcKECdONTLOU6ybBuk/Czjg2rxkTJkyYMN3LtA8p8418800buM7Qo2MBJkyYMGG6imnTmpOXKpNptWXUWfvOsMCJCRMmTJiuZWqHW+WS40afNmnbHiOSY039ljBhwoQJ0yOZ2iW1D5v9tU0Tt+F0HtJjwoQJE6bbmfbJ1jzozVH2L+BUsjjKiGPChAkTpkuY9k02s4Jovux2tm3yt05AY8KECROmS5jaBe9TqPvF5IeMTbC9+r/AhAkTJkyPYXqd0p1t9rMjxSY5Owun6+MIJkyYMGG6iqmd1qnqXh52ztqA8pR09C+CCRMmTJiuZcqbYGZMs5B4Fn7PrqLUigkTJkyYLmfalA/3LTKb9HG+7FWyGxMmTJgwXcvUhqDtlp9MIm9mbdPBh8u3mDBhwoTpQqa8YDkrMeYB9vd+LjIEmDBhwoTpEqZkYbMNeBYeJ8/Kx8+Ll/9YFyZMmDBhupypTci2LTI5/aylJk/+DpO8mDBhwoTpcqZ24/yKQ8OpIDxP4OaBOiZMmDBhupdpVg7MS6H5yLN2nFnYfKyoiQkTJkyYLmeaNe7koXJ7jGhfXr6W4omYMGHChOkqpvzmWXFxk5ZtU7Gv0TcHDkyYMGHC9B5Mm8PBrDx59jiSp3pX/U2YMGHChOlCpiR1+xVbfn7XJnCdBeR1pxImTJgwYXowU97mkmzhs+Rs/vRZqnc1K0yYMGHCdC3TZr/bh6DD7blsAJp9U2SXMWHChAnTg5mSdO2mTLhpssm/ma0lT/ViwoQJE6Z7mfIHbyDyVGxbHD31IqM5YMKECROmC5mSULYtKLbbdhtIt+XSWZkTEyZMmDC9K9MssMy381nat20VmpF9io4JEyZMmN6CqY6YgxLjbEntQeTUS8KECRMmTO/HlA+0DzWTsLM9HOwT0MOkNiZMmDBhuoTpo7xm5c+ceFOAnJU5o79iwoQJE6ZrmTab5Wxz3ZczZwF2e3A5dqbAhAkTJkwPYMoPAbO72kac/JUks90UPjFhwoQJ0zsxJanVTYi4CimDMU89cVj7xYQJEyZMb8Q0a995vVW3m3oblreHgL+MiQkTJkyY/gOm/Iiw2c7b5qFZcbRuTsKECRMmTJcztenanKltCdqUWs8mfIe5cEyYMGHC9DCmdiotQU68mUMbEh9uTsWECRMmTE9k+glwamKDRZgKAgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEfklEQVR42u3aS44iMRAFwL7/pXu2I80A72W6JUxHrVAJKDtq4fx9fcXX91/X33f+/fzv9x9dj347W8mj/9k/8QsTJkyYMF3OlG/mEcfzO/k3T4E+/+ajfT16LiZMmDBh+gym5O9m52a+0Pzgfx6aPF9Dsi9MmDBhwvSbmfZbymny+7NXggkTJkyYMG3Szn3VOWdNiryYMGHChOk3M+V/17Y226Zj/txZy/PHa+GYMGHChOnNmDbH/O2fD1+YMGHChOnNmL7L6+whmhd/260m4Uuxa0yYMGHCdC1TfkDmQzA/XeRtE+PkTrRfTJgwYcL0oUxFw2/UgBwez0GI0AYuL0AxYcKECdO1THmzcJP0tkM2+dLzO5tXggkTJkyYbmRqB27ygmkbImzGdDZJcvRETJgwYcJ0OdOmDNoO+szu5Ad8ntAWxWhMmDBhwnQtU558Jg9LFpEntzPKNmQZtmMxYcKECdMlTG2rMj+ec8o2+GiT7fwfogoBJkyYMGG6kGmPkjPNDuy8QJwA1YEOJkyYMGH6aKbZUZ1vMglK2lfVBjcvXicmTJgwYbqcadZW3DQR26W3Qz9tkvzi+5gwYcKE6VqmBGJWJM1Dgf3wTdKnbdP1YhYJEyZMmDBdwnQqdYweOWsrlmXiWdMUEyZMmDB9HlOSRrbDPW3SO0u5Z0XeVYEYEyZMmDBdxdQOsuRF0qJZuCjIJsf5vriMCRMmTJjuZWr/KAdK7m/Gg04VfwtQTJgwYcJ0OVOSZO6boPnQzKwYnQANww5MmDBhwnQ506zM2hLMuoRt8jzbV1GrxoQJEyZMVzG1qeCpDbfl4LNM+6IwJkyYMGG6i2k2iNMWczcF5X1ae+DChAkTJkxXMSWP3xyxm5R4c8Dng0HJwBAmTJgwYbqdKV/0vmg7O6rPvph6F5gwYcKE6VqmdnCnHfGZlYb3LdU2AY6CA0yYMGHCdC3TrNR7dhioTX3btLktRh+riGPChAkTpjdgaoOAPNX8ufR1M+IzJMOECRMmTNcytRvOE9TkgM+bl+2G2/Ws6s2YMGHChOktmWZF2+fJZztYc2p77WrzsR5MmDBhwnQvU9LYa8d32sZkvoZZY3JWeo4SYEyYMGHC9PZM7XJnx/Asl2yT6llQEiXDmDBhwoTpWqZ9wTd5ZJRMli3JfdCQf8aECRMmTPcy5WM6mw2cLQ3nI0Sz4vV/fosJEyZMmC5nasu7myN2k05vgJI7D1eFCRMmTJg+gqlNXJ8vdLb0PD0+y/EiOceECRMmTNcytYMvM8qiQfgDReTN0zFhwoQJ0+1M3+XVsrapdQt9qgz9YiWYMGHChOlapv2Z2B7heRk3R9wM5eR8mDBhwoTpXqZZSTdpKLYN0X2R92xoggkTJkyYPokpH8c5e/zn4cjZAGUYE2HChAkTpl/DNINoW4+zAaD9N48FBJgwYcKE6SOY8hR6Rpy3WvN0vV45JkyYMGG6nCkff8mP3jZNzQOINrBIXsCxWjgmTJgwYXozprbCuW8ozpae8/30y8OECRMmTJcw/QG146o7EUvzlgAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
