@@ -222,9 +222,9 @@
       <category term="正常的文章" scheme="https://aoaoao.me/categories/%E6%AD%A3%E5%B8%B8%E7%9A%84%E6%96%87%E7%AB%A0/"/>
     
     
-      <category term="bilibili" scheme="https://aoaoao.me/tags/bilibili/"/>
-    
       <category term="python" scheme="https://aoaoao.me/tags/python/"/>
+    
+      <category term="bilibili" scheme="https://aoaoao.me/tags/bilibili/"/>
     
       <category term="动漫" scheme="https://aoaoao.me/tags/%E5%8A%A8%E6%BC%AB/"/>
     
@@ -472,13 +472,13 @@
     <published>2017-01-14T23:32:02.000Z</published>
     <updated>2018-04-15T11:37:48.051Z</updated>
     
-    <content type="html"><![CDATA[<p>本站Telegram群：<a href="https://aoaoao.me/api/join.php" target="_blank" rel="noopener">https://aoaoao.me/api/join.php</a></p>]]></content>
+    <content type="html"><![CDATA[<p>本站Telegram群：<a href="https://aoaoao.me/api/join.php">https://aoaoao.me/api/join.php</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;本站Telegram群：&lt;a href=&quot;https://aoaoao.me/api/join.php&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://aoaoao.me/api/join.php&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;本站Telegram群：&lt;a href=&quot;https://aoaoao.me/api/join.php&quot;&gt;https://aoaoao.me/api/join.php&lt;/a&gt;&lt;/p&gt;
 
       
     
