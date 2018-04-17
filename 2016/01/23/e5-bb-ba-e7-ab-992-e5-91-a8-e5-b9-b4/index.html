@@ -326,20 +326,29 @@
     
 
 
-<section class="comments vcomment v" id="comments">
-    <div id="disqus_thread"></div>
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var disqus_shortname = 'aaron-blog';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+        var gitment = new Gitment({
+            owner: 'HFO4',
+            repo: 'HFO4.github.io',
+            oauth: {
+                client_id: 'c47f474307374406529a',
+                client_secret: '1f1f2afc391d7dcfa51b38054cdef0b8cc6584bb',
+            },
+            id: 'Sat Jan 23 2016 22:01:22 GMT+0800'
+        })
+        gitment.render('comments')
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
-
-
-
-
-
-
 
 
 
