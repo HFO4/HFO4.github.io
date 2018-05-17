@@ -322,19 +322,20 @@
 
 <section class="comments vcomment v" id="comments">
     <div id="gitment_thread"></div>
-    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
-    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
-        var gitment = new Gitment({
-            owner: 'HFO4',
-            repo: 'HFO4.github.io',
-            oauth: {
-                client_id: 'c47f474307374406529a',
-                client_secret: '1f1f2afc391d7dcfa51b38054cdef0b8cc6584bb',
-            },
-            id: 'Fri Aug 15 2014 12:53:08 GMT+0800'
+        var gitalk = new Gitalk({
+          clientID: 'c47f474307374406529a',
+          clientSecret: '1f1f2afc391d7dcfa51b38054cdef0b8cc6584bb',
+          repo: 'HFO4.github.io',
+          owner: 'HFO4',
+          admin: ['HFO4'],
+          id: "Fri Aug 15 2014 12:53:08 GMT+0800",      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
         })
-        gitment.render('comments')
+
+        gitalk.render('comments')
     </script>
 </section>
 
