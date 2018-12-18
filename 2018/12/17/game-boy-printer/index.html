@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/18/5c18632262dd3.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/12/18/5c186c7a3e060.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/18/5c186f6954168.jpg">
-<meta property="og:updated_time" content="2018-12-18T03:57:11.535Z">
+<meta property="og:updated_time" content="2018-12-18T03:59:48.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用树莓派模拟Game Boy打印机及相机外设">
 <meta name="twitter:description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GPL、GPC、GPA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
@@ -224,25 +224,25 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2018/12/17/5c179e6fc237d.jpg" alt="IMG_20181205_135414-COLLAGE.jpg" title="">
+                    <img src="https://i.loli.net/2018/12/17/5c179e6fc237d.jpg" alt="Pocket Printer和Pocket Camera" title="">
                 </div>
-                <div class="image-caption">IMG_20181205_135414-COLLAGE.jpg</div>
+                <div class="image-caption">Pocket Printer和Pocket Camera</div>
             </figure>
 <p>由于初代Game Boy屏幕分辨率为160X144且只有四阶灰度，所以这相机的成像质量仅仅是能看的水平。不过20年前60刀的价格真的不能再期待什么啦。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2018/12/17/5c179f22120e9.jpg" alt="Snipaste_2018-12-17_21-05-08.jpg" title="">
+                    <img src="https://i.loli.net/2018/12/17/5c179f22120e9.jpg" alt="用Pocket Camera拍摄的宿舍楼" title="">
                 </div>
-                <div class="image-caption">Snipaste_2018-12-17_21-05-08.jpg</div>
+                <div class="image-caption">用Pocket Camera拍摄的宿舍楼</div>
             </figure>
 <p>相机卡带自带RAM，可存储几十张照片。将Game Boy主机与Pocket Printer通过通信线连接后就可以打印照片了。这台打印机就是普通的热敏打印机，随机附带的热敏纸已经过期了，打印出来惨不忍睹，而且我找遍了淘宝也没找到尺寸相符的热敏纸。这倒也不是什么大问题，将咕咕机的热敏纸手动裁成3.7cm左右的宽度就能塞进去了。注意这个宽度不能多也不能太少，否则根本吐不出来，甚至卡死在里面。一切就绪后，下图是我用相机拍摄电脑屏幕后打印出来的效果：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2018/12/17/5c17a121ea870.jpg" alt="Snipaste_2018-12-17_21-10-51.jpg" title="">
+                    <img src="https://i.loli.net/2018/12/17/5c17a121ea870.jpg" alt="打印出来的效果" title="">
                 </div>
-                <div class="image-caption">Snipaste_2018-12-17_21-10-51.jpg</div>
+                <div class="image-caption">打印出来的效果</div>
             </figure>
 <p>除了相机之外，这台打印机还支持不少游戏。比如你可以将《精灵宝可梦 金/银》中的图鉴打印出来。</p>
 <p>基本功能都测试过后，下面是搞事情环节了。打印机与主机之间使用Game Boy的通信线缆交换数据，那是不是可以用诸如树莓派的硬件模拟这个通信的过程，实现捕获图像数据（要知道初代GB实机截图是很麻烦的）或者自由打印图像？</p>
@@ -418,9 +418,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://i.loli.net/2018/12/18/5c18632262dd3.jpg" alt="Snipaste_2018-12-18_11-01-41.jpg" title="">
+                    <img src="https://i.loli.net/2018/12/18/5c18632262dd3.jpg" alt="连线效果图" title="">
                 </div>
-                <div class="image-caption">Snipaste_2018-12-18_11-01-41.jpg</div>
+                <div class="image-caption">连线效果图</div>
             </figure>
 <p>Pocket Printer的通信不需要使用全部引脚，只需要连接<code>SIN</code> <code>SOUT</code> <code>SCK</code> <code>GND</code> 四个就够了。我的连接方式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+------------+               +----------------------+</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       SIN +------------------&gt;GPIO.2 (BOARD #13)  |</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       SOUT+------------------&gt;GPIO.7 (BOARD #7)   |</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       SCK +------------------&gt;GPIO.0 (BOARD #11)  |</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       GND +------------------&gt;GND    (BOARD #9)   |</span><br><span class="line">|            |               |                      |</span><br><span class="line">+------------+               +----------------------+</span><br><span class="line">  Link Cable                        Rspberry Pi</span><br></pre></td></tr></table></figure>
@@ -463,7 +463,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-18T03:57:11.535Z" itemprop="dateUpdated">2018-12-18 11:57:11</time>
+    最后更新时间：<time datetime="2018-12-18T03:59:48.581Z" itemprop="dateUpdated">2018-12-18 11:59:48</time>
 </span><br>
 
 
