@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7542567194641538",
+    enable_page_level_ads: true
+  });
+</script>
+    
+    
+    
+    
+    <title>用树莓派模拟Game Boy打印机及相机外设 | Aaron&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="树莓派,GameBoy">
+    <meta name="description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GPL、GPC、GPA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
+<meta name="keywords" content="树莓派,GameBoy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用树莓派模拟Game Boy打印机及相机外设">
+<meta property="og:url" content="https://aoaoao.me/2018/12/17/game-boy-printer/index.html">
+<meta property="og:site_name" content="Aaron&#39;s Blog">
+<meta property="og:description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GPL、GPC、GPA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2018/12/17/5c179e6fc237d.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/17/5c179f22120e9.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/17/5c17a121ea870.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/17/5c17a8f80b004.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/17/5c17ae37cdce3.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/18/5c18632262dd3.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/18/5c186c7a3e060.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/18/5c186f6954168.jpg">
+<meta property="og:updated_time" content="2018-12-18T03:57:11.535Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用树莓派模拟Game Boy打印机及相机外设">
+<meta name="twitter:description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GPL、GPC、GPA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/17/5c179e6fc237d.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Aaron Liu</h5>
+          <a href="mailto:abslant@foxmail.com" title="abslant@foxmail.com" class="mail">abslant@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Homepage
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/HFO4" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/AaronLiu00" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                Friends
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                AboutMe
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">用树莓派模拟Game Boy打印机及相机外设</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">用树莓派模拟Game Boy打印机及相机外设</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-17T12:44:10.000Z" itemprop="datePublished" class="page-time">
+  2018-12-17
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pocket-Printer-与-Pocket-Camera"><span class="post-toc-number">2.</span> <span class="post-toc-text">Pocket Printer 与 Pocket Camera</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模拟打印机接受图像"><span class="post-toc-number">3.</span> <span class="post-toc-text">模拟打印机接受图像</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Game-Boy-通信"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Game Boy 通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Pocket-Printer通信协议"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Pocket Printer通信协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据处理"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">数据处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#硬件连线"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">硬件连线</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最终效果"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">最终效果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#已知问题"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">已知问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模拟Game-Boy发送打印数据"><span class="post-toc-number">4.</span> <span class="post-toc-text">模拟Game Boy发送打印数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#硬件连线-1"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">硬件连线</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码-1"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#效果展示"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">效果展示</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-game-boy-printer"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">用树莓派模拟Game Boy打印机及相机外设</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-17 20:44:10" datetime="2018-12-17T12:44:10.000Z"  itemprop="datePublished">2018-12-17</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GPL、GPC、GPA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN<a href="https://www.youtube.com/watch?v=EEzJH90h3aA" target="_blank" rel="noopener">第147集</a>）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在！</p>
+<h2 id="Pocket-Printer-与-Pocket-Camera"><a href="#Pocket-Printer-与-Pocket-Camera" class="headerlink" title="Pocket Printer 与 Pocket Camera"></a>Pocket Printer 与 Pocket Camera</h2><p>大概一个月前，博主有幸搞到了两台日版相机外设（Pocket Camera）和全新的打印机外设（Pocket Printer）。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2018/12/17/5c179e6fc237d.jpg" alt="IMG_20181205_135414-COLLAGE.jpg" title="">
+                </div>
+                <div class="image-caption">IMG_20181205_135414-COLLAGE.jpg</div>
+            </figure>
+<p>由于初代Game Boy屏幕分辨率为160X144且只有四阶灰度，所以这相机的成像质量仅仅是能看的水平。不过20年前60刀的价格真的不能再期待什么啦。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2018/12/17/5c179f22120e9.jpg" alt="Snipaste_2018-12-17_21-05-08.jpg" title="">
+                </div>
+                <div class="image-caption">Snipaste_2018-12-17_21-05-08.jpg</div>
+            </figure>
+<p>相机卡带自带RAM，可存储几十张照片。将Game Boy主机与Pocket Printer通过通信线连接后就可以打印照片了。这台打印机就是普通的热敏打印机，随机附带的热敏纸已经过期了，打印出来惨不忍睹，而且我找遍了淘宝也没找到尺寸相符的热敏纸。这倒也不是什么大问题，将咕咕机的热敏纸手动裁成3.7cm左右的宽度就能塞进去了。注意这个宽度不能多也不能太少，否则根本吐不出来，甚至卡死在里面。一切就绪后，下图是我用相机拍摄电脑屏幕后打印出来的效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2018/12/17/5c17a121ea870.jpg" alt="Snipaste_2018-12-17_21-10-51.jpg" title="">
+                </div>
+                <div class="image-caption">Snipaste_2018-12-17_21-10-51.jpg</div>
+            </figure>
+<p>除了相机之外，这台打印机还支持不少游戏。比如你可以将《精灵宝可梦 金/银》中的图鉴打印出来。</p>
+<p>基本功能都测试过后，下面是搞事情环节了。打印机与主机之间使用Game Boy的通信线缆交换数据，那是不是可以用诸如树莓派的硬件模拟这个通信的过程，实现捕获图像数据（要知道初代GB实机截图是很麻烦的）或者自由打印图像？</p>
+<h2 id="模拟打印机接受图像"><a href="#模拟打印机接受图像" class="headerlink" title="模拟打印机接受图像"></a>模拟打印机接受图像</h2><p>开干之前，首先要解决的是解析打印机与主机间的通信方式。</p>
+<h3 id="Game-Boy-通信"><a href="#Game-Boy-通信" class="headerlink" title="Game Boy 通信"></a>Game Boy 通信</h3><p>前面提到过打印机通过通信线缆连接到主机，好在这种线缆还没成古董，淘宝上仍能以较低价格买到。从线缆插头可以看出其共有6个Pin</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2018/12/17/5c17a8f80b004.jpg" alt="通信线缆插头" title="">
+                </div>
+                <div class="image-caption">通信线缆插头</div>
+            </figure>
+<p>按照下图的方式依次编号：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> ___________</span><br><span class="line">|  6  4  2  |</span><br><span class="line"> \_5__3__1_/</span><br></pre></td></tr></table></figure>
+<p>各个引脚的功能可归纳为：</p>
+<table>
+<thead>
+<tr>
+<th>Pin编号</th>
+<th>功能</th>
+<th>线缆颜色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>VCC</td>
+<td>Orange</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SOUT</td>
+<td>Purple</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SIN</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SD</td>
+<td>Yellow</td>
+</tr>
+<tr>
+<td>5</td>
+<td>SCK</td>
+<td>White</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td>Red</td>
+</tr>
+</tbody>
+</table>
+<p>（注意这里的线缆颜色是我手动测出的，不同厂家生产的规格不同，推荐自己用万用表测一遍以便备用）</p>
+<p>Pocket Printer并没有使用到Game Boy的所有通信特性，所以本次模拟不需要使用全部的引脚，只需要2/3/5/6号就行了。</p>
+<p>Game Boy通信的双方分为主从机两方，本次实验中GB为主机，打印机为从机。主机通过<code>SOUT</code>端口向从机发送数据，并通过<code>SIN</code>端口接受从机的响应。除此之外，主机还需要向<code>SCK</code>端口输出时钟信号，主从机通信时会共用这一个信号。</p>
+<p>通信数据以字节为单位从高位到低位传输。可以想象主从设备上各有一个八位移位寄存器，每接受到一位就将其从低位移入。<code>SIN</code>和<code>SOUT</code>可同时发送和接受（但在本次模拟的情况下不会出现这种情况）。比如，主机要通过<code>SCK</code>向从机发送<code>0x33</code>，这个过程<code>SCK</code>和<code>SOUT</code>的波形图可以大致表示为如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2018/12/17/5c17ae37cdce3.jpg" alt="GB通信波形" title="">
+                </div>
+                <div class="image-caption">GB通信波形</div>
+            </figure>
+<p><code>SCK</code>每次的下降和上升代表着一个时钟周期，从机在这个周期内读取<code>SOUT</code>的值，以此进行下去就可以得到完整的字节。这也为我们的模拟提供了大致思路：以<code>SCK</code>作为外部中断的信号，每次中断时都读取一次<code>SOUT</code>的电平。</p>
+<h3 id="Pocket-Printer通信协议"><a href="#Pocket-Printer通信协议" class="headerlink" title="Pocket Printer通信协议"></a>Pocket Printer通信协议</h3><p>打印机与主机的通信以不定长的数据包为单位，并且大部分时间都是主机向打印机发送数据，打印机只会在每个数据包的最后两个字节的时钟内向主机发送ACK及自身状态码。</p>
+<p>一个典型数据包的结构如下：</p>
+<table>
+<thead>
+<tr>
+<th>Byte 位置</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6+X</th>
+<th>6+X+1</th>
+<th>6+X+2</th>
+<th>6+X+3</th>
+<th>6+X+4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大小</td>
+<td>2 bytes</td>
+<td>2 bytes</td>
+<td>1 byte</td>
+<td>1 byte</td>
+<td>1 byte</td>
+<td>1 byte</td>
+<td>变长</td>
+<td>2 bytes</td>
+<td>2 bytes</td>
+<td>1 byte</td>
+<td>1 byte</td>
+</tr>
+<tr>
+<td>描述</td>
+<td>标识字节1</td>
+<td>标识字节2</td>
+<td>命令</td>
+<td>压缩</td>
+<td>数据长度(X)</td>
+<td>数据长度(X)</td>
+<td>正文</td>
+<td>校验码</td>
+<td>校验码</td>
+<td>ACK</td>
+<td>状态</td>
+</tr>
+<tr>
+<td>GB发送</td>
+<td>0x88</td>
+<td>0x33</td>
+<td>命令标志</td>
+<td>压缩标志</td>
+<td>Low Byte</td>
+<td>High Byte</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>打印机发送</td>
+<td>0x00</td>
+<td>0x00</td>
+<td>0x00</td>
+<td>0x00</td>
+<td>0x00</td>
+<td>0x00</td>
+<td>0x00</td>
+<td>0x00</td>
+<td>0x00</td>
+<td>0x81</td>
+<td>状态标志</td>
+</tr>
+</tbody>
+</table>
+<p>每个数据包的第一和第二个字节为固定的<code>Magic Byte</code>用于标识数据包的开始；</p>
+<p>第三个字节为命令标识符，具体可以分为：Initialize (<code>0x01</code>), Data (<code>0x04</code>), Print (<code>0x02</code>), Inquiry (<code>0x0F</code>) 四种。它们的具体含义为：</p>
+<ul>
+<li><p>Initialize (<code>0x01</code>) 初始化指令</p>
+<p>每次打印任务开始时发送的以一个指令，一般数据长度为0。</p>
+</li>
+<li><p>Data (<code>0x04</code>) 数据传输指令 </p>
+<p>传输打印页面数据的指令。一般情况下，每次打印的页面大小与GB主机分辨率相同，而打印数据会通过包含此指令的数据包传输，每个数据包的正文大小为640字节，共9个包。所有数据传输完毕后，GB主机还会发送一个正文长度为0的空打印指令，但其用途未知。</p>
+</li>
+<li><p>Print (<code>0x02</code>) 打印指令</p>
+<p>所有打印数据传输完毕后，发送此指令开始打印。正文长度一般为4字节，第一个字节固定为<code>0x01</code>，用途未知；第二个字节定义了不同打印页面间距；第三个字节定义了打印使用的色板；第四个字节为打印色彩浓度。</p>
+</li>
+<li><p>Inquiry  (<code>0x0F</code>)  查询指令</p>
+<p>此指令的预期发送时间段不固定，Game Boy主机可能会在任何时间段发送此指令查询打印机状态。可以确定的是，在打印开始后，Game Boy主机会发送一连串查询指令查询是否打印完成。</p>
+</li>
+</ul>
+<p>第四个字节标志着数据正文是否被压缩，可取值为<code>0x00</code>（未压缩）和<code>0x01</code>（压缩），压缩算法为简单的游长压缩；</p>
+<p>第四和第五个字节组合可表示16位的正文长度；</p>
+<p>第六位字节开始为数据正文，其长度就是上两位指出的数据长度</p>
+<p>第6+X+2和6+X+2位为16位的校验码，用于验证数据传输是否出错。其值为从命令字节开始所有字节的总和，每个字节视为8位无符号整形；</p>
+<p>第6+X+3个字节为ACK共识。严格来说，校验码发送完毕后，一个数据包的发送就结束了，因为后面两个自己的内容是由打印机发给Game Boy的。发送ACK为模拟打印机的关键，如果Game Boy没能在第6+X+3个字节的周期内及时收到ACK，就会视为超时并在屏幕上显示“错误#2”。</p>
+<p>第6+X+4个字节是由打印机发送给Game Boy的，用于标识自身状态，一般发送<code>0x00</code>即可。</p>
+<h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><p>前面提到过，每次打印的图像数据会装载9个640字节的数据包中传输，合计是5760个字节。拿到数据后要做的就是把它复原为图像。好在Game Boy发送的数据格式和其显存中的基本一致。Game Boy使用8x8的像素阵呈现图像，每个像素占用2位，可表示四阶灰度。在打印传输的数据包中，每次传输的640字节数据可以表示一大行图像，即160x14像素；这一大行又可分为两个小行，每行由20个8x8的像素阵组成。每个字节连通其后一个字节可表示像素阵中的一行像素（8个）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">像素阵:                                     图像:</span><br><span class="line"></span><br><span class="line">.33333..                     .33333.. -&gt; 01111100 -&gt; $7C</span><br><span class="line">22...22.                                 01111100 -&gt; $7C</span><br><span class="line">11...11.                     22...22. -&gt; 00000000 -&gt; $00</span><br><span class="line">2222222. &lt;-- 数字表示                     11000110 -&gt; $C6</span><br><span class="line">33...33.     灰度值           11...11. -&gt; 11000110 -&gt; $C6</span><br><span class="line">22...22.                                 00000000 -&gt; $00</span><br><span class="line">11...11.                     2222222. -&gt; 00000000 -&gt; $00</span><br><span class="line">........                                 11111110 -&gt; $FE</span><br><span class="line">                             33...33. -&gt; 11000110 -&gt; $C6</span><br><span class="line">                                         11000110 -&gt; $C6</span><br><span class="line">                             22...22. -&gt; 00000000 -&gt; $00</span><br><span class="line">                                         11000110 -&gt; $C6</span><br><span class="line">                             11...11. -&gt; 11000110 -&gt; $C6</span><br><span class="line">                                         00000000 -&gt; $00</span><br><span class="line">                             ........ -&gt; 00000000 -&gt; $00</span><br><span class="line">                                         00000000 -&gt; $00</span><br></pre></td></tr></table></figure>
+<p>得到每个像素的灰度值后，一个可行操作是使用<code>░</code> <code>▒</code> <code>▓</code>这种字符在命令行中将图像展示出来。</p>
+<h3 id="硬件连线"><a href="#硬件连线" class="headerlink" title="硬件连线"></a>硬件连线</h3><p>理解了通信协议后，就可以开始模拟了。我使用的方案是将Game Boy通信线缆剪短后，把其中各个Pin的导线焊接到公母口杜邦线上，这样就能很容易的连接到树莓派的GPIO引脚上了：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2018/12/18/5c18632262dd3.jpg" alt="Snipaste_2018-12-18_11-01-41.jpg" title="">
+                </div>
+                <div class="image-caption">Snipaste_2018-12-18_11-01-41.jpg</div>
+            </figure>
+<p>Pocket Printer的通信不需要使用全部引脚，只需要连接<code>SIN</code> <code>SOUT</code> <code>SCK</code> <code>GND</code> 四个就够了。我的连接方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+------------+               +----------------------+</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       SIN +------------------&gt;GPIO.2 (BOARD #13)  |</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       SOUT+------------------&gt;GPIO.7 (BOARD #7)   |</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       SCK +------------------&gt;GPIO.0 (BOARD #11)  |</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       GND +------------------&gt;GND    (BOARD #9)   |</span><br><span class="line">|            |               |                      |</span><br><span class="line">+------------+               +----------------------+</span><br><span class="line">  Link Cable                        Rspberry Pi</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>我使用了C++下的<code>wiringPi</code>库来实现模拟，因为Python的执行速度可能无法达到<code>SCK</code>频率的要求而导致误码率增加。</p>
+<p>代码及详细注释如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;wiringPi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SCK 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SOUT 7</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIN 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//存放收到的Byte</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> b = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//前八位为ACK，后八位表示一切OK的状态，每次数据包结束时发送</span></span><br><span class="line"><span class="keyword">int</span> ack[<span class="number">16</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="comment">//数据表序号</span></span><br><span class="line"><span class="keyword">int</span> packIndex=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//GameBoy packet基本信息</span></span><br><span class="line"><span class="keyword">int</span> dataLength = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> byteIndex = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> bitIndex = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> checksum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">bool</span> waitForMagicByte = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">int</span> command;</span><br><span class="line"><span class="keyword">int</span> firstPrint=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> dataIndex = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Game Boy显示的行、块及坐标</span></span><br><span class="line"><span class="keyword">int</span> row,block,x,y=<span class="number">0</span>;</span><br><span class="line"><span class="comment">//模拟Game Boy显存</span></span><br><span class="line"><span class="built_in">string</span>  VRAM[<span class="number">160</span>][<span class="number">320</span>];</span><br><span class="line"><span class="comment">//四阶灰度的代替字符</span></span><br><span class="line"><span class="built_in">string</span>  stringList[<span class="number">4</span>] = &#123;<span class="string">" "</span>,<span class="string">"░"</span>,<span class="string">"▒"</span>,<span class="string">"▓"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将像素表示写入模拟显存</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">toVRAM</span><span class="params">(<span class="keyword">int</span> sign)</span></span>&#123;</span><br><span class="line">	VRAM[row*<span class="number">8</span>+y][block*<span class="number">16</span>+x] = stringList[sign];</span><br><span class="line">	VRAM[row*<span class="number">8</span>+y][block*<span class="number">16</span>+x+<span class="number">1</span>] = stringList[sign];</span><br><span class="line">	x+=<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(x&gt;=<span class="number">16</span>)&#123;</span><br><span class="line">		x=<span class="number">0</span>;</span><br><span class="line">		y++;</span><br><span class="line">		<span class="keyword">if</span>(y&gt;=<span class="number">8</span>)&#123;</span><br><span class="line">			y=<span class="number">0</span>;</span><br><span class="line">			block++;</span><br><span class="line">			<span class="keyword">if</span>(block&gt;=<span class="number">20</span>)&#123;</span><br><span class="line">				block=<span class="number">0</span>;</span><br><span class="line">				row++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将模拟显存转化为字符图像输出到终端</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">outputImage</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mark1,mark2;</span><br><span class="line">	<span class="keyword">int</span> subList[<span class="number">8</span>]=&#123;<span class="number">128</span>,<span class="number">64</span>,<span class="number">32</span>,<span class="number">16</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">9</span>; i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">640</span>; j +=<span class="number">2</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;<span class="number">8</span>;k++)&#123;</span><br><span class="line">					mark1=data[i][j]&amp;subList[k];</span><br><span class="line">					mark2=data[i][j+<span class="number">1</span>]&amp;subList[k];</span><br><span class="line">					<span class="keyword">if</span>(mark1==<span class="number">0</span>&amp;&amp;mark2==<span class="number">0</span>)&#123;</span><br><span class="line">						toVRAM(<span class="number">0</span>);</span><br><span class="line">					&#125;<span class="keyword">else</span> <span class="keyword">if</span>(mark1==subList[k]&amp;&amp;mark2==<span class="number">0</span>)&#123;</span><br><span class="line">						toVRAM(<span class="number">1</span>);</span><br><span class="line">					&#125;<span class="keyword">else</span> <span class="keyword">if</span>(mark1==<span class="number">0</span>&amp;&amp;mark2==subList[k])&#123;</span><br><span class="line">						toVRAM(<span class="number">2</span>);</span><br><span class="line">					&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">						toVRAM(<span class="number">3</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//处理每个字节</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">handleByte</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> b)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//高字节长度位</span></span><br><span class="line">	<span class="keyword">if</span>(byteIndex==<span class="number">5</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(b&gt;<span class="number">0</span>)&#123;</span><br><span class="line">			dataLength+=b*<span class="number">256</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//低字节长度位</span></span><br><span class="line">	<span class="keyword">if</span>(byteIndex==<span class="number">4</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&gt;<span class="number">0</span>)&#123;</span><br><span class="line">			dataLength+=b;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(byteIndex==<span class="number">7</span>+dataLength)&#123;</span><br><span class="line">		<span class="keyword">if</span>(command==<span class="number">2</span>&amp;&amp;b!=<span class="number">15</span>)&#123;</span><br><span class="line">			ack[<span class="number">16</span>]=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//命令位</span></span><br><span class="line">	<span class="keyword">if</span>(byteIndex==<span class="number">2</span>)&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">switch</span> (b)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;<span class="string">"Initialize "</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">				command=<span class="number">4</span>;</span><br><span class="line">				dataIndex++;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;<span class="string">"Data "</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">				<span class="comment">//如果发送可打印指令，就把图像输出在命令行中</span></span><br><span class="line">				<span class="comment">//某些情况下Game Boy初始化前会发送一个打印指令，这里手动忽略掉</span></span><br><span class="line">				<span class="keyword">if</span>(firstPrint!=<span class="number">1</span>)&#123;</span><br><span class="line">					outputImage();</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">160</span>; i ++)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">320</span>; j ++)</span><br><span class="line">					&#123;</span><br><span class="line">						<span class="built_in">cout</span>&lt;&lt;VRAM[i][j];</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					firstPrint=<span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;<span class="string">"Print "</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">15</span>:</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;<span class="string">"Inquiry "</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">default</span>:</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;<span class="string">"Unknown "</span>&lt;&lt;(<span class="keyword">int</span>)b&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//记录数据正文</span></span><br><span class="line">	<span class="keyword">if</span>(byteIndex&gt;=<span class="number">6</span>&amp;&amp;byteIndex&lt;=<span class="number">6</span>+dataLength&amp;&amp;command==<span class="number">4</span>)&#123;</span><br><span class="line">		data[dataIndex][byteIndex<span class="number">-6</span>] = b;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//终端处理函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myInterrupt</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	b = b &lt;&lt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (digitalRead(<span class="number">7</span>))&#123;</span><br><span class="line">		b = b | <span class="number">1</span>;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(waitForMagicByte)&#123;</span><br><span class="line">		<span class="comment">//判断是否读到Magic Byte</span></span><br><span class="line">		<span class="keyword">if</span>((<span class="keyword">int</span>)b==<span class="number">51</span>)&#123;</span><br><span class="line">			byteIndex = <span class="number">2</span>;</span><br><span class="line">			bitIndex = <span class="number">16</span>;</span><br><span class="line">			dataLength=<span class="number">0</span>;</span><br><span class="line">			ack[<span class="number">16</span>]=<span class="number">0</span>;</span><br><span class="line">			command=<span class="number">0</span>;</span><br><span class="line">			waitForMagicByte=<span class="literal">false</span>;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"found magic byte"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//发送ACK及自身状态</span></span><br><span class="line">	<span class="keyword">if</span> (bitIndex &gt;= <span class="number">63</span>+dataLength*<span class="number">8</span> &amp;&amp; bitIndex &lt; <span class="number">72</span>+dataLength*<span class="number">8</span>)&#123;</span><br><span class="line">		digitalWrite(<span class="number">2</span>, ack[(bitIndex - (<span class="number">63</span>+dataLength*<span class="number">8</span>))]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">//是否产生了新的Byte</span></span><br><span class="line">	<span class="keyword">if</span>((bitIndex+<span class="number">1</span>)%<span class="number">8</span>==<span class="number">0</span>)&#123;</span><br><span class="line">		handleByte(b);</span><br><span class="line">		byteIndex++;</span><br><span class="line">	&#125;</span><br><span class="line">	bitIndex++;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//清空计数器，准备下一个新包</span></span><br><span class="line">	<span class="keyword">if</span>(byteIndex&gt;=<span class="number">10</span>+dataLength)&#123;</span><br><span class="line">		byteIndex = <span class="number">0</span>;</span><br><span class="line">		bitIndex = <span class="number">0</span>;</span><br><span class="line">		dataLength=<span class="number">0</span>;</span><br><span class="line">		waitForMagicByte=<span class="literal">true</span>;</span><br><span class="line">		checksum = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"Packet:"</span>&lt;&lt;++packIndex&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (wiringPiSetup() &lt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Unable to setup wiringPi: %s\n"</span>, strerror(errno));</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	pinMode(<span class="number">7</span>, INPUT);</span><br><span class="line">	pinMode(<span class="number">0</span>, INPUT);</span><br><span class="line">	digitalWrite(<span class="number">2</span>, HIGH);</span><br><span class="line">	digitalWrite(<span class="number">7</span>, HIGH);</span><br><span class="line">	</span><br><span class="line">	pullUpDnControl (BUTTON_PIN, PUD_DOWN);</span><br><span class="line">	<span class="keyword">if</span> (wiringPiISR(BUTTON_PIN, INT_EDGE_RISING, &amp;myInterrupt) &lt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Unable to setup ISR: %s\n"</span>, strerror(errno));</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;flush;</span><br><span class="line">		delay(<span class="number">20000</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2018/12/18/5c186c7a3e060.png" alt="最终效果" title="">
+                </div>
+                <div class="image-caption">最终效果</div>
+            </figure>
+<p>为了更好的效果，我调小了终端字体大小和颜色。</p>
+<h3 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h3><p>这次的模拟不能算是完美，还有很多的问题，其中最严重的就是误码率。不知道是因为树莓派本身的问题、还是线缆焊接的问题，数据传输的误码率出其的高，甚至有时没法完整传输两个Magic Bytes。所以程序里判断数据包开始时只用了第二个Magic Byte。及时成功传输了一个包，要保证全部9个数据包都被识别到还是要拼运气的，平均下来打印五六次才能成功展示出一次图像。而且，展示出的图像中还是有不少的像素是有问题的。这个问题困扰了我好久，目前还没找到具体原因和解决办法，欢迎各位大佬在评论区赐教。</p>
+<h2 id="模拟Game-Boy发送打印数据"><a href="#模拟Game-Boy发送打印数据" class="headerlink" title="模拟Game Boy发送打印数据"></a>模拟Game Boy发送打印数据</h2><p>有了上面的经验，就可以做的更深入一点了。之前是模拟打印机 接受图像，现在反过来，模拟Game Boy向打印机发送图像和指令，把Pocket Printer变成通用打印机。</p>
+<h3 id="硬件连线-1"><a href="#硬件连线-1" class="headerlink" title="硬件连线"></a>硬件连线</h3><p>连线部分和上面的基本一致，只是SIN和SOUT调换了一下，插头查到了打印机上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+------------+               +----------------------+</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       SOUT+------------------&gt;GPIO.2 (BOARD #13)  |</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       SIN +------------------&gt;GPIO.7 (BOARD #7)   |</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       SCK +------------------&gt;GPIO.0 (BOARD #11)  |</span><br><span class="line">|            |               |                      |</span><br><span class="line">|       GND +------------------&gt;GND    (BOARD #9)   |</span><br><span class="line">|            |               |                      |</span><br><span class="line">+------------+               +----------------------+</span><br><span class="line">  Link Cable                        Rspberry Pi</span><br></pre></td></tr></table></figure>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p>代码部分比之前模拟打印机的要简单，大部分情况下只需要发送数据即可。使用下面的代码，需要先将要打印的图像数据存在<code>pic.bin</code>中。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;wiringPi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GBInitialize  0x01</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GBData 0x04</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GBPrint 0x02</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GBInquiry 0x0f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DELAY_MS 40</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GBClock  0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GBIn  7</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GBOut  2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowByte(w) ((uint8_t) ((w) &amp; 0xff))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> highByte(w) ((uint8_t) ((w) &gt;&gt; 8))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//发送一个字节</span></span><br><span class="line"><span class="keyword">uint8_t</span>  GBSendByte(<span class="keyword">unsigned</span> <span class="keyword">char</span> b)&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> reply=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">uint8_t</span> bit_pos = <span class="number">0</span>; bit_pos &lt; <span class="number">8</span>; ++bit_pos) &#123;</span><br><span class="line">		reply &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">		digitalWrite(GBClock, <span class="number">0</span>); <span class="comment">// Send clock signal</span></span><br><span class="line">		<span class="keyword">if</span> ((b &lt;&lt; bit_pos) &amp; <span class="number">0x80</span>) &#123;</span><br><span class="line">			digitalWrite(GBOut, <span class="number">1</span>); <span class="comment">// Write out to printer</span></span><br><span class="line">		&#125;<span class="keyword">else</span> &#123; </span><br><span class="line">			digitalWrite(GBOut, <span class="number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		delayMicroseconds (DELAY_MS);</span><br><span class="line">		digitalWrite(GBClock, <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span> (digitalRead(GBIn))&#123;</span><br><span class="line">		  reply |= <span class="number">1</span>;    <span class="comment">// Fetch printer reply</span></span><br><span class="line">		&#125;</span><br><span class="line">		delayMicroseconds (DELAY_MS);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> reply;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//发送一个包</span></span><br><span class="line"><span class="keyword">uint16_t</span> GBSendPacket(<span class="keyword">uint8_t</span> command, <span class="keyword">uint16_t</span> size,<span class="keyword">uint8_t</span> data[],<span class="keyword">int</span> start=<span class="number">0</span>) &#123;</span><br><span class="line">	<span class="keyword">uint16_t</span> status, checksum = <span class="number">0x0000</span>;</span><br><span class="line">	<span class="comment">// Send magic bytes</span></span><br><span class="line">	GBSendByte(<span class="number">0x88</span>);</span><br><span class="line">	GBSendByte(<span class="number">0x33</span>);</span><br><span class="line">	<span class="comment">// Send command</span></span><br><span class="line">	GBSendByte(command);</span><br><span class="line">	checksum += command;</span><br><span class="line">	<span class="comment">// Send compression</span></span><br><span class="line">	GBSendByte(<span class="number">0x00</span>);</span><br><span class="line">	<span class="comment">// Send size</span></span><br><span class="line">	GBSendByte(lowByte(size));</span><br><span class="line">	GBSendByte(highByte(size));</span><br><span class="line">	checksum += lowByte(size);</span><br><span class="line">	checksum += highByte(size);</span><br><span class="line">	<span class="comment">// Send data</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">uint8_t</span> b;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">uint16_t</span> i = <span class="number">0</span>; i &lt; size; ++i) &#123;</span><br><span class="line">		b = data[i+start];</span><br><span class="line">		checksum += b;</span><br><span class="line">		GBSendByte(b);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// Send checksum</span></span><br><span class="line">	GBSendByte(lowByte(checksum));</span><br><span class="line">	GBSendByte(highByte(checksum));</span><br><span class="line">	<span class="comment">// Read status</span></span><br><span class="line">	status = GBSendByte(<span class="number">0x00</span>);</span><br><span class="line">	status = status &lt;&lt; <span class="number">8</span>;</span><br><span class="line">	status |= GBSendByte(<span class="number">0x00</span>);</span><br><span class="line">	<span class="keyword">return</span> status;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//从文件读取要发送的数据</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">readPicData</span><span class="params">(<span class="keyword">uint8_t</span>* data)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> rawData[<span class="number">5760</span>];</span><br><span class="line">	<span class="built_in">std</span>::<span class="function">ifstream <span class="title">infile</span><span class="params">(<span class="string">"pic.bin"</span>)</span></span>;</span><br><span class="line">    infile.seekg(<span class="number">0</span>, infile.end);</span><br><span class="line">    <span class="keyword">size_t</span> length = infile.tellg();</span><br><span class="line">    infile.seekg(<span class="number">0</span>, infile.beg);</span><br><span class="line">	infile.read(rawData, length);</span><br><span class="line">	<span class="built_in">memcpy</span>( data, rawData, length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (wiringPiSetup() &lt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Unable to setup wiringPi: %s\n"</span>, strerror(errno));</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	pinMode(GBIn, INPUT);</span><br><span class="line">	pinMode(GBClock, OUTPUT);</span><br><span class="line">	pinMode(GBOut, OUTPUT);</span><br><span class="line">	pullUpDnControl(GBIn,PUD_UP);      <span class="comment">// turn on pullup resistors</span></span><br><span class="line">	pullUpDnControl(GBOut,PUD_UP);      <span class="comment">// turn on pullup resistors</span></span><br><span class="line">	<span class="keyword">uint8_t</span> data[<span class="number">8</span>]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;(<span class="keyword">int</span>)GBSendPacket(GBInitialize,<span class="number">0</span>,data)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">uint8_t</span> printData[<span class="number">8</span>]=&#123;<span class="number">0x01</span>,<span class="number">0x00</span>,<span class="number">0xE4</span>,<span class="number">0x40</span>&#125;;</span><br><span class="line">	<span class="keyword">uint8_t</span> Data[<span class="number">5760</span>];</span><br><span class="line">	readPicData(Data);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;(<span class="keyword">int</span>)GBSendPacket(GBData,<span class="number">640</span>,Data,i*<span class="number">640</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;(<span class="keyword">int</span>)GBSendPacket(GBData,<span class="number">0</span>,printData)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;(<span class="keyword">int</span>)GBSendPacket(GBPrint,<span class="number">4</span>,printData)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>打印个Hello World：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2018/12/18/5c186f6954168.jpg" alt="打印结果" title="">
+                </div>
+                <div class="image-caption">打印结果</div>
+            </figure>
+<p>如果解决供电问题的话，把这个打印机联网，就是个简陋版的咕咕机了！</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="http://www.hardwarebook.info/Game_Boy_Link" target="_blank" rel="noopener">Game Boy Link</a> </li>
+<li><a href="https://www.mikrocontroller.net/attachment/34801/gb-printer.txt" target="_blank" rel="noopener">gb-printer.txt</a></li>
+<li><a href="http://www.huderlem.com/demos/gameboy2bpp.html" target="_blank" rel="noopener">Gameboy 2BPP Graphics Format</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-18T03:57:11.535Z" itemprop="dateUpdated">2018-12-18 11:57:11</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://aoaoao.me">
+            <img src="https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" alt="Aaron Liu">
+            Aaron Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GameBoy/">GameBoy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2018/12/17/game-boy-printer/&title=《用树莓派模拟Game Boy打印机及相机外设》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2018/12/17/game-boy-printer/&title=《用树莓派模拟Game Boy打印机及相机外设》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2018/12/17/game-boy-printer/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用树莓派模拟Game Boy打印机及相机外设》 — Aaron's Blog&url=https://aoaoao.me/2018/12/17/game-boy-printer/&via=https://aoaoao.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2018/12/17/game-boy-printer/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/30/captcha-for-cloudreve/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">给Cloudreve添加化学式/矩阵/大事件验证码</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<section class="comments vcomment v gt-container" id="comments">
+    <div id="gitment_thread"></div>
+    <script>
+        var gitalk = new Gitalk({
+          clientID: 'c47f474307374406529a',
+          clientSecret: '1f1f2afc391d7dcfa51b38054cdef0b8cc6584bb',
+          repo: 'HFO4.github.io',
+          owner: 'HFO4',
+          admin: ['HFO4'],
+          id: "Mon Dec 17 2018 20:44:10 GMT+0800",      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('comments')
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        感谢投食~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Aaron Liu &copy; 2014 - 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16009141号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://aoaoao.me/2018/12/17/game-boy-printer/&title=《用树莓派模拟Game Boy打印机及相机外设》 — Aaron's Blog&pic=https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://aoaoao.me/2018/12/17/game-boy-printer/&title=《用树莓派模拟Game Boy打印机及相机外设》 — Aaron's Blog&source=Aaron的个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://aoaoao.me/2018/12/17/game-boy-printer/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用树莓派模拟Game Boy打印机及相机外设》 — Aaron's Blog&url=https://aoaoao.me/2018/12/17/game-boy-printer/&via=https://aoaoao.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://aoaoao.me/2018/12/17/game-boy-printer/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3awY7rIAwF0P7/T2e2T3pTcm3ISIHDqlLTlMPCMrY/n3hd/6xv346f/P+Z/LfLFgYGxmsZ13B9+4Nvn/ODqP7vt2cwMDDOYSRhNAmRSWiePyAMDAyMnJFvZSbgYmBgYPQY1dA53nr+BgwMjJMZeeAbl9LmU8zH7+IYGBgvZORV97///Eh/AwMD41WMq7hyarUYd00sDAyMvRnzDcgeLEkHy8MfGBgYBzCSUDiTm42fz0fKCuU2DAyMTRlrWwXPtTNvAi4GBsZGjOfCYrLFPHDfpJ4YGBgHMGa20hueyIN7tEMMDIwDGPmoxEyntEeK2BgYGFsz5ov1+V15bdj95VcYGBibMubTuGaFr9iWuOFhYGAczMiTxXHwTd6Tty1vpkUwMDAOYFSLa73kcvGwBQYGxtaMammsOmaRtyeT5mUZg4GBsRGjGkzzV/eGKvLGAwYGxjmMvPhVLbTl7+y1Ij7VzWFgYLyWcbVWcjbVFHCcFBYmRzAwMLZm9P4+L5blTYXyIWJgYBzDSLabtz/n31m4vmJgYBzAqG40H86YGchIAjoGBsbejN7Fde3VN0lDb44AAwNja8ZMsMtHLlY1QcszIxgYGBsxeiGyV6qrHlnhKouBgXEAo3rhTAJlHoIXIDEwMDAmssteAK02SjEwMDDGz+Shtvq2QijHwMA4gJFcYmdgvaBcAGNgYGzNmBmSKCdwraC8rJGJgYHxPsYP5mmodl+4kmIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=5807235&web_id=5807235')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '揠?洭嬽p祠?寋鈓□瑢??f';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
