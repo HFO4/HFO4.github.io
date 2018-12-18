@@ -28,13 +28,13 @@
     
     
     <meta name="keywords" content="树莓派,GameBoy">
-    <meta name="description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GPL、GPC、GPA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
+    <meta name="description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GBL、GBC、GBA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
 <meta name="keywords" content="树莓派,GameBoy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用树莓派模拟Game Boy打印机及相机外设">
 <meta property="og:url" content="https://aoaoao.me/2018/12/17/game-boy-printer/index.html">
 <meta property="og:site_name" content="Aaron&#39;s Blog">
-<meta property="og:description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GPL、GPC、GPA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
+<meta property="og:description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GBL、GBC、GBA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2018/12/17/5c179e6fc237d.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/12/17/5c179f22120e9.jpg">
@@ -44,10 +44,10 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/18/5c18632262dd3.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/12/18/5c186c7a3e060.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/18/5c186f6954168.jpg">
-<meta property="og:updated_time" content="2018-12-18T03:59:48.581Z">
+<meta property="og:updated_time" content="2018-12-18T06:58:07.784Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用树莓派模拟Game Boy打印机及相机外设">
-<meta name="twitter:description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GPL、GPC、GPA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
+<meta name="twitter:description" content="前言Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GBL、GBC、GBA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN第147集）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在">
 <meta name="twitter:image" content="https://i.loli.net/2018/12/17/5c179e6fc237d.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="Aaron&#39;s Blog" href="/atom.xml">
@@ -219,7 +219,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GPL、GPC、GPA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN<a href="https://www.youtube.com/watch?v=EEzJH90h3aA" target="_blank" rel="noopener">第147集</a>）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在！</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Game Boy最初是任天堂在1989年推出的8位掌机，其后又推出了GBP、GBL、GBC、GBA等衍生机型，以1.2亿台的总销量成为世界上最畅销的掌机系列。很多第三方厂商也抓住机会，针对Game Boy生产了各种神仙级别的外设（具体可参考AVGN<a href="https://www.youtube.com/watch?v=EEzJH90h3aA" target="_blank" rel="noopener">第147集</a>）。个人最感兴趣的是其中相机和打印机两款外设。要知道，在那个手机都不普及的90年代，一台能随时拍照还能随时打印的游戏机是多么黑科技般的存在！</p>
 <h2 id="Pocket-Printer-与-Pocket-Camera"><a href="#Pocket-Printer-与-Pocket-Camera" class="headerlink" title="Pocket Printer 与 Pocket Camera"></a>Pocket Printer 与 Pocket Camera</h2><p>大概一个月前，博主有幸搞到了两台日版相机外设（Pocket Camera）和全新的打印机外设（Pocket Printer）。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -396,7 +396,7 @@
 <p>每次打印任务开始时发送的以一个指令，一般数据长度为0。</p>
 </li>
 <li><p>Data (<code>0x04</code>) 数据传输指令 </p>
-<p>传输打印页面数据的指令。一般情况下，每次打印的页面大小与GB主机分辨率相同，而打印数据会通过包含此指令的数据包传输，每个数据包的正文大小为640字节，共9个包。所有数据传输完毕后，GB主机还会发送一个正文长度为0的空打印指令，但其用途未知。</p>
+<p>传输打印页面数据的指令。一般情况下，每次打印的页面大小与GB主机分辨率相同，而打印数据会通过包含此指令的数据包传输，每个数据包的正文大小为640字节，共9个包。所有数据传输完毕后，GB主机还会发送一个正文长度为0的空数据指令，但其用途未知。</p>
 </li>
 <li><p>Print (<code>0x02</code>) 打印指令</p>
 <p>所有打印数据传输完毕后，发送此指令开始打印。正文长度一般为4字节，第一个字节固定为<code>0x01</code>，用途未知；第二个字节定义了不同打印页面间距；第三个字节定义了打印使用的色板；第四个字节为打印色彩浓度。</p>
@@ -408,13 +408,13 @@
 <p>第四个字节标志着数据正文是否被压缩，可取值为<code>0x00</code>（未压缩）和<code>0x01</code>（压缩），压缩算法为简单的游长压缩；</p>
 <p>第四和第五个字节组合可表示16位的正文长度；</p>
 <p>第六位字节开始为数据正文，其长度就是上两位指出的数据长度</p>
-<p>第6+X+2和6+X+2位为16位的校验码，用于验证数据传输是否出错。其值为从命令字节开始所有字节的总和，每个字节视为8位无符号整形；</p>
+<p>第6+X+1和6+X+2位为16位的校验码，用于验证数据传输是否出错。其值为从命令字节开始所有字节的总和，每个字节视为8位无符号整形；</p>
 <p>第6+X+3个字节为ACK共识。严格来说，校验码发送完毕后，一个数据包的发送就结束了，因为后面两个自己的内容是由打印机发给Game Boy的。发送ACK为模拟打印机的关键，如果Game Boy没能在第6+X+3个字节的周期内及时收到ACK，就会视为超时并在屏幕上显示“错误#2”。</p>
 <p>第6+X+4个字节是由打印机发送给Game Boy的，用于标识自身状态，一般发送<code>0x00</code>即可。</p>
 <h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><p>前面提到过，每次打印的图像数据会装载9个640字节的数据包中传输，合计是5760个字节。拿到数据后要做的就是把它复原为图像。好在Game Boy发送的数据格式和其显存中的基本一致。Game Boy使用8x8的像素阵呈现图像，每个像素占用2位，可表示四阶灰度。在打印传输的数据包中，每次传输的640字节数据可以表示一大行图像，即160x14像素；这一大行又可分为两个小行，每行由20个8x8的像素阵组成。每个字节连通其后一个字节可表示像素阵中的一行像素（8个）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">像素阵:                                     图像:</span><br><span class="line"></span><br><span class="line">.33333..                     .33333.. -&gt; 01111100 -&gt; $7C</span><br><span class="line">22...22.                                 01111100 -&gt; $7C</span><br><span class="line">11...11.                     22...22. -&gt; 00000000 -&gt; $00</span><br><span class="line">2222222. &lt;-- 数字表示                     11000110 -&gt; $C6</span><br><span class="line">33...33.     灰度值           11...11. -&gt; 11000110 -&gt; $C6</span><br><span class="line">22...22.                                 00000000 -&gt; $00</span><br><span class="line">11...11.                     2222222. -&gt; 00000000 -&gt; $00</span><br><span class="line">........                                 11111110 -&gt; $FE</span><br><span class="line">                             33...33. -&gt; 11000110 -&gt; $C6</span><br><span class="line">                                         11000110 -&gt; $C6</span><br><span class="line">                             22...22. -&gt; 00000000 -&gt; $00</span><br><span class="line">                                         11000110 -&gt; $C6</span><br><span class="line">                             11...11. -&gt; 11000110 -&gt; $C6</span><br><span class="line">                                         00000000 -&gt; $00</span><br><span class="line">                             ........ -&gt; 00000000 -&gt; $00</span><br><span class="line">                                         00000000 -&gt; $00</span><br></pre></td></tr></table></figure>
 <p>得到每个像素的灰度值后，一个可行操作是使用<code>░</code> <code>▒</code> <code>▓</code>这种字符在命令行中将图像展示出来。</p>
-<h3 id="硬件连线"><a href="#硬件连线" class="headerlink" title="硬件连线"></a>硬件连线</h3><p>理解了通信协议后，就可以开始模拟了。我使用的方案是将Game Boy通信线缆剪短后，把其中各个Pin的导线焊接到公母口杜邦线上，这样就能很容易的连接到树莓派的GPIO引脚上了：</p>
+<h3 id="硬件连线"><a href="#硬件连线" class="headerlink" title="硬件连线"></a>硬件连线</h3><p>理解了通信协议后，就可以开始模拟了。我使用的方案是将Game Boy通信线缆剪断后，把其中各个Pin的导线焊接到公母口杜邦线上，这样就能很容易的连接到树莓派的GPIO引脚上了：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -463,7 +463,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-18T03:59:48.581Z" itemprop="dateUpdated">2018-12-18 11:59:48</time>
+    最后更新时间：<time datetime="2018-12-18T06:58:07.784Z" itemprop="dateUpdated">2018-12-18 14:58:07</time>
 </span><br>
 
 
