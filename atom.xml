@@ -489,22 +489,21 @@
   </entry>
   
   <entry>
-    <title>一个神奇的乱码图像生成算法</title>
-    <link href="https://aoaoao.me/2017/01/25/e4-b8-80-e4-b8-aa-e7-a5-9e-e5-a5-87-e7-9a-84-e4-b9-b1-e7-a0-81-e5-9b-be-e5-83-8f-e7-94-9f-e6-88-90-e7-ae-97-e6-b3-95/"/>
-    <id>https://aoaoao.me/2017/01/25/e4-b8-80-e4-b8-aa-e7-a5-9e-e5-a5-87-e7-9a-84-e4-b9-b1-e7-a0-81-e5-9b-be-e5-83-8f-e7-94-9f-e6-88-90-e7-ae-97-e6-b3-95/</id>
-    <published>2017-01-25T09:45:56.000Z</published>
-    <updated>2018-04-16T01:13:31.100Z</updated>
+    <title>[Happy New Year]2016年终Review及新年规划</title>
+    <link href="https://aoaoao.me/2016/12/31/happy-new-year2016-e5-b9-b4-e7-bb-88review-e5-8f-8a-e6-96-b0-e5-b9-b4-e8-a7-84-e5-88-92/"/>
+    <id>https://aoaoao.me/2016/12/31/happy-new-year2016-e5-b9-b4-e7-bb-88review-e5-8f-8a-e6-96-b0-e5-b9-b4-e8-a7-84-e5-88-92/</id>
+    <published>2016-12-31T11:32:38.000Z</published>
+    <updated>2018-04-16T01:13:32.994Z</updated>
     
-    <content type="html"><![CDATA[<p>今天本想研究下图像隐写书的相关算法，结果偶然间发现一个很有意思的现象，如下为jpg格式的原图</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2017/01/p.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>我使用Python对其每个像素的三个通道进行遍历，如果色值为偶数，就将其改设为255，如果为奇数则设为零。Python脚本如下：</p><pre><code>from PIL import Imageimport osfrom numpy import *def jiou(num):    if (num % 2) == 0:        return True    else:        return Falseim = array(Image.open(&apos;20170125135222.jpg&apos;))for i in range(0,683):    for y in range(0,974):        for x in range(0,3):            if(im[y,i,x] == 0):                im[y,i,x] = im[y,i,x] +255            elif(im[y,i,x] == 255):                im[y,i,x] = im[y,i,x] -255            else:                if (jiou(im[y,i,x])):                    im[y,i,x]=255                else:                    im[y,i,x]=0t = Image.fromarray(im)t.show()</code></pre><p>一个很简单的算法，我本以为会得到一张密密麻麻混乱的图像，结果呢？<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2017/01/搜狗截图20170125161916.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>→_→不还是很混乱吗！</p><p>但是仔细观察就会发现一些奇怪的现象</p><ol><li>观察图像全貌，是可以看到主体人物的大致轮廓的，并不想预期的那样一团乱</li><li>放大后发现有许多像素在一起构成了奇怪的纹理<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2017/01/搜狗截图20170125162442.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></li><li>这些纹理以块状集中出现，而且每块由两种颜色构成</li><li>有某些集中区域只有黑白两种颜色，这些区域在原图中都是近黑色<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2017/01/搜狗截图20170125162642.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>我猜想的原因可能是jpg的压缩算法导致的，具体原因没有深究，有哪位大佬知道欢迎留言喵</li></ol><h2 id="关于那个隐写术"><a href="#关于那个隐写术" class="headerlink" title="关于那个隐写术"></a>关于那个隐写术</h2><p>正如前文，我是在研究隐写术时发现这个现象的。我本想通过下面的方法把信息写到图像里：</p><p>先讲要隐藏的信息转为二进制格式，然后遍历已有的图像的像素，如果二进制数字为1，就把像素颜色值就进微调为奇数，反之为偶数，以此达到储存信息的目的。我粗略计算了一下，一张700X900像素的图像大概可以存放120 000个字符，而图像的大小几乎不变！<del>然而。。实际尝试时发现这样处理只能使用bmp格式图像，而一张90kb的图像换成bmp的，大小要增加到1.5mb，显然有点得不偿失了</del>。</p>]]></content>
+    <content type="html"><![CDATA[<p>又到了一年一度的年终总结的时候，去年因为懒没有做总结，但在树洞二周年的时候做出了<a href="https://aoaoao.me/836.html">新年规划</a>，先来看下去年的计划的完成情况：</p><ol><li>好好学Python（写了几个小应用，但知识体系还是比较混乱）</li><li>博客转型（这个完成的比较好，树洞由资源分享型博客转变为了个人技术性博客）</li><li>主机搬迁（先搬到了搬瓦工，后来搬到现在的阿里云）</li><li>尝试写一款wordpress主题或插件（毫无进展）</li><li>数学不挂科(至少挂科的频率减少了)</li><li>结识更多♂友（2016年真的认识了好多新朋友，开心）</li><li>开几个新坑（并没有什么大坑）<br>总的来说完成的还是不错的，其中很多计划未能时间归根到底还是因为时间问题（以及我的懒）。<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/08/557aa830357a63f9-1.gif" alt="-557aa830357a63f9" title="">                </div>                <div class="image-caption">-557aa830357a63f9</div>            </figure></li></ol><h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>2016年真是一个非常充实的一年，还是照例回顾下2016年达成的成就以及大事件：</p><ul><li>树洞旗下网站总共被访问了180,132次，独立访客61,125名</li><li>博客评论总数在年初突破1000，目前即将突破2000</li><li>树洞外链被安装10,486次（第10000个安装的站点：<a href="http://w.22i1.com/" target="_blank" rel="noopener">http://w.22i1.com/</a>）</li><li>树洞外链在GitHub获得170个Star</li><li>结识了许多基友</li><li>入宅</li><li><p>一月</p><ul><li>初识树莓派</li><li>建站二周年</li><li>起了一个英文名</li></ul></li><li><p>二月</p><ul><li>发布树洞外链2.2</li><li>博客启用HTTPS</li></ul></li><li><p>三月</p><ul><li>第一次遭遇教学楼失窃（虽然我的东西没被偷）</li><li>疯狂的买蓝牙POS机</li><li>学校组织徒步远足</li><li>初识“废话派”诗人-乌青</li><li>博客搬迁至阿里云</li></ul></li><li><p>（没有你的）四月</p><ul><li>参加省里的科技创新比赛，但展位鲜有人问津，最后只拿了个二等奖</li><li>开始与倒卖汪斗争</li></ul></li><li><p>五月</p><ul><li>新浪微博加V</li><li>网站备案通过</li></ul></li><li><p>六月</p><ul><li>更换新主题-C7V5</li><li>参加学业水平考试</li><li>搬到高三教学楼</li><li>学校破天荒的大方一次给每个人发喜糖</li></ul></li><li><p>七月</p><ul><li>造了个假的查分网站，搞了个大新闻</li><li>在洛阳参加全国中小学生电脑制作大赛，在技术测试环节开始时彻底懵逼：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/12/psb-2-300x300.jpg)答辩环节还算顺利，评委问的问题都是深层技术上的，（评委似乎对阿里云情有独钟），最终拿了一等奖，自主招生什么的不用愁了O(∩_∩" alt="psb-1](https://cdn.aoaoao.me/wp-content/uploads/2016/12/psb-1-300x300.jpg)但机智的我借助PHP手册勉强完成了要求：![psb-2" title="">                </div>                <div class="image-caption">psb-1](https://cdn.aoaoao.me/wp-content/uploads/2016/12/psb-1-300x300.jpg)但机智的我借助PHP手册勉强完成了要求：![psb-2</div>            </figure>O~~</li><li>树洞外链停更</li></ul></li><li><p>八月</p><ul><li>暑假快结束时突然被告知开学推迟，在这两周内补了好多番</li><li>树洞外链Star破百</li></ul></li><li><p>九月</p><ul><li>开学，进入高三，真正感受到了高考的迫近</li></ul></li><li><p>从九月以后就比较忙了，基本都在学校，也没有什么大事发生</p></li><li><p>十月</p><ul><li>换用Comodo的SSL证书</li></ul></li><li><p>十二月</p><ul><li>尝试申请清华冬令营，不说取得什么成绩，去玩玩也不错</li><li>购买dog.moe 并在上面放了About页</li></ul></li></ul><h2 id="新年计划"><a href="#新年计划" class="headerlink" title="新年计划"></a>新年计划</h2><p>2017年可以说是我人生中最重要的一年，因为我将在这年迎来高考，同时也会迎来可能是最漫长的一个暑假，所以我也有更多时间实现我的计划，做我想做的事</p><ul><li>考入哈尔滨工业大学计算机科学系</li><li>开新坑（目前已有一些思路）</li><li>攒钱买MacBook Pro(目前已完成38%)</li><li>自写博客系统</li><li>MC入正</li><li>结实更多基友</li><li>学习安卓开发</li><li>把《Flask Web开发:基于Python的Web应用开发实战》里的代码从头到尾敲一遍</li><li>毕业后和校长一起玩 阿鲁巴 游戏<br>更详细的计划可能要等我高考后才能制定出来，在此之前还是努力学习吧。。</li></ul><h2 id="新年红包"><a href="#新年红包" class="headerlink" title="新年红包"></a>新年红包</h2><p>灵感来自<a href="https://blog.lwl12.com" target="_blank" rel="noopener">lwl</a></p><p>终于到了喜闻乐见的内容了，我总共发了25份新年红包，先到先得，领取方法：</p><p><strong>方式一：</strong>把博主的目标高考分数重复三遍在末尾加上“分”得到红包口令（如750750750分），输入某APP。<br>（提示：可以看看我的微博，里面有线索）<br><strong>方式二：</strong>如果不知道我的目标分数，可以破解下面密码得到</p><pre><code>==GiY55IzuOW+jHW+v6eOsVauhIWekneuhQeOhaeev+WeiuWOqcW+pkWep3WOiTWOt5WeNxAjM`&lt;/pre&gt;**方式三（这是一个单独的红包）：**&lt;pre&gt;`U2FsdGVkX1+L4Q/+++cgKeMGXcjz3KkghbgrhIL8bV/BK6EiRutq1qKOYRYMfpot</code></pre><p>线索：<span style="display: none;">dwhv5</span><br>得到红包口令后输入某APP。</p><h2 id="红包解密方法："><a href="#红包解密方法：" class="headerlink" title="红包解密方法："></a>红包解密方法：</h2><p>方式一：</p><p>线索在我的微博里，我曾发过一条微博列出了我们班所有人的目标大学：<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/12/超级截屏_20170108_064648-300x225.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>如果知道我的真实姓名的话，直接找就行了；如果不知道，可以按照大学找，因为选择哈工大的也没几个。得到结果：629629629分，输入支付宝即可。</p><p>方式二：</p><p>密文表面看上去是Base64,但尝试后会发现解不出来，仔细观察你就会发现密文开头有两个＝，而Base64的＝只会出现在末尾，所以只要将密文前后颠倒，在进行Base64解码即可得到：<code>2015年哈工大在安徽的理科分数线减去29分</code></p><p>方式三：</p><p>看上去像是AES加密，查看本页源代码可以发现一个隐藏的span，其内容<code>dwhv5</code>就是密钥。解密后得到：<code>Say &quot;Hello&quot; to aoaoao.me:2017</code>，这是在暗示你用套接字向aoaoao.me的2017端口发送Hello字符串，至于是TCP还是UDP，两个都试试就行了，最后会发现是UDP，发送”Hello”后得到口令：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/12/超级截屏_20170108_070124-300x51.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>[hermit auto=”0” loop=”0” unexpand=”0” fullheight=”0”]netease_songs#:28528999[/hermit]</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;今天本想研究下图像隐写书的相关算法，结果偶然间发现一个很有意思的现象，如下为jpg格式的原图&lt;/p&gt;
-&lt;figure class=&quot;image-bubble&quot;&gt;
-                &lt;div class=&quot;img-lightbox&quot;&gt;
-             
+        &lt;p&gt;又到了一年一度的年终总结的时候，去年因为懒没有做总结，但在树洞二周年的时候做出了&lt;a href=&quot;https://aoaoao.me/836.html&quot;&gt;新年规划&lt;/a&gt;，先来看下去年的计划的完成情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;好好学Python（写了几个小应用，但知识体
       
     
     </summary>
@@ -512,31 +511,36 @@
       <category term="正常的文章" scheme="https://aoaoao.me/categories/%E6%AD%A3%E5%B8%B8%E7%9A%84%E6%96%87%E7%AB%A0/"/>
     
     
-      <category term="python" scheme="https://aoaoao.me/tags/python/"/>
+      <category term="新年" scheme="https://aoaoao.me/tags/%E6%96%B0%E5%B9%B4/"/>
     
   </entry>
   
   <entry>
-    <title>本站Telegram群</title>
-    <link href="https://aoaoao.me/2017/01/15/e6-9c-ac-e7-ab-99telegram-e7-be-a4/"/>
-    <id>https://aoaoao.me/2017/01/15/e6-9c-ac-e7-ab-99telegram-e7-be-a4/</id>
-    <published>2017-01-14T23:32:02.000Z</published>
-    <updated>2018-04-15T11:37:48.051Z</updated>
+    <title>化学式/历史上的今天验证码开源（内含维基百科历史上的今天数据）</title>
+    <link href="https://aoaoao.me/2016/12/25/e5-8c-96-e5-ad-a6-e5-bc-8f-e5-8e-86-e5-8f-b2-e4-b8-8a-e7-9a-84-e4-bb-8a-e5-a4-a9-e9-aa-8c-e8-af-81-e7-a0-81-e5-bc-80-e6-ba-90-ef-bc-88-e5-86-85-e5-90-ab-e7-bb-b4-e5-9f-ba-e7-99-be-e7-a7-91-e5-8e-86/"/>
+    <id>https://aoaoao.me/2016/12/25/e5-8c-96-e5-ad-a6-e5-bc-8f-e5-8e-86-e5-8f-b2-e4-b8-8a-e7-9a-84-e4-bb-8a-e5-a4-a9-e9-aa-8c-e8-af-81-e7-a0-81-e5-bc-80-e6-ba-90-ef-bc-88-e5-86-85-e5-90-ab-e7-bb-b4-e5-9f-ba-e7-99-be-e7-a7-91-e5-8e-86/</id>
+    <published>2016-12-25T01:59:10.000Z</published>
+    <updated>2018-04-16T01:13:31.423Z</updated>
     
-    <content type="html"><![CDATA[<p>本站Telegram群：<a href="https://aoaoao.me/api/join.php">https://aoaoao.me/api/join.php</a></p>]]></content>
+    <content type="html"><![CDATA[<p>接上文：<a href="https://aoaoao.me/1192.html">https://aoaoao.me/1192.html</a></p><p>在上次的化学式验证码启用后，有许多文科生掀桌，所以这次又写了一个针对文科生版的：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/12/超级截屏_20161225_090826-1006x1024.png" alt="%e8%b6%85%e7%ba%a7%e6%88%aa%e5%b1%8f_20161225_090826" title="">                </div>                <div class="image-caption">%e8%b6%85%e7%ba%a7%e6%88%aa%e5%b1%8f_20161225_090826</div>            </figure><p>要是再答不上来可不能怪我→_→</p><p>验证码的数据爬取自维基百科，好在维基百科每个日期的词条格式都是规范式的，这也就方便了爬取。总共收集了三万多条数据，分为伟人出生，逝世，大事件三类。数据搞定了，随之而来的难题是用GD库写多行文本，本来以为肯定有相关函数，但后来发现GD库只能写单行文本，多行的话只能通过计算文字量，分开写入单行<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/12/735dfef49a6e3a85.jpg" alt="735dfef49a6e3a85" title="">                </div>                <div class="image-caption">735dfef49a6e3a85</div>            </figure></p><h3 id="维基百科三万历史上的今天数据"><a href="#维基百科三万历史上的今天数据" class="headerlink" title="维基百科三万历史上的今天数据"></a>维基百科三万历史上的今天数据</h3><p>我已经打包成SQL格式了：<a href="https://file.aoaoao.me/f.php?k=57e6b" target="_blank" rel="noopener">https://file.aoaoao.me/f.php?k=57e6b</a></p><p>此数据为粗整理版，由于爬去的时候因为网络问题断了几次，所以有几天的数据是不全的。其中y字段为时间类型，0为大事件，1为人物出生，2为逝世。d为年份，i为日期，p为时间内容。</p><p>爬虫参考了GitHub上的开源项目，但原爬虫已失效，稍后我会在此更新代码：<a href="https://github.com/HFO4/TodayInHistory-Crawler" target="_blank" rel="noopener">https://github.com/HFO4/TodayInHistory-Crawler</a></p><h3 id="为树洞外链添加此验证码"><a href="#为树洞外链添加此验证码" class="headerlink" title="为树洞外链添加此验证码"></a>为树洞外链添加此验证码</h3><p><strong>要求：</strong>树洞外链版本2.4.X，material主题，PHP版本≥5.4，启用GD库扩展（低版本未测试）<br>1.安装Composer（已安装请略过）Linux下可执行以下命令安装</p><p><pre class="language-shell"><code>curl -sS https://getcomposer.org/installer | phpmv composer.phar /usr/local/bin/composer</code><br></pre><br>2.用cd命令切换到树洞外链安装目录，执行下面命令安装gd-text</p><p><pre class="language-bash"><code>composer require zgldh/gd-text-for-chinese</code><br></pre><br>3.下载验证码补丁：<a href="https://file.aoaoao.me/f.php?k=a0472" target="_blank" rel="noopener">https://file.aoaoao.me/f.php?k=a0472</a> 并覆盖到树洞外链所在目录<br>4.将压缩包内的Cas.sql和Todayinhistory.sql导入至数据库<br>演示：<a href="https://file.aoaoao.me/views/login.php" target="_blank" rel="noopener">https://file.aoaoao.me/views/login.php</a><br>默认情况下，化学式和历史上的今天会随机展示给用户，如果只想使用其中一种，可以修改content/themes/material/login.html底部的js代码。如果只使用化学式验证码，第一第二步可以略过。另外还要说明的是，化学式验证码图像会直接调用chemicalbook，不支持https，并且用户可以通过图像url获取到CAS编号从而查询到答案。你可以使用nginx或七牛融合cdn等工具将图像缓存下来，在此不再赘述。</p><h3 id="为其他程序添加此验证码"><a href="#为其他程序添加此验证码" class="headerlink" title="为其他程序添加此验证码"></a>为其他程序添加此验证码</h3><p>原理类似，随机从数据库中取值，讲答案写入到session中，注意判断时忽略大小写，检查空值等。历史上的今天的文字格式转换、图像生成可参见includes/code2.php</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;本站Telegram群：&lt;a href=&quot;https://aoaoao.me/api/join.php&quot;&gt;https://aoaoao.me/api/join.php&lt;/a&gt;&lt;/p&gt;
-
+        &lt;p&gt;接上文：&lt;a href=&quot;https://aoaoao.me/1192.html&quot;&gt;https://aoaoao.me/1192.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在上次的化学式验证码启用后，有许多文科生掀桌，所以这次又写了一个针对文科生版的：&lt;/p&gt;
+&lt;figure cla
       
     
     </summary>
     
       <category term="正常的文章" scheme="https://aoaoao.me/categories/%E6%AD%A3%E5%B8%B8%E7%9A%84%E6%96%87%E7%AB%A0/"/>
     
+    
+      <category term="验证码" scheme="https://aoaoao.me/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
+    
+      <category term="树洞外链" scheme="https://aoaoao.me/tags/%E6%A0%91%E6%B4%9E%E5%A4%96%E9%93%BE/"/>
     
   </entry>
   
