@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://aoaoao.me/"/>
-  <updated>2018-12-18T07:41:39.562Z</updated>
+  <updated>2019-05-31T04:29:35.999Z</updated>
   <id>https://aoaoao.me/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零开始的Gameboy模拟器</title>
+    <link href="https://aoaoao.me/2019/05/31/gameboy-emulator/"/>
+    <id>https://aoaoao.me/2019/05/31/gameboy-emulator/</id>
+    <published>2019-05-31T04:29:35.000Z</published>
+    <updated>2019-05-31T04:29:35.999Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>用树莓派模拟Game Boy打印机及相机外设</title>
@@ -512,35 +526,6 @@
     
     
       <category term="新年" scheme="https://aoaoao.me/tags/%E6%96%B0%E5%B9%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>化学式/历史上的今天验证码开源（内含维基百科历史上的今天数据）</title>
-    <link href="https://aoaoao.me/2016/12/25/e5-8c-96-e5-ad-a6-e5-bc-8f-e5-8e-86-e5-8f-b2-e4-b8-8a-e7-9a-84-e4-bb-8a-e5-a4-a9-e9-aa-8c-e8-af-81-e7-a0-81-e5-bc-80-e6-ba-90-ef-bc-88-e5-86-85-e5-90-ab-e7-bb-b4-e5-9f-ba-e7-99-be-e7-a7-91-e5-8e-86/"/>
-    <id>https://aoaoao.me/2016/12/25/e5-8c-96-e5-ad-a6-e5-bc-8f-e5-8e-86-e5-8f-b2-e4-b8-8a-e7-9a-84-e4-bb-8a-e5-a4-a9-e9-aa-8c-e8-af-81-e7-a0-81-e5-bc-80-e6-ba-90-ef-bc-88-e5-86-85-e5-90-ab-e7-bb-b4-e5-9f-ba-e7-99-be-e7-a7-91-e5-8e-86/</id>
-    <published>2016-12-25T01:59:10.000Z</published>
-    <updated>2018-04-16T01:13:31.423Z</updated>
-    
-    <content type="html"><![CDATA[<p>接上文：<a href="https://aoaoao.me/1192.html">https://aoaoao.me/1192.html</a></p><p>在上次的化学式验证码启用后，有许多文科生掀桌，所以这次又写了一个针对文科生版的：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/12/超级截屏_20161225_090826-1006x1024.png" alt="%e8%b6%85%e7%ba%a7%e6%88%aa%e5%b1%8f_20161225_090826" title="">                </div>                <div class="image-caption">%e8%b6%85%e7%ba%a7%e6%88%aa%e5%b1%8f_20161225_090826</div>            </figure><p>要是再答不上来可不能怪我→_→</p><p>验证码的数据爬取自维基百科，好在维基百科每个日期的词条格式都是规范式的，这也就方便了爬取。总共收集了三万多条数据，分为伟人出生，逝世，大事件三类。数据搞定了，随之而来的难题是用GD库写多行文本，本来以为肯定有相关函数，但后来发现GD库只能写单行文本，多行的话只能通过计算文字量，分开写入单行<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.aoaoao.me/wp-content/uploads/2016/12/735dfef49a6e3a85.jpg" alt="735dfef49a6e3a85" title="">                </div>                <div class="image-caption">735dfef49a6e3a85</div>            </figure></p><h3 id="维基百科三万历史上的今天数据"><a href="#维基百科三万历史上的今天数据" class="headerlink" title="维基百科三万历史上的今天数据"></a>维基百科三万历史上的今天数据</h3><p>我已经打包成SQL格式了：<a href="https://file.aoaoao.me/f.php?k=57e6b" target="_blank" rel="noopener">https://file.aoaoao.me/f.php?k=57e6b</a></p><p>此数据为粗整理版，由于爬去的时候因为网络问题断了几次，所以有几天的数据是不全的。其中y字段为时间类型，0为大事件，1为人物出生，2为逝世。d为年份，i为日期，p为时间内容。</p><p>爬虫参考了GitHub上的开源项目，但原爬虫已失效，稍后我会在此更新代码：<a href="https://github.com/HFO4/TodayInHistory-Crawler" target="_blank" rel="noopener">https://github.com/HFO4/TodayInHistory-Crawler</a></p><h3 id="为树洞外链添加此验证码"><a href="#为树洞外链添加此验证码" class="headerlink" title="为树洞外链添加此验证码"></a>为树洞外链添加此验证码</h3><p><strong>要求：</strong>树洞外链版本2.4.X，material主题，PHP版本≥5.4，启用GD库扩展（低版本未测试）<br>1.安装Composer（已安装请略过）Linux下可执行以下命令安装</p><p><pre class="language-shell"><code>curl -sS https://getcomposer.org/installer | phpmv composer.phar /usr/local/bin/composer</code><br></pre><br>2.用cd命令切换到树洞外链安装目录，执行下面命令安装gd-text</p><p><pre class="language-bash"><code>composer require zgldh/gd-text-for-chinese</code><br></pre><br>3.下载验证码补丁：<a href="https://file.aoaoao.me/f.php?k=a0472" target="_blank" rel="noopener">https://file.aoaoao.me/f.php?k=a0472</a> 并覆盖到树洞外链所在目录<br>4.将压缩包内的Cas.sql和Todayinhistory.sql导入至数据库<br>演示：<a href="https://file.aoaoao.me/views/login.php" target="_blank" rel="noopener">https://file.aoaoao.me/views/login.php</a><br>默认情况下，化学式和历史上的今天会随机展示给用户，如果只想使用其中一种，可以修改content/themes/material/login.html底部的js代码。如果只使用化学式验证码，第一第二步可以略过。另外还要说明的是，化学式验证码图像会直接调用chemicalbook，不支持https，并且用户可以通过图像url获取到CAS编号从而查询到答案。你可以使用nginx或七牛融合cdn等工具将图像缓存下来，在此不再赘述。</p><h3 id="为其他程序添加此验证码"><a href="#为其他程序添加此验证码" class="headerlink" title="为其他程序添加此验证码"></a>为其他程序添加此验证码</h3><p>原理类似，随机从数据库中取值，讲答案写入到session中，注意判断时忽略大小写，检查空值等。历史上的今天的文字格式转换、图像生成可参见includes/code2.php</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;接上文：&lt;a href=&quot;https://aoaoao.me/1192.html&quot;&gt;https://aoaoao.me/1192.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;在上次的化学式验证码启用后，有许多文科生掀桌，所以这次又写了一个针对文科生版的：&lt;/p&gt;
-&lt;figure cla
-      
-    
-    </summary>
-    
-      <category term="正常的文章" scheme="https://aoaoao.me/categories/%E6%AD%A3%E5%B8%B8%E7%9A%84%E6%96%87%E7%AB%A0/"/>
-    
-    
-      <category term="验证码" scheme="https://aoaoao.me/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
-    
-      <category term="树洞外链" scheme="https://aoaoao.me/tags/%E6%A0%91%E6%B4%9E%E5%A4%96%E9%93%BE/"/>
     
   </entry>
   
